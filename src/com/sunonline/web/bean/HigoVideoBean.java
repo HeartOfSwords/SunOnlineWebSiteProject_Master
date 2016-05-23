@@ -13,7 +13,21 @@ public class HigoVideoBean {
 	private Date higoVideoDate;					//higoVideo视频发布时间
 	private String higoVideoPicUrl;				//higoVideo视频截图链接
 	private Integer higoVideoPlayedNumnber;		//higoVideo视频播放次数
+	private String higoVideoIntro;				//higoVideo视频简介
+	private String higoVideoUploader;			//higoVideo视频上传者
 	
+	public String getHigoVideoIntro() {
+		return higoVideoIntro;
+	}
+	public void setHigoVideoIntro(String higoVideoIntro) {
+		this.higoVideoIntro = higoVideoIntro;
+	}
+	public String getHigoVideoUploader() {
+		return higoVideoUploader;
+	}
+	public void setHigoVideoUploader(String higoVideoUploader) {
+		this.higoVideoUploader = higoVideoUploader;
+	}
 	public String getHigoVideoName() {
 		return higoVideoName;
 	}
