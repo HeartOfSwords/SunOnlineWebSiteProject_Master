@@ -1,17 +1,22 @@
 package com.sunonline.web.bean;
 
+import com.sunonline.web.webapi.bean.Bean;
+
 /**
  * @author 武文良
  * @date 2016.5.3
  * <p>function:高校最强音选手bean</p>
  */
-public class CollegeVoicePlayerBean {
+public class CollegeVoicePlayerBean extends Bean {
 	
-	private String playerName;			//选手姓名
-	private Integer playerGender;		//选手性别
-	private String playerSchool;		//选手学校
 	private Integer playerNumber;		//选手编号
 	
+	private String playerName;			//选手姓名
+	
+	private Integer playerGender;		//选手性别
+	
+	private String playerSchool;		//选手学校
+
 	public String getPlayerName() {
 		return playerName;
 	}

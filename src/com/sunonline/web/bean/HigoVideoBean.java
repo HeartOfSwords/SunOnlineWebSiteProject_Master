@@ -1,12 +1,14 @@
 package com.sunonline.web.bean;
 
 import java.sql.Date;
+
+import com.sunonline.web.webapi.bean.Bean;
 /**
  * @author 武文良
  * @date 2016.5.3
  * <p>function:higo大学季视频bean</p>
  */
-public class HigoVideoBean {
+public class HigoVideoBean extends Bean {
 	
 	private String higoVideoName;				//higoVideo视频名称
 	private String higoVideoUrl;				//higoVideo视频链接
