@@ -14,3 +14,8 @@
 ## 5.12日志
 1. 修复css不能加载的问题，重新设置开发新的管理登录
 2. 提交新的主分支
+
+## 5.31日志
+
+1. 通过在sql链接的URL后添加“&zeroDateTimeBehavior=convertToNull”解决
+抛出“Value ‘0000-00-00 can not be represented as java.sql.date’”

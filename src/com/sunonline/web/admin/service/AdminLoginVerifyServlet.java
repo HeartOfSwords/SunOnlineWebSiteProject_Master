@@ -1,8 +1,6 @@
 package com.sunonline.web.admin.service;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,8 +36,6 @@ public class AdminLoginVerifyServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-
 		/* 验证登录 */
 		String adminName = request.getParameter("username");
 		String adminPwd = request.getParameter("password");

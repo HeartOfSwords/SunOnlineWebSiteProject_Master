@@ -17,16 +17,17 @@ import com.sunonline.web.webapi.bean.WebApiRoot;
  * @author SnoWalker.wwl
  * <date>2016.5.28</date>
  */
-public class RootDescriptionResource {
+public class WebApiDescriptionResource {
 	
 	/**
 	 * 根路径描述
+	 * @param newParam TODO
 	 * @return
 	 */
 	@GET
 	@Path("")
 	@Produces(MediaType.APPLICATION_JSON)
-	public WebApiRoot getAPIDescription() {
+	public WebApiRoot getAPIDescription(Object newParam) {
 		
 		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
 		List<WebApiLinks> links = new ArrayList<>();	//列表项

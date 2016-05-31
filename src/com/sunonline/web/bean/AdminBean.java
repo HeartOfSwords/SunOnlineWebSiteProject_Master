@@ -1,7 +1,5 @@
 package com.sunonline.web.bean;
 
-import com.sunonline.web.webapi.bean.Bean;
-
 /**
  * @author 武文良
  * @date 2016.5.3
