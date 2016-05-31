@@ -1,12 +1,14 @@
 package com.sunonline.web.bean;
 
 import java.sql.Date;
+
+import com.sunonline.web.webapi.bean.Bean;
 /**
  * @author 武文良
  * @date 2016.5.3
  * <p>function:影视老司机bean</p>
  */
-public class OldDriverVideoBean {
+public class OldDriverVideoBean extends Bean {
 	
 	private String lsj_video_name;					//老司机视频名称
 	private String lsj_video_url;					//老司机视频链接

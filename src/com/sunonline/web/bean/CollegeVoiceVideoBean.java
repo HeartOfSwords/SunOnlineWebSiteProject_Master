@@ -1,12 +1,14 @@
 package com.sunonline.web.bean;
 
 import java.sql.Date;
+
+import com.sunonline.web.webapi.bean.Bean;
 /**
  * @author 武文良
  * @date 2016.5.3
  * <p>function:高校最强音视频bean</p>
  */
-public class CollegeVoiceVideoBean {
+public class CollegeVoiceVideoBean extends Bean  {
 	
 	private String zqy_video_name;			//高校最强音视频名称
 	private String zqy_video_url;			//最强音视频链接

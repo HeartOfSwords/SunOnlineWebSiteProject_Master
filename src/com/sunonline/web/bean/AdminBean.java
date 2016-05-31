@@ -1,4 +1,5 @@
 package com.sunonline.web.bean;
+
 /**
  * @author 武文良
  * @date 2016.5.3

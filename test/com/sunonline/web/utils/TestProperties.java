@@ -1,7 +1,5 @@
 package com.sunonline.web.utils;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Test;
 /**
@@ -15,6 +13,7 @@ public class TestProperties {
 	public void tearDown() throws Exception {
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void test() {
 		System.out.println(DBConfig.getInstance().getProperty("db_driver"));

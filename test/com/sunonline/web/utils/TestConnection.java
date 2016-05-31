@@ -1,9 +1,6 @@
 package com.sunonline.web.utils;
 
-import static org.junit.Assert.*;
-
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.junit.Test;
 /**

@@ -10,16 +10,6 @@
  */
 package com.sunonline.web.admin.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.sunonline.web.dao.AdminInfoDao;
-import com.sunonline.web.daoImpl.AdminInfoDaoImpl;
-
 /*
 	AdminLoginVerifyServlet Post()方法的第二种简洁写法
 	

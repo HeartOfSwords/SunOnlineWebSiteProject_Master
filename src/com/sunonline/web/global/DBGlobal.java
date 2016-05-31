@@ -9,7 +9,7 @@ public final class DBGlobal {
 	//驱动
 	public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 	//数据库url
-	public static final String DB_URL = "jdbc:mysql://localhost:3306/sunonlinedb?useUnicode=true&characterEncoding=utf-8";
+	public static final String DB_URL = "jdbc:mysql://localhost:3306/sunonlinedb?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull";
 	//用户名
 	public static final String DB_USERNAME = "root";
 	//密码
