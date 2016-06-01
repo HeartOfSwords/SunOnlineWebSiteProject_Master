@@ -9,42 +9,95 @@ import com.sunonline.web.webapi.bean.Bean;
  * <p>function:影视老司机bean</p>
  */
 public class OldDriverVideoBean extends Bean {
+	              
+	private int 	LSJ_video_id;					//老司机视频id	
+	private String  LSJ_video_name;					//老司机视频名称
+	private String  LSJ_video_url;					//老司机视频链接
+	private Date    LSJ_video_date;					//老司机视频上传时间
+	private String  LSJ_video_pic_url;				//老司机视频图片截图链接
+	private Integer LSJ_video_played_number;	    //老司机视频播放次数
+	private String  LSJ_video_intro;				//老司机视频简介
+	private String  LSJ_video_uploader;				//老司机视频上传者
 	
-	private String lsj_video_name;					//老司机视频名称
-	private String lsj_video_url;					//老司机视频链接
-	private Date lsj_video_date;					//老司机视频上传时间
-	private String lsj_video_pic_url;				//老司机视频图片截图链接
-	private Integer lsj_video_played_number;	    //老司机视频播放次数
-	
-	public String getLsj_video_name() {
-		return lsj_video_name;
-	}
-	public void setLsj_video_name(String lsj_video_name) {
-		this.lsj_video_name = lsj_video_name;
-	}
-	public String getLsj_video_url() {
-		return lsj_video_url;
-	}
-	public void setLsj_video_url(String lsj_video_url) {
-		this.lsj_video_url = lsj_video_url;
-	}
-	public Date getLsj_video_date() {
-		return lsj_video_date;
-	}
-	public void setLsj_video_date(Date lsj_video_date) {
-		this.lsj_video_date = lsj_video_date;
-	}
-	public String getLsj_video_pic_url() {
-		return lsj_video_pic_url;
-	}
-	public void setLsj_video_pic_url(String lsj_video_pic_url) {
-		this.lsj_video_pic_url = lsj_video_pic_url;
-	}
-	public Integer getLsj_video_played_number() {
-		return lsj_video_played_number;
-	}
-	public void setLsj_video_played_number(Integer lsj_video_played_number) {
-		this.lsj_video_played_number = lsj_video_played_number;
+	public OldDriverVideoBean() {
 	}
 
+	public OldDriverVideoBean(int LSJ_video_id, String lSJ_video_name, String lSJ_video_url, Date lSJ_video_date,
+			String lSJ_video_pic_url, Integer lSJ_video_played_number, String lSJ_video_intro,
+			String lSJ_video_uploader) {
+		super();
+		this.LSJ_video_id = LSJ_video_id;
+		LSJ_video_name = lSJ_video_name;
+		LSJ_video_url = lSJ_video_url;
+		LSJ_video_date = lSJ_video_date;
+		LSJ_video_pic_url = lSJ_video_pic_url;
+		LSJ_video_played_number = lSJ_video_played_number;
+		LSJ_video_intro = lSJ_video_intro;
+		LSJ_video_uploader = lSJ_video_uploader;
+	}
+
+	public int getLSJ_video_id() {
+		return LSJ_video_id;
+	}
+
+	public void setLSJ_video_id(int lSJ_video_id) {
+		LSJ_video_id = lSJ_video_id;
+	}
+
+	public String getLSJ_video_name() {
+		return LSJ_video_name;
+	}
+
+	public void setLSJ_video_name(String lSJ_video_name) {
+		LSJ_video_name = lSJ_video_name;
+	}
+
+	public String getLSJ_video_url() {
+		return LSJ_video_url;
+	}
+
+	public void setLSJ_video_url(String lSJ_video_url) {
+		LSJ_video_url = lSJ_video_url;
+	}
+
+	public Date getLSJ_video_date() {
+		return LSJ_video_date;
+	}
+
+	public void setLSJ_video_date(Date lSJ_video_date) {
+		LSJ_video_date = lSJ_video_date;
+	}
+
+	public String getLSJ_video_pic_url() {
+		return LSJ_video_pic_url;
+	}
+
+	public void setLSJ_video_pic_url(String lSJ_video_pic_url) {
+		LSJ_video_pic_url = lSJ_video_pic_url;
+	}
+
+	public Integer getLSJ_video_played_number() {
+		return LSJ_video_played_number;
+	}
+
+	public void setLSJ_video_played_number(Integer lSJ_video_played_number) {
+		LSJ_video_played_number = lSJ_video_played_number;
+	}
+
+	public String getLSJ_video_intro() {
+		return LSJ_video_intro;
+	}
+
+	public void setLSJ_video_intro(String lSJ_video_intro) {
+		LSJ_video_intro = lSJ_video_intro;
+	}
+
+	public String getLSJ_video_uploader() {
+		return LSJ_video_uploader;
+	}
+
+	public void setLSJ_video_uploader(String lSJ_video_uploader) {
+		LSJ_video_uploader = lSJ_video_uploader;
+	}
+	
 }

@@ -11,9 +11,9 @@ import com.sunonline.web.dao.higo.HigoVideoDao;
 import com.sunonline.web.dao.higo.HigoVideoDaoImpl;
 
 /**
- * 
+ * Higo大学季播放页三级重定向
  * @author SnoWalker.wwl
- *
+ * 2016.5.31
  */
 public class HigoVideoPlayPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;

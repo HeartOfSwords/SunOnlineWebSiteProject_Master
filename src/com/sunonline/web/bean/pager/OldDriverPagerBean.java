@@ -1,11 +1,11 @@
 package com.sunonline.web.bean.pager;
 /**
- * Higo大学季分页bean
+ * 影视老司机分页bean
  * @author SnoWalker.wwl
  * <p>date：2016.5.31</p>
  */
-public class HigoPagerBean {
-	
+public class OldDriverPagerBean {
+
 	public static int PAGE_SIZE = 10;		//每页视频数量
 	
 	private int curPage;					//当前页
