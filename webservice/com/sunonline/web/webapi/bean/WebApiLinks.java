@@ -1,5 +1,9 @@
 package com.sunonline.web.webapi.bean;
-
+/**
+ * API链接信息
+ * @author SnoWalker.wwl
+ * 2016.6.2
+ */
 public class WebApiLinks {
 
 	private String rel;

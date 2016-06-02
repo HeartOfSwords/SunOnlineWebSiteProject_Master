@@ -2,12 +2,15 @@ package com.sunonline.web.bean;
 
 import java.sql.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.sunonline.web.webapi.bean.Bean;
 /**
  * @author 武文良
  * @date 2016.5.3
  * <p>function:higo大学季视频bean</p>
  */
+@XmlRootElement
 public class HigoVideoBean extends Bean {
 	
 	private int higoVideoId;					//higoVideo视频ID
