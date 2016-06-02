@@ -1,4 +1,4 @@
-package com.sunonline.web.dao.olddirver;
+package com.sunonline.web.dao.olddriver;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -166,6 +166,31 @@ public class OldDriverVideoDaoImpl implements OldDriverVideoDao {
 			oldDriverVideoBean = null;
 		}
 		return oldDriverVideoBean;
+	}
+	/*
+	 * 增加播放次数
+	 * @see com.sunonline.web.dao.olddriver.OldDriverVideoDao#addPlayTimeNumber(int)
+	 */
+	@Override
+	public void addPlayTimeNumber(int oldDirverVideoID) {
+		String sql = "UPDATE old_driver_video "
+				+ "SET LSJ_video_played_number=LSJ_video_played_number+1 "
+				+ "WHERE LSJ_video_id = ?;"; //通过id获取视频全部信息
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setInt(1, oldDirverVideoID);
+			int returnNum = pstmt.executeUpdate();
+			
+			if (returnNum > 0) {
+				System.out.println("设置成功");
+			} else {
+				System.out.println("设置失败");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 

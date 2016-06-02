@@ -29,6 +29,7 @@ public class HigoVideoPlayPage extends HttpServlet {
 		HigoVideoDao higoVideoDao = new HigoVideoDaoImpl();
 		//获取HigoVideoBean实体
 		higoVideoBean = higoVideoDao.getHigoVideoByID(Integer.parseInt(id));
+		higoVideoDao.addPlayTimeNumber(Integer.parseInt(id));
 		request.setAttribute("higoVideoInfo", higoVideoBean);
 		//重定向到对应id的播放页面
 		request.getRequestDispatcher("/WEB-INF/jsp/higovideo/playpage.jsp").forward(request, response);

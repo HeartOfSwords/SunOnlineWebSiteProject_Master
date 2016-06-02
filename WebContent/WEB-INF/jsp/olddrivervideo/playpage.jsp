@@ -24,6 +24,7 @@
 <link href="css/video-js.min.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/video.min.js"></script>
+<title>影视老司机-<%=video_name %></title>
 </head>
 <body>
 <div>

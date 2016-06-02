@@ -156,5 +156,30 @@ public class HigoVideoDaoImpl implements HigoVideoDao {
 		}
 		return higoVideoBean;
 	}
+	
+	/*
+	 * 增加播放次数
+	 */
+	@Override
+	public void addPlayTimeNumber(int higoVideoID) {
+		String sql = "UPDATE higo_video "
+				+ "SET HIGO_video_played_number=HIGO_video_played_number+1 "
+				+ "WHERE HIGO_video_id = ?;"; //通过id获取视频全部信息
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setInt(1, higoVideoID);
+			int returnNum = pstmt.executeUpdate();
+			
+			if (returnNum > 0) {
+				System.out.println("设置成功");
+			} else {
+				System.out.println("设置失败");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

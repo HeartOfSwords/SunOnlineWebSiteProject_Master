@@ -1,4 +1,4 @@
-package com.sunonline.web.dao.olddirver;
+package com.sunonline.web.dao.olddriver;
 
 import java.util.List;
 
@@ -20,4 +20,6 @@ public interface OldDriverVideoDao {
 		public List<OldDriverVideoBean> fetchAllVideos(int current_pageNo);
 		//根据id获取某一个视频的信息
 		public OldDriverVideoBean getOldDriverVideoByID(int oldDirverVideoID);
+		//增加播放次数
+		public void addPlayTimeNumber(int oldDirverVideoID);
 }

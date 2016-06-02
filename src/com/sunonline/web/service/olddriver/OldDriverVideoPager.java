@@ -1,4 +1,4 @@
-package com.sunonline.web.service.olddirver;
+package com.sunonline.web.service.olddriver;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,8 +14,8 @@ import com.sunonline.web.bean.pager.HigoPagerBean;
 import com.sunonline.web.bean.pager.OldDriverPagerBean;
 import com.sunonline.web.dao.higo.HigoVideoDao;
 import com.sunonline.web.dao.higo.HigoVideoDaoImpl;
-import com.sunonline.web.dao.olddirver.OldDriverVideoDao;
-import com.sunonline.web.dao.olddirver.OldDriverVideoDaoImpl;
+import com.sunonline.web.dao.olddriver.OldDriverVideoDao;
+import com.sunonline.web.dao.olddriver.OldDriverVideoDaoImpl;
 
 /**
  * 影视老司机分页servlet

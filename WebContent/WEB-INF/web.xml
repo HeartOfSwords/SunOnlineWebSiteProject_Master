@@ -87,7 +87,7 @@
     <description>影视老司机分页重定向二级页面</description>
     <display-name>OldDriverVideoPager</display-name>
     <servlet-name>OldDriverVideoPager</servlet-name>
-    <servlet-class>com.sunonline.web.service.olddirver.OldDriverVideoPager</servlet-class>
+    <servlet-class>com.sunonline.web.service.olddriver.OldDriverVideoPager</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>OldDriverVideoPager</servlet-name>
@@ -97,7 +97,7 @@
     <description>影视老司机播放页三级页面</description>
     <display-name>OldDriverVideoPlayPage</display-name>
     <servlet-name>OldDriverVideoPlayPage</servlet-name>
-    <servlet-class>com.sunonline.web.service.olddirver.OldDriverVideoPlayPage</servlet-class>
+    <servlet-class>com.sunonline.web.service.olddriver.OldDriverVideoPlayPage</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>OldDriverVideoPlayPage</servlet-name>

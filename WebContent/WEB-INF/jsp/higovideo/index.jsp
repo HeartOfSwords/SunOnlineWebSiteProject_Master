@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
-<title>Insert title here</title>
+<title>Higo大学季</title>
 <style type="text/css">
 	list{
 		float:left;

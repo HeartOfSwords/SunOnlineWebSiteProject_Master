@@ -3,7 +3,7 @@ package com.sunonline.web.daoImpl;
 import java.util.List;
 import org.junit.Test;
 import com.sunonline.web.bean.OldDriverVideoBean;
-import com.sunonline.web.dao.olddirver.OldDriverVideoDaoImpl;
+import com.sunonline.web.dao.olddriver.OldDriverVideoDaoImpl;
 
 public class TestOldDriverVideoDaoImpl {
 
@@ -22,6 +22,11 @@ public class TestOldDriverVideoDaoImpl {
 	public void testGetByID() {
 		OldDriverVideoBean oldDriverVideoBean = new OldDriverVideoDaoImpl().getOldDriverVideoByID(9);
 		System.out.println(oldDriverVideoBean.getLSJ_video_intro());
+	}
+	
+	@Test
+	public void testPlayTimeAdd() {
+		new OldDriverVideoDaoImpl().addPlayTimeNumber(1);
 	}
 
 }

@@ -19,4 +19,6 @@ public interface HigoVideoDao {
 	public List<HigoVideoBean> fetchAllVideos(int current_pageNo);
 	//根据id获取某一个视频的信息
 	public HigoVideoBean getHigoVideoByID(int higoVideoID);
+	//增加播放次数
+	public void addPlayTimeNumber(int higoVideoID);
 }

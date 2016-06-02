@@ -1,8 +1,8 @@
 
 <%@page import="com.sunonline.web.bean.pager.OldDriverPagerBean"%>
 <%@page import="com.sunonline.web.bean.OldDriverVideoBean"%>
-<%@page import="com.sunonline.web.dao.olddirver.OldDriverVideoDaoImpl"%>
-<%@page import="com.sunonline.web.dao.olddirver.OldDriverVideoDao"%>
+<%@page import="com.sunonline.web.dao.olddriver.OldDriverVideoDaoImpl"%>
+<%@page import="com.sunonline.web.dao.olddriver.OldDriverVideoDao"%>
 <%@page import="com.sunonline.web.bean.pager.HigoPagerBean"%>
 <%@page import="com.sunonline.web.bean.HigoVideoBean"%>
 <%@page import="com.sunonline.web.dao.higo.HigoVideoDaoImpl"%>
@@ -24,7 +24,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
-<title>Insert title here</title>
+<title>影视老司机</title>
 <style type="text/css">
 	list{
 		float:left;
