@@ -34,3 +34,8 @@ WHERE
 		FROM
 			video
 	) - 4;
+	
+## 6.3日志
+
+1. 添加favicon 
+<link rel="icon" href="img/favicon.ico" type=”image/x-icon”>

@@ -27,6 +27,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HIGO大学季-<%=video_name %></title>
+<link rel="icon" href="img/favicon.ico" type=”image/x-icon”>
 </head>
 <body>
 	<!--标题导航栏开始   -->
@@ -159,12 +160,15 @@
 							<span class="recommend-logo-img"></span>
 						</div>
 						
+						<!--分隔线-->
+						<div class="divider"></div>
+						
 						<%  
 							if (higoVideoRecommendation != null) {
 								for (HigoVideoBean higoVideoRecommendationElement : higoVideoRecommendation) {
 						%>
 						<!--分隔线-->
-						<div class="divider"></div>
+						
 						<div class="recommend-content">
 							<a href="HigoVideoPlayPage?id=<%=higoVideoRecommendationElement.getHigoVideoId()%>">
 								<div class="recommend-content-img">
@@ -176,6 +180,7 @@
 								</div>
 							</a>
 						</div>
+						<div class="divider divider-top"></div>
 						<% 		} 
 							} else { %>
 								<div class="divider"></div>
@@ -190,8 +195,7 @@
 									</a>
 								</div>
 						<% } %>				
-						<!--分隔线-->
-						<div class="divider"></div>
+						
 					</div>
 				</div>
 			</div>

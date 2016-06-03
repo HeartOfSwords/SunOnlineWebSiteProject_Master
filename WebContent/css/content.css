@@ -126,7 +126,7 @@
 	width: 690px;
 }
 .content-review-recommend .recommend{
-	height: 588px;
+	height: 714px;
 	right: 0px;
     top: -2px;
     width: 260px;
@@ -138,9 +138,7 @@
     margin-left: 4px;
     margin-top: 10px;
 }
-.content-review-recommend .recommend-logo{
-	
-}
+
 .content-review-recommend .recommend-logo .recommend-logo-icon{
 	font-size: 25px;
 	vertical-align: top;
@@ -163,14 +161,17 @@
 }
 .content-review-recommend .recommend-content .recommend-content-img img{
 	width: 220px;
-	height: 85px;
+    height: 110px;
 }
 .content-review-recommend .recommend-content .recommend-content-title{
 	width: 220px;
 	height: 30px;
-	padding-top: 5px;
+	padding-top: 30px;
 	color: #7b7070;
 }
 .content-review-recommend .recommend .divider{
 	border-bottom: 1px solid #CCCCCC;
+}
+.content-review-recommend .recommend .divider-top{
+	margin-top: 30px;
 }
