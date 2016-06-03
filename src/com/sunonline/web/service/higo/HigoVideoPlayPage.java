@@ -1,6 +1,7 @@
 package com.sunonline.web.service.higo;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,10 @@ public class HigoVideoPlayPage extends HttpServlet {
 		//获取HigoVideoBean实体
 		higoVideoBean = higoVideoDao.getHigoVideoByID(Integer.parseInt(id));
 		higoVideoDao.addPlayTimeNumber(Integer.parseInt(id));
+		//获取推荐视频
+		List<HigoVideoBean> higoVideoRecommendation = higoVideoDao.getHigoVideoRecommendation();
+		//设置request中添加推荐视频
+		request.setAttribute("higoVideoRecommendation", higoVideoRecommendation);
 		request.setAttribute("higoVideoInfo", higoVideoBean);
 		//重定向到对应id的播放页面
 		request.getRequestDispatcher("/WEB-INF/jsp/higovideo/playpage.jsp").forward(request, response);

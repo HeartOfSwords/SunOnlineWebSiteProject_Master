@@ -27,6 +27,7 @@ public class TestOldDriverVideoDaoImpl {
 	@Test
 	public void testPlayTimeAdd() {
 		new OldDriverVideoDaoImpl().addPlayTimeNumber(1);
+		
 	}
 
 }

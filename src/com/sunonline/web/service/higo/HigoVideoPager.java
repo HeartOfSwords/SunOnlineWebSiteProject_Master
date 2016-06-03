@@ -45,6 +45,8 @@ public class HigoVideoPager extends HttpServlet {
 		}
 
 		HigoVideoDao higoVideoDao = new HigoVideoDaoImpl();
+		//获取推荐视频
+		List<HigoVideoBean> higoVideoRecommendation = higoVideoDao.getHigoVideoRecommendation();
 		//视频最大数目
 		int higoVideoRowsCount = higoVideoDao.fetchVideoRowsCount();
 		int max_page = (higoVideoRowsCount % HigoPagerBean.PAGE_SIZE == 0)
@@ -63,8 +65,8 @@ public class HigoVideoPager extends HttpServlet {
 		HigoPagerBean higoPagerBean = new HigoPagerBean();
 		higoPagerBean.setCurPage(current_pageno);
 		higoPagerBean.setMaxPage(max_page);
-	
-	
+		//request中设置推荐视频
+		request.setAttribute("higoVideoRecommendation", higoVideoRecommendation);
 		request.setAttribute("higoPagerBean", higoPagerBean);		//分页bean
 		request.setAttribute("higoVideoList", higoVideoList);		//视频列表
 		request.getRequestDispatcher("/WEB-INF/jsp/higovideo/index.jsp").forward(request, response);

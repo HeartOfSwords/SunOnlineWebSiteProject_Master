@@ -2,6 +2,11 @@ package com.sunonline.web.dao.higo;
 
 import java.util.List;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 import com.sunonline.web.bean.HigoVideoBean;
 
 /**
@@ -21,4 +26,6 @@ public interface HigoVideoDao {
 	public HigoVideoBean getHigoVideoByID(int higoVideoID);
 	//增加播放次数
 	public void addPlayTimeNumber(int higoVideoID);
+	//获取推荐视频
+	public List<HigoVideoBean> getHigoVideoRecommendation();
 }

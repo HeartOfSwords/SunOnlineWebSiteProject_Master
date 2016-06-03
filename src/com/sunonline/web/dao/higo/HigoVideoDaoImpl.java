@@ -37,7 +37,7 @@ public class HigoVideoDaoImpl implements HigoVideoDao {
 		//获取数据库中数据
 		Connection connection = new DBUtils().getCon();
 		//构造SQL查询视图
-		String sql = "select * from higo_video_view";
+		String sql = "select * from higo_video_view order by HIGO_video_id desc";
 		PreparedStatement pstmt;
 		try {
 			pstmt = connection.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class HigoVideoDaoImpl implements HigoVideoDao {
 		//每页包含视频信息列表
 		List<HigoVideoBean> higoVideolist = null;
 		
-		String sql = "select * from higo_video_view limit ?,?";				 // 分页sql
+		String sql = "select * from higo_video_view  order by HIGO_video_id desc limit ?,?";				 // 分页sql
 		try {
 			int startIndex = (current_pageNo - 1) * HigoPagerBean.PAGE_SIZE; // 起始下标
 			int per_rows = HigoPagerBean.PAGE_SIZE; 						 // 每页数目
@@ -182,4 +182,45 @@ public class HigoVideoDaoImpl implements HigoVideoDao {
 		}
 	}
 
+	@Override
+	public List<HigoVideoBean> getHigoVideoRecommendation() {
+		List<HigoVideoBean> higoVideoBeans = new ArrayList<>();
+		//获取数据库中数据
+		Connection connection = new DBUtils().getCon();
+		//构造SQL查询视图
+		String sql = "SELECT * FROM higo_video "
+				+ "WHERE HIGO_video_id > "
+				+ "(SELECT count(*) num FROM higo_video) - 4 order by HIGO_video_id desc";
+		PreparedStatement pstmt;
+		try {
+			pstmt = connection.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {	
+				int higoId = rs.getInt("HIGO_video_id");						//id
+				String higoName = rs.getString("HIGO_video_name");				//视频名称
+				String higoUrl = rs.getString("HIGO_video_url");				//视频播放url
+				Date higoUploadDate = rs.getDate("HIGO_video_date");			//上传日期
+				String higoPicUrl = rs.getString("HIGO_video_pic_url");			//视频截图url
+				int higoPlayedTime = rs.getInt("HIGO_video_played_number");		//视频播放次数
+				String higoVideoIntro = rs.getString("HIGO_video_intro");		//视频简介
+				String higoVideoUploader = rs.getString("HIGO_video_uploader");	//视频上传者
+				// 构造注入
+				HigoVideoBean higoVideoBean = new HigoVideoBean(higoId, 
+																higoName,
+																higoUrl, 
+																higoUploadDate, 
+																higoPicUrl, 
+																higoPlayedTime, 
+																higoVideoIntro, 
+																higoVideoUploader);
+				higoVideoBeans.add(higoVideoBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return higoVideoBeans;
+
+	}
+	
 }
