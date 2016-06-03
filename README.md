@@ -19,3 +19,23 @@
 
 1. 通过在sql链接的URL后添加“&zeroDateTimeBehavior=convertToNull”解决
 抛出“Value ‘0000-00-00 can not be represented as java.sql.date’”
+
+## 6.2日志
+
+1. 选择higo大学季最新四条视频（选取id大于总数-4的所有视频）
+SELECT
+	*
+FROM
+	video
+WHERE
+	video_id > (
+		SELECT
+			count(*)
+		FROM
+			video
+	) - 4;
+	
+## 6.3日志
+
+1. 添加favicon 
+<link rel="icon" href="img/favicon.ico" type=”image/x-icon”>

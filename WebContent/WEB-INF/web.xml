@@ -50,6 +50,7 @@
     <url-pattern>/admin/index.jsp</url-pattern>
   </filter-mapping>
   <servlet>
+  	<description>后台服务配置</description>
     <servlet-name>webservice</servlet-name>
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
     <init-param>
@@ -63,7 +64,7 @@
     <url-pattern>/webapi/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
+    <description>Higo大学季分页重定向二级页面</description>
     <display-name>HigoVideoPager</display-name>
     <servlet-name>HigoVideoPager</servlet-name>
     <servlet-class>com.sunonline.web.service.higo.HigoVideoPager</servlet-class>
@@ -73,7 +74,7 @@
     <url-pattern>/HigoPager</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
+    <description>Higo大学季播放页三级页面</description>
     <display-name>HigoVideoPlayPage</display-name>
     <servlet-name>HigoVideoPlayPage</servlet-name>
     <servlet-class>com.sunonline.web.service.higo.HigoVideoPlayPage</servlet-class>
@@ -81,5 +82,25 @@
   <servlet-mapping>
     <servlet-name>HigoVideoPlayPage</servlet-name>
     <url-pattern>/HigoVideoPlayPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>影视老司机分页重定向二级页面</description>
+    <display-name>OldDriverVideoPager</display-name>
+    <servlet-name>OldDriverVideoPager</servlet-name>
+    <servlet-class>com.sunonline.web.service.olddriver.OldDriverVideoPager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OldDriverVideoPager</servlet-name>
+    <url-pattern>/OldDriverPager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>影视老司机播放页三级页面</description>
+    <display-name>OldDriverVideoPlayPage</display-name>
+    <servlet-name>OldDriverVideoPlayPage</servlet-name>
+    <servlet-class>com.sunonline.web.service.olddriver.OldDriverVideoPlayPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OldDriverVideoPlayPage</servlet-name>
+    <url-pattern>/OldDriverVideoPlayPage</url-pattern>
   </servlet-mapping>
 </web-app>

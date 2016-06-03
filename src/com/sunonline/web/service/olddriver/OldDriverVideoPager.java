@@ -1,4 +1,4 @@
-package com.sunonline.web.service.higo;
+package com.sunonline.web.service.olddriver;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,20 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sunonline.web.bean.HigoVideoBean;
+import com.sunonline.web.bean.OldDriverVideoBean;
 import com.sunonline.web.bean.pager.HigoPagerBean;
+import com.sunonline.web.bean.pager.OldDriverPagerBean;
 import com.sunonline.web.dao.higo.HigoVideoDao;
 import com.sunonline.web.dao.higo.HigoVideoDaoImpl;
+import com.sunonline.web.dao.olddriver.OldDriverVideoDao;
+import com.sunonline.web.dao.olddriver.OldDriverVideoDaoImpl;
 
 /**
- * Higo大学季分页servlet
+ * 影视老司机分页servlet
  * @author SnoWalker.wwl
- * <p>date：2016.5.31</p>
+ * <p>date：2016.6.1</p>
  */
-public class HigoVideoPager extends HttpServlet {
+public class OldDriverVideoPager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public HigoVideoPager() {
+    public OldDriverVideoPager() {
         super();
     }
 
@@ -44,14 +48,12 @@ public class HigoVideoPager extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		HigoVideoDao higoVideoDao = new HigoVideoDaoImpl();
-		//获取推荐视频
-		List<HigoVideoBean> higoVideoRecommendation = higoVideoDao.getHigoVideoRecommendation();
+		OldDriverVideoDao oldDriverVideoDao = new OldDriverVideoDaoImpl();
 		//视频最大数目
-		int higoVideoRowsCount = higoVideoDao.fetchVideoRowsCount();
-		int max_page = (higoVideoRowsCount % HigoPagerBean.PAGE_SIZE == 0)
-				? (higoVideoRowsCount / HigoPagerBean.PAGE_SIZE)
-				: (higoVideoRowsCount / HigoPagerBean.PAGE_SIZE + 1);
+		int oldDirverVideoRowsCount = oldDriverVideoDao.fetchVideoRowsCount();
+		int max_page = (oldDirverVideoRowsCount % OldDriverPagerBean.PAGE_SIZE == 0)
+				? (oldDirverVideoRowsCount / OldDriverPagerBean.PAGE_SIZE)
+				: (oldDirverVideoRowsCount / OldDriverPagerBean.PAGE_SIZE + 1);
 		//根据具体条件获取当前页面
 		if (current_pageno < 1) {
 			current_pageno = 1;
@@ -61,15 +63,16 @@ public class HigoVideoPager extends HttpServlet {
 			current_pageno = max_page;
 		}
 
-		List<HigoVideoBean> higoVideoList = higoVideoDao.fetchAllVideos(current_pageno);
-		HigoPagerBean higoPagerBean = new HigoPagerBean();
-		higoPagerBean.setCurPage(current_pageno);
-		higoPagerBean.setMaxPage(max_page);
-		//request中设置推荐视频
-		request.setAttribute("higoVideoRecommendation", higoVideoRecommendation);
-		request.setAttribute("higoPagerBean", higoPagerBean);		//分页bean
-		request.setAttribute("higoVideoList", higoVideoList);		//视频列表
-		request.getRequestDispatcher("/WEB-INF/jsp/higovideo/index.jsp").forward(request, response);
+		List<OldDriverVideoBean> oldDirverVideoList = oldDriverVideoDao.fetchAllVideos(current_pageno);
+		//组装分页bean
+		OldDriverPagerBean oldDriverPagerBean = new OldDriverPagerBean();
+		oldDriverPagerBean.setCurPage(current_pageno);
+		oldDriverPagerBean.setMaxPage(max_page);
+	
+	
+		request.setAttribute("oldDriverPagerBean", oldDriverPagerBean);		//分页bean
+		request.setAttribute("oldDriverVideoList", oldDirverVideoList);		//视频列表
+		request.getRequestDispatcher("/WEB-INF/jsp/olddrivervideo/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

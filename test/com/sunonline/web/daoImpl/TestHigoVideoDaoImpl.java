@@ -27,5 +27,10 @@ public class TestHigoVideoDaoImpl {
 		System.out.println(higoVideoBean.getHigoVideoIntro() + 
 				new SimpleDateFormat().format(higoVideoBean.getHigoVideoDate()));
 	}
+	
+	@Test
+	public void testAddPlayTime() {
+		new HigoVideoDaoImpl().addPlayTimeNumber(1);
+	}
 
 }

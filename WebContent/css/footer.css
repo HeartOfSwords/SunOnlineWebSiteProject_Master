@@ -1,0 +1,57 @@
+/*author：李鹏鹏、段吉贵*/
+span{
+	font-family: "微软雅黑";
+}
+.footer{
+	width: 100%;
+	height: 260px;
+	background-color: #F7F7F7;
+	z-index: 100;
+}
+.footer-content{
+	
+	width: 970px;
+	height: 200px;
+	margin: 0 auto;
+}
+.footer .container .row{
+	height: 19px;
+	font-family: "微软雅黑";
+}
+.footer .container .col-md-2 span{
+	font-size: 20px;
+	padding-top: 10px;
+}
+.footer .container .copyright{
+	width: 970px;
+	margin: 0 auto;
+	width: 310px;
+}
+.footer .container .copyright span{
+	
+}
+.footer .container ul{
+	list-style: none;
+	padding-left: 0px;
+}
+.footer .container ul li{
+	font-family: "微软雅黑";
+	margin-top: 10px;
+}
+.footer .container .footer-img{
+	margin-top: 60px;
+	height: 174px;
+}
+.footer .container .footer-img img{
+	width: 100px;
+	height: 100px;
+	
+}
+.footer .container .footer-img span{
+	display: block;
+	padding-top: 10px;
+    padding-left: 39px;
+}
+.footer .container .footer-img .footer-img-control{
+	margin-left: 36px;
+}
