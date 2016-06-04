@@ -7,12 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
-
-import com.sunonline.web.bean.HigoVideoBean;
 import com.sunonline.web.bean.OldDriverVideoBean;
-import com.sunonline.web.bean.pager.HigoPagerBean;
 import com.sunonline.web.bean.pager.OldDriverPagerBean;
 import com.sunonline.web.utils.DBUtils;
 /**
@@ -42,7 +37,7 @@ public class OldDriverVideoDaoImpl implements OldDriverVideoDao {
 		//获取数据库中数据
 		Connection connection = new DBUtils().getCon();
 		//构造SQL查询视图
-		String sql = "select * from old_dirver_video_view";
+		String sql = "select * from old_driver_video_view";
 		PreparedStatement pstmt;
 		try {
 			pstmt = connection.prepareStatement(sql);
@@ -85,7 +80,7 @@ public class OldDriverVideoDaoImpl implements OldDriverVideoDao {
 		//每页包含视频信息列表
 		List<OldDriverVideoBean> oldDriverVideoList = null;
 		
-		String sql = "select * from old_dirver_video_view limit ?,?";				 // 分页sql
+		String sql = "select * from old_driver_video_view limit ?,?";				 // 分页sql
 		try {
 			int startIndex = (current_pageNo - 1) * OldDriverPagerBean.PAGE_SIZE; // 起始下标
 			int per_rows = OldDriverPagerBean.PAGE_SIZE; 						 // 每页数目
@@ -134,7 +129,7 @@ public class OldDriverVideoDaoImpl implements OldDriverVideoDao {
 	public OldDriverVideoBean getOldDriverVideoByID(int oldDriverVideoID) {
 		
 		OldDriverVideoBean oldDriverVideoBean = null;
-		String sql = "select * from old_dirver_video_view where LSJ_video_id=?"; //通过id获取视频全部信息
+		String sql = "select * from old_driver_video_view where LSJ_video_id=?"; //通过id获取视频全部信息
 		try {
 			Connection connection = new DBUtils().getCon();
 			PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -191,6 +186,53 @@ public class OldDriverVideoDaoImpl implements OldDriverVideoDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	/**
+	 * 获取老司机推荐视频
+	 */
+	@Override
+	public List<OldDriverVideoBean> getOldDriverVideoRecommendation() {
+		List<OldDriverVideoBean> oldDirverVideoBeans = new ArrayList<>();
+		//获取数据库中数据
+		Connection connection = new DBUtils().getCon();
+		//构造SQL查询视图
+		String sql = "SELECT * FROM old_driver_video_view "
+				+ "WHERE LSJ_video_id > "
+				+ "(SELECT count(*) num FROM old_driver_video_view) - 4 order by LSJ_video_id desc";
+		PreparedStatement pstmt;
+		try {
+			connection = new DBUtils().getCon();
+			pstmt = connection.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				int     oldDirverVideoId = rs.getInt("LSJ_video_id");						//id
+				String  oldDirverVideoName = rs.getString("LSJ_video_name");					//视频名称
+				String  oldDirverVideoUrl = rs.getString("LSJ_video_url");					//视频播放url
+				Date    oldDirverVideoUploadDate = rs.getDate("LSJ_video_date");				//上传日期
+				String 	oldDirverVideoPicUrl = rs.getString("LSJ_video_pic_url");			//视频截图url
+				Integer oldDirverVideoPlayedTime = rs.getInt("LSJ_video_played_number");	//视频播放次数
+				String  oldDirverVideoIntro = rs.getString("LSJ_video_intro");		    	//视频简介
+				String  oldDirverVideoUploader = rs.getString("LSJ_video_uploader");			//视频上传者
+				
+				// 构造注入
+				OldDriverVideoBean oldDriverVideoBean = 
+						new OldDriverVideoBean(oldDirverVideoId,
+											oldDirverVideoName, 
+											oldDirverVideoUrl, 
+											oldDirverVideoUploadDate, 
+											oldDirverVideoPicUrl, 
+											oldDirverVideoPlayedTime, 
+											oldDirverVideoIntro, 
+											oldDirverVideoUploader);
+				oldDirverVideoBeans.add(oldDriverVideoBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return oldDirverVideoBeans;
+
 	}
 
 

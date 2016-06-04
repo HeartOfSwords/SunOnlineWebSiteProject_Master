@@ -22,4 +22,6 @@ public interface OldDriverVideoDao {
 		public OldDriverVideoBean getOldDriverVideoByID(int oldDirverVideoID);
 		//增加播放次数
 		public void addPlayTimeNumber(int oldDirverVideoID);
+		//获取推荐视频
+		public List<OldDriverVideoBean> getOldDriverVideoRecommendation();
 }

@@ -9,13 +9,16 @@
 <%
 	HigoVideoDao higoVideoDao = new HigoVideoDaoImpl();
 	List<HigoVideoBean> higoVideos = higoVideoDao.fetchAllVideos();
+	
+	//获取推荐视频
+	List<HigoVideoBean> higoVideoRecommendation = (List<HigoVideoBean>)request.getAttribute("higoVideoRecommendation");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -72,6 +75,41 @@
 			}
 		%>
 	</table>
+	
+	
+						<%  
+							if (higoVideoRecommendation != null) {
+								for (HigoVideoBean higoVideoRecommendationElement : higoVideoRecommendation) {
+						%>
+						<!--分隔线-->
+						
+						<div class="recommend-content">
+							<a href="HigoVideoPlayPage?id=<%=higoVideoRecommendationElement.getHigoVideoId()%>">
+								<div class="recommend-content-img">
+									<img src="<%=higoVideoRecommendationElement.getHigoVideoPicUrl() %>"/>
+								</div>
+								<div class="recommend-content-title">
+									<!-- 推荐视频名称 -->
+									<span><%=higoVideoRecommendationElement.getHigoVideoName() %></span>
+								</div>
+							</a>
+						</div>
+						<div class="divider divider-top"></div>
+						<% 		} 
+							} else { %>
+								<div class="divider"></div>
+								<div class="recommend-content">
+									<a href="#">
+										<div class="recommend-content-img">
+											<img src="" />
+										</div>
+										<div class="recommend-content-title">
+											<span>获取视频失败</span>
+										</div>
+									</a>
+								</div>
+						<% } %>				
+						
 	<h2>页码</h2>
 		<%
 			HigoPagerBean higoVideoPagerBean = (HigoPagerBean) request.getAttribute("higoPagerBean");
@@ -94,5 +132,7 @@
 		
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<!-- 引入footer.jsp -->
+	<jsp:include page="/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -30,7 +30,7 @@ public class HigoVideoResource {
 	 * @see com.sunonline.web.dao.higo.HigoVideoDao#fetchAllVideos()
 	 */
 	@GET
-	@Path("higovideo/videos")
+	@Path("videos/higovideo/all")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<HigoVideoBean> fetchAllVideos() {
 		List<HigoVideoBean> higoVideoBeans = new ArrayList<>();
@@ -74,7 +74,7 @@ public class HigoVideoResource {
 	 * @return HigoVideoBean
 	 */
 	@GET
-	@Path("higovideo/videos/{id}")
+	@Path("videos/higovideo/all/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public HigoVideoBean getHigoVideoByID(@PathParam(value="id") int id) {
 		HigoVideoBean higoVideoBean = null;
@@ -117,7 +117,7 @@ public class HigoVideoResource {
 	 * @return HigoVideoBean
 	 */
 	@GET
-	@Path("higovideo/videos/recommendation")
+	@Path("videos/higovideo/all/recommendation")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<HigoVideoBean> getHigoVideoRecommendation() {
 		List<HigoVideoBean> higoVideoBeans = new ArrayList<>();
@@ -126,7 +126,7 @@ public class HigoVideoResource {
 		//构造SQL查询视图
 		String sql = "SELECT * FROM higo_video "
 				+ "WHERE HIGO_video_id > "
-				+ "(SELECT count(*) num FROM higo_video) - 4";
+				+ "(SELECT count(*) num FROM higo_video) - 4 order by HIGO_video_id desc";
 		PreparedStatement pstmt;
 		try {
 			pstmt = connection.prepareStatement(sql);

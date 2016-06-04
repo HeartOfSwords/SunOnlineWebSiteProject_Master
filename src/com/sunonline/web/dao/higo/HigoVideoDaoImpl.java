@@ -181,7 +181,9 @@ public class HigoVideoDaoImpl implements HigoVideoDao {
 			e.printStackTrace();
 		}
 	}
-
+	/*
+	 * 获取推荐视频
+	 */
 	@Override
 	public List<HigoVideoBean> getHigoVideoRecommendation() {
 		List<HigoVideoBean> higoVideoBeans = new ArrayList<>();
