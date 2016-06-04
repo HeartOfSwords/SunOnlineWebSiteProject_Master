@@ -27,7 +27,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HIGO大学季-<%=video_name %></title>
-<link rel="icon" href="img/favicon.ico" type=”image/x-icon”>
+		<meta charset="utf-8">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<link rel="icon" href="img/favicon.ico" type=”image/x-icon”>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/higovideo_header.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/video-js.min.css" />
+		<link rel="stylesheet" href="css/content.css" />
+		<script src="js/video.min.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
 <body>
 	<!--标题导航栏开始   -->
