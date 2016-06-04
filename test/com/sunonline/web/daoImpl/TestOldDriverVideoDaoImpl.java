@@ -27,6 +27,11 @@ public class TestOldDriverVideoDaoImpl {
 	@Test
 	public void testPlayTimeAdd() {
 		new OldDriverVideoDaoImpl().addPlayTimeNumber(1);
+	}
+	
+	@Test
+	public void testRecommendation() {
+		System.out.println(new OldDriverVideoDaoImpl().getOldDriverVideoRecommendation().size());
 		
 	}
 

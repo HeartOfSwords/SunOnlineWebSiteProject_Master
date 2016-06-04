@@ -1,9 +1,11 @@
 .footer{
-	width: 100%;
-	height: 260px;
-	background-color: #F7F7F7;
-	line-height: 1.42857143;
-	font-family: "微软雅黑";
+    width: 100%;
+    height: 260px;
+    background-color: #F7F7F7;
+    line-height: 1.42857143;
+    font-family: "微软雅黑";
+    clear: both;
+    margin-top: 30px;
 }
 .footer .first-level{
 	float: left;

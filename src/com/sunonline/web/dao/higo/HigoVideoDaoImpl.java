@@ -181,7 +181,7 @@ public class HigoVideoDaoImpl implements HigoVideoDao {
 			e.printStackTrace();
 		}
 	}
-	/**
+	/*
 	 * 获取推荐视频
 	 */
 	@Override

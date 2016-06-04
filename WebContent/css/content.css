@@ -118,18 +118,24 @@
 /**
  * content-review-recommend部分的CSS样式
  */
-.content-review-recommend{
-	width: 970px;
-	margin: 0 auto;
+
+.content-review-recommend {
+    width: 970px;
+    margin: 0 auto;
+    padding: 0px 15px;
 }
-.content-review-recommend .review{
-	width: 690px;
+.content-review-recommend .review {
+    width: 690px;
+    float: left;
+    padding: 0px 15px;
 }
-.content-review-recommend .recommend{
-	height: 714px;
-	right: 0px;
+.content-review-recommend .recommend {
+    height: 588px;
+    right: 0px;
     top: -2px;
     width: 260px;
+    float: left;
+    padding: 0px 15px;
 }
 .content-review-recommend .recommend-content{
 	width: 220px;
@@ -145,15 +151,15 @@
     padding-top: 8px;
     color: #66e3ea;
 }
-.content-review-recommend .recommend-logo .recommend-logo-img{
-	background-image: url(../img/recommend_video.png);
-	width: 105px;
+.content-review-recommend .recommend-logo .recommend-logo-img {
+    background-image: url(../img/recommend_video.png);
+    width: 105px;
     height: 35px;
     margin-left: 8px;
     margin-top: 2px;
     display: inline-block;
     vertical-align: top;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 .content-review-recommend .recommend-content .recommend-content-img{
 	width: 220px;
