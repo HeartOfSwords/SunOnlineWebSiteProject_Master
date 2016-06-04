@@ -20,12 +20,12 @@ import com.sunonline.web.webapi.bean.WebApiRoot;
 public class WebApiDescriptionResource {
 	
 	/**
-	 * 根路径描述
+	 * 视频根路径路径描述
 	 * @param newParam TODO
 	 * @return
 	 */
 	@GET
-	@Path("")
+	@Path("/videos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public WebApiRoot getAPIDescription(Object newParam) {
 		
@@ -33,31 +33,52 @@ public class WebApiDescriptionResource {
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
 		//Higo项
 		WebApiLinks higoPathDescription = new WebApiLinks();	
-		higoPathDescription.setRel("collection, webapi/higovideo");
-		higoPathDescription.setHref("webapi/higovideo");
-		higoPathDescription.setTitle("Higo大学季根路径");
+		higoPathDescription.setRel("collection, webapi/videos/higovideo");
+		higoPathDescription.setHref("webapi/videos/higovideo");
+		higoPathDescription.setTitle("Higo大学季");
 		higoPathDescription.setType("MediaType.APPLICATION_JSON");
+		higoPathDescription.setPicUrl("");
+		higoPathDescription.setIntroduceMessage("");
 		links.add(higoPathDescription);
 		//老司机项
 		WebApiLinks oldDriverVideoPathDescription = new WebApiLinks();	
-		oldDriverVideoPathDescription.setRel("collection, webapi/olddirver");
-		oldDriverVideoPathDescription.setHref("webapi/olddirver");
-		oldDriverVideoPathDescription.setTitle("影视老司机根路径");
+		oldDriverVideoPathDescription.setRel("collection, webapi/videos/olddirver");
+		oldDriverVideoPathDescription.setHref("webapi/videos/olddirver");
+		oldDriverVideoPathDescription.setTitle("影视老司机");
 		oldDriverVideoPathDescription.setType("MediaType.APPLICATION_JSON");
+		oldDriverVideoPathDescription.setPicUrl("");
+		oldDriverVideoPathDescription.setIntroduceMessage("");
 		links.add(oldDriverVideoPathDescription);
 		//高校最强音列表项
 		WebApiLinks collegeVoicePathDescription = new WebApiLinks();
-		collegeVoicePathDescription.setRel("collection, webapi/collegevoice");
-		collegeVoicePathDescription.setHref("webapi/collegevoice");
+		collegeVoicePathDescription.setRel("collection, webapi/videos/collegevoice");
+		collegeVoicePathDescription.setHref("webapi/videos/collegevoice");
 		collegeVoicePathDescription.setTitle("高校最强音");
 		collegeVoicePathDescription.setType("MediaType.APPLICATION_JSON");
+		collegeVoicePathDescription.setPicUrl("");
+		collegeVoicePathDescription.setIntroduceMessage("");
 		links.add(collegeVoicePathDescription);
+
+		webApiRoot.setLinks(links);
+		return webApiRoot;
+	}
+	
+	@GET
+	@Path("/images")
+	@Produces(MediaType.APPLICATION_JSON)
+	public WebApiRoot getImagesDescription(Object newParam) {
+		
+		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
+		List<WebApiLinks> links = new ArrayList<>();	//列表项
+
 		//高校图片库
 		WebApiLinks shanXiCollegePicLibraryDescription = new WebApiLinks();
-		shanXiCollegePicLibraryDescription.setRel("collection, webapi/sxcollegepiclib");
-		shanXiCollegePicLibraryDescription.setHref("webapi/sxcollegepiclib");
+		shanXiCollegePicLibraryDescription.setRel("collection, webapi/images/sxcollegepiclib");
+		shanXiCollegePicLibraryDescription.setHref("webapi/images/sxcollegepiclib");
 		shanXiCollegePicLibraryDescription.setTitle("山西高校图片库");
 		shanXiCollegePicLibraryDescription.setType("MediaType.APPLICATION_JSON");
+		shanXiCollegePicLibraryDescription.setPicUrl("");
+		shanXiCollegePicLibraryDescription.setIntroduceMessage("");
 		links.add(shanXiCollegePicLibraryDescription);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
@@ -68,7 +89,7 @@ public class WebApiDescriptionResource {
 	 * @return
 	 */
 	@GET
-	@Path("higovideo")
+	@Path("/videos/higovideo")
 	@Produces(MediaType.APPLICATION_JSON)
 	public WebApiRoot getHigoVideoDescription() {
 		
@@ -106,7 +127,7 @@ public class WebApiDescriptionResource {
 	 * @return
 	 */
 	@GET
-	@Path("olddirver")
+	@Path("/videos/olddirver")
 	@Produces(MediaType.APPLICATION_JSON)
 	public WebApiRoot getOldDirverVideoDescription() {
 		
@@ -143,7 +164,7 @@ public class WebApiDescriptionResource {
 	 * @return  
 	 */
 	@GET
-	@Path("collegevoice")
+	@Path("/videos/collegevoice")
 	@Produces(MediaType.APPLICATION_JSON)
 	public WebApiRoot getCollegeVoiceVideoDescription() {
 		
@@ -180,7 +201,7 @@ public class WebApiDescriptionResource {
 	 * @return  WebApiRoot
 	 */
 	@GET
-	@Path("sxcollegepiclib")
+	@Path("/images/sxcollegepiclib")
 	@Produces(MediaType.APPLICATION_JSON)
 	public WebApiRoot getSXCollegePicLibDescription() {
 		

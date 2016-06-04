@@ -8,6 +8,7 @@
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Cache-control" content="no-cache">
 		<meta http-equiv="Cache" content="no-cache">
+		<link rel="icon" href="img/favicon.ico" type=”image/x-icon”>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/higovideo_header.css" />
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
@@ -21,7 +22,7 @@
 	<!--foot部分开始-->
 		<div class="footer">
 			<!--foot_content包含底栏内容-->
-			<div class="container footer-content">
+			<div class="container footer-content" id="bg">
 				<div class="row">
 					<div class="col-md-2">
 						<span class="glyphicon glyphicon-plane"></span>

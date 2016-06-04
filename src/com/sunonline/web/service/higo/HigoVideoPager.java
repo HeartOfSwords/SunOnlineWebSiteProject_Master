@@ -66,6 +66,7 @@ public class HigoVideoPager extends HttpServlet {
 		higoPagerBean.setCurPage(current_pageno);
 		higoPagerBean.setMaxPage(max_page);
 		//request中设置推荐视频
+		
 		request.setAttribute("higoVideoRecommendation", higoVideoRecommendation);
 		request.setAttribute("higoPagerBean", higoPagerBean);		//分页bean
 		request.setAttribute("higoVideoList", higoVideoList);		//视频列表

@@ -13,6 +13,26 @@ public class WebApiLinks {
 	private String title;
 
 	private String type;
+	
+	private String picUrl;					//截图
+	
+	private String introduceMessage;		//简介
+
+	public String getIntroduceMessage() {
+		return introduceMessage;
+	}
+
+	public void setIntroduceMessage(String introduceMessage) {
+		this.introduceMessage = introduceMessage;
+	}
+
+	public String getPicUrl() {
+		return picUrl;
+	}
+
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
+	}
 
 	public void setRel(String rel) {
 		this.rel = rel;
