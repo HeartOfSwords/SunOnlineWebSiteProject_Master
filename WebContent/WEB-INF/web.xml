@@ -59,20 +59,7 @@
     <filter-name>AdminSessionCheckFilter</filter-name>
     <url-pattern>/WEB-INF/jsp/admin/index.jsp</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description>后台服务配置</description>
-    <servlet-name>webservice</servlet-name>
-    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-    <init-param>
-      <param-name>jersey.config.server.provider.packages</param-name>
-      <param-value>com.sunonline.web.webapi</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>webservice</servlet-name>
-    <url-pattern>/webapi/*</url-pattern>
-  </servlet-mapping>
+ 
   <servlet>
     <description>Higo大学季分页重定向二级页面</description>
     <display-name>HigoVideoPager</display-name>
@@ -114,5 +101,19 @@
     <url-pattern>/OldDriverVideoPlayPage</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+    <description>后台服务配置</description>
+    <servlet-name>webservice</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.sunonline.web.webapi</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>webservice</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
 
 </web-app>
