@@ -115,9 +115,10 @@
 			HigoPagerBean higoVideoPagerBean = (HigoPagerBean) request.getAttribute("higoPagerBean");
 			if (higoVideoPagerBean != null) {
 		%>
-				<a href="HigoPager?current_pageno=1"><button type="button" class="btn btn-primary navbar-btn">首页</button></a>
+				<button type="button" class="btn btn-primary navbar-btn">首页</button></a>
 				<a
-				href="HigoPager?current_pageno=<%=higoVideoPagerBean.getCurPage() - 1%>"><button type="button" class="btn btn-success navbar-btn">上一页</button></a>
+				href="HigoPager?current_pageno=<%=higoVideoPagerBean.getCurPage() - 1%>"><button type="button" class="btn btn-success navbar-btn" onclick="window.location.href='HigoPager?current_pageno=<%=higoVideoPagerBean.getCurPage() - 1%>'">上一页</button></a>
+				
 				<a
 				href="HigoPager?current_pageno=<%=higoVideoPagerBean.getCurPage() + 1%>"><button type="button" class="btn btn-success navbar-btn">下一页</button></a>
 				<a

@@ -10,6 +10,16 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+    <description>管理员登录路由</description>
+    <display-name>AdminLoginPageRouter</display-name>
+    <servlet-name>AdminLoginPageRouter</servlet-name>
+    <servlet-class>com.sunonline.web.admin.service.AdminLoginPageRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLoginPageRouter</servlet-name>
+    <url-pattern>/admin/adminlogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <description>管理员登录验证Servlet</description>
     <display-name>AdminLoginVerifyServlet</display-name>
     <servlet-name>AdminLoginVerifyServlet</servlet-name>
@@ -17,7 +27,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AdminLoginVerifyServlet</servlet-name>
-    <url-pattern>/admin/adminLoginVerify</url-pattern>
+    <url-pattern>/admin/adminloginverify</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>管理员注销登录Servlet</description>
@@ -27,7 +37,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AdminLogoutServlet</servlet-name>
-    <url-pattern>/admin/adminLogout</url-pattern>
+    <url-pattern>/admin/adminlogout</url-pattern>
   </servlet-mapping>
   <filter>
     <description>管理员会话过滤器</description>
@@ -41,16 +51,16 @@
     </init-param>
     <init-param>
       <description>管理员登录验证Servlet</description>
-      <param-name>adminVerifyServlet</param-name>
+      <param-name>adminLoginVerifyServlet</param-name>
       <param-value>AdminLoginVerifyServlet</param-value>
     </init-param>
   </filter>
   <filter-mapping>
     <filter-name>AdminSessionCheckFilter</filter-name>
-    <url-pattern>/admin/index.jsp</url-pattern>
+    <url-pattern>/WEB-INF/jsp/admin/index.jsp</url-pattern>
   </filter-mapping>
   <servlet>
-  	<description>后台服务配置</description>
+    <description>后台服务配置</description>
     <servlet-name>webservice</servlet-name>
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
     <init-param>
@@ -103,4 +113,6 @@
     <servlet-name>OldDriverVideoPlayPage</servlet-name>
     <url-pattern>/OldDriverVideoPlayPage</url-pattern>
   </servlet-mapping>
+  
+
 </web-app>

@@ -5,13 +5,12 @@
 
 	<head>
 		<title>太阳在线管理员后台登录</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
-		<script type="text/javascript" src="images/login.js"></script>
-		<script type="text/javascript" src="js/vilidate.js" ></script>
-		<link href="css/login2.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/validate.js" ></script>
+		<link href="css/login2.css" rel="stylesheet" type="text/css"/>
 	</head>
-
-	<body>
+<body>
 		<h1>太阳在线管理员后台登录<sup>2016</sup></h1>
 
 		<div class="login" style="margin-top:50px;">
@@ -24,7 +23,7 @@
 					<div class="login-box">
 
 						<div class="login_form">
-							<form action="adminLoginVerify" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0" />
+							<form action="adminloginverify" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0" />
 								<input type="hidden" name="to" value="log" />
 								<div class="uinArea Area" id="uinArea">
 									<label class="input-tips" for="username">帐号：</label>
@@ -62,19 +61,7 @@
 				<!--登录end-->
 			</div>
 
-			<!--注册-->
-			<div class="qlogin" id="qlogin" style="display: none; ">
-
-				<div class="web_login">
-					<form name="form2" id="regUser" accept-charset="utf-8" action="" method="post">
-						<input type="hidden" name="to" value="reg" />
-						<input type="hidden" name="did" value="0" />
-					</form>
-
-				</div>
-
-			</div>
-			<!--注册end-->
+		
 		</div>
 		<div class="jianyi">*推荐使用ie8或以上版本ie浏览器或Chrome内核浏览器访问本站</div>
 		<br/><br/>

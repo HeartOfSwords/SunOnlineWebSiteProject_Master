@@ -49,17 +49,17 @@ public class AdminLoginVerifyServlet extends HttpServlet {
 			if (true == adminInfoDao.isAdmin(adminName, adminPwd)) {
 				session = request.getSession();
 				session.setAttribute("admin_name", adminName);
-				request.getRequestDispatcher("/admin/index.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/jsp/admin/index.jsp").forward(request, response);
 			} else {
 				/* 登录失败返回登录页重新登录 */
 				request.setAttribute("errorMsg", "管理员身份认证错误");
 				request.setAttribute("admin_name", adminName);
-				request.getRequestDispatcher("/admin/login.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/jsp/admin/login.jsp").forward(request, response);
 			}
 
 		} catch (Exception e) {
 			System.out.println("身份认证失败");
-			request.getRequestDispatcher("/admin/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/jsp/admin/login.jsp").forward(request, response);
 		}
 	}
 }

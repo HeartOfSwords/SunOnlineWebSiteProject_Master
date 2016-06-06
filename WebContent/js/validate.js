@@ -1,5 +1,3 @@
-//author：段吉贵
-//date：2016.5.12
 $(function(){
 				var userflag=false;   /*用户账号标志位  */
 				var passflag=false;   /*用户密码标志位*/
@@ -16,13 +14,14 @@ $(function(){
 					var value= inpType.val();
 					var tip= inpType.attr("name")=="username"?"账号":"密码";
 					var reg=/^[A-Za-z0-9]{6,12}$/;
+					var chinareg=/\u4e00-\u9fa5/;
 					var message;
 					if(value==""){
 						message=tip+"不能为空！";
 					}else if(value.length<6){
 						message=tip+"长度不能少于6位！";
 					}else if(!value.match(reg)){
-						message=tip+"格式不正确！";
+						message=tip+"长度不能少于6位！";
 					}else{
 						if(inpType.attr("name")=="username"){
 							userflag=true;
