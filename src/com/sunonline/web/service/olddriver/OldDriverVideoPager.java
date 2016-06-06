@@ -8,12 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sunonline.web.bean.HigoVideoBean;
 import com.sunonline.web.bean.OldDriverVideoBean;
-import com.sunonline.web.bean.pager.HigoPagerBean;
 import com.sunonline.web.bean.pager.OldDriverPagerBean;
-import com.sunonline.web.dao.higo.HigoVideoDao;
-import com.sunonline.web.dao.higo.HigoVideoDaoImpl;
 import com.sunonline.web.dao.olddriver.OldDriverVideoDao;
 import com.sunonline.web.dao.olddriver.OldDriverVideoDaoImpl;
 

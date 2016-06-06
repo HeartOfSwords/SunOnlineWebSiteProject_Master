@@ -7,11 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>太阳在线管理后台</title>
 
-<link rel="stylesheet" href="css/index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="./css/index.css" type="text/css" media="screen" />
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/tendina.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/tendina.min.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
 
 </head>
 <body>
@@ -28,7 +28,7 @@
                 <ul class="dropdown-menu-uu" style="display: none" id="ad_setting_ul">
                     <li class="ad_setting_ul_li"> <a href="javascript:;"><i class="icon-user glyph-icon"></i> 个人中心 </a> </li>
                     <li class="ad_setting_ul_li"> <a href="javascript:;"><i class="icon-cog glyph-icon"></i> 设置 </a> </li>
-                    <li class="ad_setting_ul_li"> <a href="adminLogout"><i class="icon-signout glyph-icon"></i> <span class="font-bold">注销</span> </a> </li>
+                    <a href="adminlogout"><li class="ad_setting_ul_li"> <i class="icon-signout glyph-icon"></i> <span class="font-bold">注销</span>  </li></a>
                 </ul>
             </div>
     </div>
