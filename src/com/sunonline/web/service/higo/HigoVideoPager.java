@@ -70,7 +70,7 @@ public class HigoVideoPager extends HttpServlet {
 		request.setAttribute("higoVideoRecommendation", higoVideoRecommendation);
 		request.setAttribute("higoPagerBean", higoPagerBean);		//分页bean
 		request.setAttribute("higoVideoList", higoVideoList);		//视频列表
-		request.getRequestDispatcher("/WEB-INF/jsp/higovideo/menu.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/higovideo/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
