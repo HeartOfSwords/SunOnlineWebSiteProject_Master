@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sunonline.web.bean.HigoVideoBean;
 import com.sunonline.web.bean.OldDriverVideoBean;
 import com.sunonline.web.bean.pager.OldDriverPagerBean;
 import com.sunonline.web.dao.olddriver.OldDriverVideoDao;
@@ -45,6 +46,8 @@ public class OldDriverVideoPager extends HttpServlet {
 		}
 
 		OldDriverVideoDao oldDriverVideoDao = new OldDriverVideoDaoImpl();
+		//获取推荐视频
+		List<OldDriverVideoBean> oldDriverRecommendation = oldDriverVideoDao.getOldDriverVideoRecommendation();
 		//视频最大数目
 		int oldDirverVideoRowsCount = oldDriverVideoDao.fetchVideoRowsCount();
 		int max_page = (oldDirverVideoRowsCount % OldDriverPagerBean.PAGE_SIZE == 0)
@@ -65,10 +68,12 @@ public class OldDriverVideoPager extends HttpServlet {
 		oldDriverPagerBean.setCurPage(current_pageno);
 		oldDriverPagerBean.setMaxPage(max_page);
 	
-	
+		request.setAttribute("oldDriverRecommendation", oldDriverRecommendation);//设置推荐视频到request
 		request.setAttribute("oldDriverPagerBean", oldDriverPagerBean);		//分页bean
 		request.setAttribute("oldDriverVideoList", oldDirverVideoList);		//视频列表
 		request.getRequestDispatcher("/WEB-INF/jsp/olddrivervideo/index.jsp").forward(request, response);
+	
+	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

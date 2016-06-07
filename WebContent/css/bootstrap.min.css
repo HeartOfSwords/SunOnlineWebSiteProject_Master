@@ -1989,7 +1989,7 @@ pre code {
 
 @media (min-width:768px) {
 	.container {
-		width: 750px
+		width: 970px
 	}
 }
 
@@ -7589,7 +7589,7 @@ button.close {
 	bottom: 0;
 	left: 0;
 	width: 15%;
-	font-size: 20px;
+	font-size: 120px;
 	color: #fff;
 	text-align: center;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
@@ -7738,7 +7738,7 @@ button.close {
 		padding-bottom: 30px
 	}
 	.carousel-indicators {
-		bottom: 20px
+		bottom: -70px
 	}
 }
 

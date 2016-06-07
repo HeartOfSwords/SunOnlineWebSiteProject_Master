@@ -20,14 +20,32 @@
 		<meta charset="UTF-8">
 		<title>Higo大学季</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/higovideo_header.css" />
-		<link rel="stylesheet" href="css/higovideolist.css" />
-		<link rel="stylesheet" type="text/css" href="css/footer.css" />
-		
+		<link rel="stylesheet" href="css/video_header.css" />
+		<link rel="stylesheet" href="css/video_list.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />		
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 		<style>
-			
-		</style>
+		/**
+		 * 将毛玻璃的背景图和顶部背景图提取为公共属性
+		 * 将每个模块的特有的Logo提取为公共属性
+		 */
+		
+		.nav_back {
+			background-image: url(img/higo_title.png);
+		}
+		
+		.column_logo {
+			background-image: url(img/higo_title.png);
+		}
+		
+		.video-title-logo-img {
+			background-image: url(img/higo_logo.png);
+		}
+		.recommend-logo-img{
+				background-image: url(img/higo_second_rec.png);
+		}
+	</style>
+
 	</head>
 	<style>
 
@@ -44,7 +62,7 @@
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="index.jsp">首页</a></li>
 					<li><a href="HigoPager">HIGO大学季</a></li>
-					<li><a href="#">影视老司机</a></li>
+					<li><a href="OldDriverPager">影视老司机</a></li>
 					<li><a href="#">高校最强音</a></li>
 					<li><a href="#">高校人物风采录</a></li>
 					<li><a href="#">山西高校图片库</a></li>
@@ -114,21 +132,17 @@
 				<!-- 轮播end-->
 
 			</div>
-
-			<!-- 获取视频主列表 -->
-			<%
-				List<HigoVideoBean> higoVideoBeans = (List<HigoVideoBean>) request.getAttribute("higoVideoList");
-				if (higoVideoBeans != null && higoVideoBeans.size() >0) {
-				
-					for (HigoVideoBean higoVideoBean : higoVideoBeans) {
-				
-			%>
-
-			<!-- 视频列表开始-->
-			
-			<!-- 传递视频id -->
-			
+			<!-- 视频列表开始-->	
+				<!-- 传递视频id -->
 				<div id="left">
+				<!-- 获取视频主列表 -->
+				<%
+					List<HigoVideoBean> higoVideoBeans = (List<HigoVideoBean>) request.getAttribute("higoVideoList");
+					if (higoVideoBeans != null && higoVideoBeans.size() >0) {
+					
+						for (HigoVideoBean higoVideoBean : higoVideoBeans) {
+					
+				%>
 					<!--内容部分-->
 					<a href="HigoVideoPlayPage?id=<%=higoVideoBean.getHigoVideoId()%>">
 					<div class="left_item">
@@ -218,7 +232,7 @@
 							} else { %>
 				<a href="#">
 					<dl>
-						<dt><img src="img/1.jpg" width="220px" height="85px" alt="sss"></dt>
+						<dt><img src="img/recomdation_notfound.jpg" width="220px" height="85px" alt="sss"></dt>
 						<dd>推荐视频获取失败请刷新页面</dd>
 					</dl>
 				</a>	
@@ -292,6 +306,9 @@
 						<img src="img/erweima2.png" class="footer-img-control" /><br />
 						<span>扫二维码，关注太阳在线官方微信平台</span>
 					</div>
+				</div>
+				<div class="footer-second-level">
+					(c)2015-2016 山西太阳在线 SYSTEM All Rights Reserved
 				</div>
 			</div>
 		</div>

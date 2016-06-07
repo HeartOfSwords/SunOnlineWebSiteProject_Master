@@ -44,9 +44,7 @@ a:hover {
 }
 
 .footer {
-	
-	clear: left;
-	/*float: left;*/
+	float: left;
 }
 
 .recommend-logo-img {
@@ -98,8 +96,10 @@ a:hover {
 	height: 249px;
 }
 
+
 .carousel-inner>.item>img {
-	height: 249px;
+    height: 249px;
+    width: 100%;
 }
 
 .carousel-indicators {
@@ -196,8 +196,4 @@ a:hover {
 .adviertisement {
 	width: 100%;
 	height: 450px;
-}
-/*覆盖轮播*/
-.carousel-inner>.item>img {
-    width: 100%;
 }
