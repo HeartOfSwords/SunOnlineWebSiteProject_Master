@@ -129,7 +129,7 @@
 				</div>
 				<!--video.js播放器开始-->
 				<div class="video-player">
-					<video id="videojs" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" data-setup='' poster="<%=pic_url %>">
+					<video id="videojs" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" data-setup='' poster="<%=pic_url %>" width="970px" height="540px">
 						<source id="mp4" src="<%=video_url %>" type="video/mp4"/>
 					</video>
 				</div>

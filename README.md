@@ -39,3 +39,6 @@ WHERE
 
 1. 添加favicon 
 <link rel="icon" href="img/favicon.ico" type=”image/x-icon”>
+
+## 6.7日志
+视频大小更改video标签属性添加width="970px" height="540px"

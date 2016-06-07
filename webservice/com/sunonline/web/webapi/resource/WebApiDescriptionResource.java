@@ -42,8 +42,8 @@ public class WebApiDescriptionResource {
 		links.add(higoPathDescription);
 		//老司机项
 		WebApiLinks oldDriverVideoPathDescription = new WebApiLinks();	
-		oldDriverVideoPathDescription.setRel("collection, webapi/videos/olddirver");
-		oldDriverVideoPathDescription.setHref("webapi/videos/olddirver");
+		oldDriverVideoPathDescription.setRel("collection, webapi/videos/olddriver");
+		oldDriverVideoPathDescription.setHref("webapi/videos/olddriver");
 		oldDriverVideoPathDescription.setTitle("影视老司机");
 		oldDriverVideoPathDescription.setType("MediaType.APPLICATION_JSON");
 		oldDriverVideoPathDescription.setPicUrl("");
@@ -135,22 +135,22 @@ public class WebApiDescriptionResource {
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
 		//获取所有视频
 		WebApiLinks videos = new WebApiLinks();	
-		videos.setRel("collection, webapi/olddirver/videos");
-		videos.setHref("webapi/olddirver/videos");
+		videos.setRel("collection, webapi/olddriver/videos");
+		videos.setHref("webapi/olddriver/videos");
 		videos.setTitle("影视老司机获取所有视频列表");
 		videos.setType("MediaType.APPLICATION_JSON");
 		links.add(videos);
 		//按id/期数获取视频
 		WebApiLinks videoById = new WebApiLinks();	
-		videoById.setRel("collection, webapi/olddirver/videos/{id}");
-		videoById.setHref("webapi/olddirver/videos/{id}");
+		videoById.setRel("collection, webapi/olddriver/videos/{id}");
+		videoById.setHref("webapi/olddriver/videos/{id}");
 		videoById.setTitle("影视老司机按照期数获取视频");
 		videoById.setType("MediaType.APPLICATION_JSON");
 		links.add(videoById);
 		//获取推荐视频
 		WebApiLinks recommendVideos = new WebApiLinks();
-		recommendVideos.setRel("collection, webapi/olddirver/videos/recommendation");
-		recommendVideos.setHref("webapi/olddirver/videos/recommendation");
+		recommendVideos.setRel("collection, webapi/olddriver/videos/recommendation");
+		recommendVideos.setHref("webapi/olddriver/videos/recommendation");
 		recommendVideos.setTitle("影视老司机推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
