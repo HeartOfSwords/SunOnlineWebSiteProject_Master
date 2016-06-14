@@ -97,22 +97,22 @@ public class WebApiDescriptionResource {
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
 		//获取所有视频
 		WebApiLinks videos = new WebApiLinks();	
-		videos.setRel("collection, webapi/higovideo/videos");
-		videos.setHref("webapi/higovideo/videos");
+		videos.setRel("collection, webapi/videos/higovideo/all");
+		videos.setHref("webapi/videos/higovideo/all");
 		videos.setTitle("Higo大学季获取所有视频列表");
 		videos.setType("MediaType.APPLICATION_JSON");
 		links.add(videos);
 		//按id/期数获取视频
 		WebApiLinks videoById = new WebApiLinks();	
-		videoById.setRel("collection, webapi/higovideo/videos/{id}");
-		videoById.setHref("webapi/higovideo/videos/{id}");
+		videoById.setRel("collection, webapi/videos/higovideo/all/{id}");
+		videoById.setHref("webapi/videos/higovideo/all/{id}");
 		videoById.setTitle("Higo大学季按照期数获取视频");
 		videoById.setType("MediaType.APPLICATION_JSON");
 		links.add(videoById);
 		//获取推荐视频
 		WebApiLinks recommendVideos = new WebApiLinks();
-		recommendVideos.setRel("collection, webapi/higovideo/videos/recommendation");
-		recommendVideos.setHref("webapi/higovideo/videos/recommendation");
+		recommendVideos.setRel("collection, webapi/videos/higovideo/all/recommendation");
+		recommendVideos.setHref("webapi/videos/higovideo/all/recommendation");
 		recommendVideos.setTitle("Higo大学季推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
@@ -127,7 +127,7 @@ public class WebApiDescriptionResource {
 	 * @return
 	 */
 	@GET
-	@Path("/videos/olddirver")
+	@Path("/videos/olddriver")
 	@Produces(MediaType.APPLICATION_JSON)
 	public WebApiRoot getOldDirverVideoDescription() {
 		
@@ -135,22 +135,22 @@ public class WebApiDescriptionResource {
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
 		//获取所有视频
 		WebApiLinks videos = new WebApiLinks();	
-		videos.setRel("collection, webapi/olddriver/videos");
-		videos.setHref("webapi/olddriver/videos");
+		videos.setRel("collection, webapi/olddriver/all");
+		videos.setHref("webapi/olddriver/all");
 		videos.setTitle("影视老司机获取所有视频列表");
 		videos.setType("MediaType.APPLICATION_JSON");
 		links.add(videos);
 		//按id/期数获取视频
 		WebApiLinks videoById = new WebApiLinks();	
-		videoById.setRel("collection, webapi/olddriver/videos/{id}");
-		videoById.setHref("webapi/olddriver/videos/{id}");
+		videoById.setRel("collection, webapi/olddriver/all/{id}");
+		videoById.setHref("webapi/olddriver/all/{id}");
 		videoById.setTitle("影视老司机按照期数获取视频");
 		videoById.setType("MediaType.APPLICATION_JSON");
 		links.add(videoById);
 		//获取推荐视频
 		WebApiLinks recommendVideos = new WebApiLinks();
-		recommendVideos.setRel("collection, webapi/olddriver/videos/recommendation");
-		recommendVideos.setHref("webapi/olddriver/videos/recommendation");
+		recommendVideos.setRel("collection, webapi/olddriver/all/recommendation");
+		recommendVideos.setHref("webapi/olddriver/all/recommendation");
 		recommendVideos.setTitle("影视老司机推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
@@ -172,22 +172,22 @@ public class WebApiDescriptionResource {
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
 		//获取所有视频
 		WebApiLinks videos = new WebApiLinks();	
-		videos.setRel("collection, webapi/collegevoice/videos");
-		videos.setHref("webapi/collegevoice/videos");
+		videos.setRel("collection, webapi/collegevoice/all");
+		videos.setHref("webapi/collegevoice/all");
 		videos.setTitle("高校最强音获取所有视频列表");
 		videos.setType("MediaType.APPLICATION_JSON");
 		links.add(videos);
 		//按id/期数获取视频
 		WebApiLinks videoById = new WebApiLinks();	
-		videoById.setRel("collection, webapi/collegevoice/videos/{id}");
-		videoById.setHref("webapi/collegevoice/videos/{id}");
+		videoById.setRel("collection, webapi/collegevoice/all/{id}");
+		videoById.setHref("webapi/collegevoice/all/{id}");
 		videoById.setTitle("高校最强音按照期数获取视频");
 		videoById.setType("MediaType.APPLICATION_JSON");
 		links.add(videoById);
 		//获取推荐视频
 		WebApiLinks recommendVideos = new WebApiLinks();
-		recommendVideos.setRel("collection, webapi/collegevoice/videos/recommendation");
-		recommendVideos.setHref("webapi/collegevoice/videos/recommendation");
+		recommendVideos.setRel("collection, webapi/collegevoice/all/recommendation");
+		recommendVideos.setHref("webapi/collegevoice/all/recommendation");
 		recommendVideos.setTitle("高校最强音推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);

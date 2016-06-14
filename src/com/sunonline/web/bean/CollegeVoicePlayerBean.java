@@ -1,5 +1,8 @@
 package com.sunonline.web.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.sunonline.web.webapi.bean.Bean;
 
 /**
@@ -7,16 +10,25 @@ import com.sunonline.web.webapi.bean.Bean;
  * @date 2016.5.3
  * <p>function:高校最强音选手bean</p>
  */
-public class CollegeVoicePlayerBean extends Bean {
+public class CollegeVoicePlayerBean  {
 	
-	private Integer playerNumber;		//选手编号
+	private String playerNumber;		//选手编号
 	
 	private String playerName;			//选手姓名
 	
 	private Integer playerGender;		//选手性别
 	
 	private String playerSchool;		//选手学校
+	
+	private Set<CollegeVoiceVideoBean> collegeVoiceVideos = new HashSet<CollegeVoiceVideoBean>();
+	
 
+	public Set<CollegeVoiceVideoBean> getCollegeVoiceVideos() {
+		return collegeVoiceVideos;
+	}
+	public void setCollegeVoiceVideos(Set<CollegeVoiceVideoBean> collegeVoiceVideos) {
+		this.collegeVoiceVideos = collegeVoiceVideos;
+	}
 	public String getPlayerName() {
 		return playerName;
 	}
@@ -35,11 +47,12 @@ public class CollegeVoicePlayerBean extends Bean {
 	public void setPlayerSchool(String playerSchool) {
 		this.playerSchool = playerSchool;
 	}
-	public Integer getPlayerNumber() {
+	public String getPlayerNumber() {
 		return playerNumber;
 	}
-	public void setPlayerNumber(Integer playerNumber) {
+	public void setPlayerNumber(String playerNumber) {
 		this.playerNumber = playerNumber;
 	}
+	
 	
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.sunonline.web.bean.CollegeVoiceVideoBean" table="college_voice_video" lazy="false">
+		<!-- 每个映射文件都要有id，就是该表主键 -->
+		<id name="zqy_video_id" column="ZQY_video_id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 最强音名称  -->
+		<property name="zqy_video_name" column="ZQY_video_name"></property>
+		<!-- 视频链接 -->
+		<property name="zqy_video_url" column="ZQY_video_url"></property>
+		<!-- 上传日期 -->
+		<property name="zqy_video_date" column="ZQY_video_date"></property>
+		<!-- 图片链接 -->
+		<property name="zqy_video_pic_url" column="ZQY_video_pic_url"></property>		
+		<!-- 播放次数 -->
+		<property name="zqy_video_played_number" column="ZQY_video_played_number"></property>	
+		<!-- 视频简介 -->
+		<property name="zqy_video_intro" column="zqy_video_intro"></property>
+		<!-- 上传者 -->
+		<property name="zqy_video_uploader" column="zqy_video_uploader"></property>
+		<!-- 选手 -->
+		<many-to-one name="CollegeVoicePlayerBean"
+			column="player_number"
+			class="com.sunonline.web.bean.CollegeVoicePlayerBean"
+		></many-to-one>
+	</class>
+</hibernate-mapping>

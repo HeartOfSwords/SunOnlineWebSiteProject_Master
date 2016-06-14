@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-     <servlet>
+  <servlet>
     <description>后台服务配置</description>
     <servlet-name>webservice</servlet-name>
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
@@ -73,7 +73,6 @@
     <filter-name>AdminSessionCheckFilter</filter-name>
     <url-pattern>/WEB-INF/jsp/admin/index.jsp</url-pattern>
   </filter-mapping>
- 
   <servlet>
     <description>Higo大学季分页重定向二级页面</description>
     <display-name>HigoVideoPager</display-name>
@@ -114,7 +113,24 @@
     <servlet-name>OldDriverVideoPlayPage</servlet-name>
     <url-pattern>/OldDriverVideoPlayPage</url-pattern>
   </servlet-mapping>
-  
-
-
+  <servlet>
+    <description>最强音播放页二级页面</description>
+    <display-name>CollegeVoiceVideoPager</display-name>
+    <servlet-name>CollegeVoiceVideoPager</servlet-name>
+    <servlet-class>com.sunonline.web.service.collegevoice.CollegeVoiceVideoPager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CollegeVoiceVideoPager</servlet-name>
+    <url-pattern>/CollegeVoiceVideoPager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>最强音播放页三级页面</description>
+    <display-name>CollegeVoiceVideoPlayPage</display-name>
+    <servlet-name>CollegeVoiceVideoPlayPage</servlet-name>
+    <servlet-class>com.sunonline.web.service.collegevoice.CollegeVoiceVideoPlayPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CollegeVoiceVideoPlayPage</servlet-name>
+    <url-pattern>/CollegeVoiceVideoPlayPage</url-pattern>
+  </servlet-mapping>
 </web-app>

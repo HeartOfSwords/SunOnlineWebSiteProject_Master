@@ -9,5 +9,6 @@
 <body>
 <h1><a href="HigoPager">Higo大学季</a></h1>
 <h1><a href="OldDriverPager">影视老司机</a></h1>
+<h1><a href="CollegeVoiceVideoPager">高校最强音</a></h1>
 </body>
 </html>

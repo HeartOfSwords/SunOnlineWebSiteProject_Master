@@ -14,8 +14,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.sunonline.web.bean.HigoVideoBean;
-import com.sunonline.web.bean.OldDriverVideoBean;
+import com.sunonline.web.webpai.bean.videos.OldDriverVideoBean;
 import com.sunonline.web.utils.DBUtils;
 
 /**
