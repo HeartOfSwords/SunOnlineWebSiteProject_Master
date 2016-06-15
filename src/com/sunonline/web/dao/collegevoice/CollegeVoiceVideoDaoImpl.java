@@ -14,6 +14,7 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 
 import com.sunonline.web.bean.CollegeVoiceVideoBean;
+import com.sunonline.web.bean.HigoVideoBean;
 import com.sunonline.web.bean.pager.CollegeVoicePagerBean;
 import com.sunonline.web.utils.DBUtils;
 import com.sunonline.web.utils.Hibernate4Util;
@@ -29,37 +30,83 @@ public class CollegeVoiceVideoDaoImpl implements CollegeVoiceVideoDao {
 		 * 通过id获取
 		 */
 		public CollegeVoiceVideoBean getVideoByID(int id) {
-			//开启session
-			Session session = Hibernate4Util.getSession();
-			
-			//获取视频
-			CollegeVoiceVideoBean collegeVoiceVideoBean;
-			collegeVoiceVideoBean = (CollegeVoiceVideoBean) session.get(CollegeVoiceVideoBean.class, id);
-			
-			System.out.println(collegeVoiceVideoBean.toString());
+			CollegeVoiceVideoBean collegeVoiceVideoBean = null;
+			String sql = "select * from college_voice_video_view where ZQY_video_id=?"; //通过id获取视频全部信息
+			try {
+				Connection connection = new DBUtils().getCon();
+				PreparedStatement pstmt = connection.prepareStatement(sql);
+				pstmt.setInt(1, id);
+				ResultSet rs = pstmt.executeQuery();
 				
-			//关闭session
-			session.close();
+				while (rs.next()) {
+					int zqy_video_id = rs.getInt("ZQY_video_id");							//id
+					String zqy_video_name = rs.getString("ZQY_video_name");					//视频名称
+					String zqy_video_url = rs.getString("ZQY_video_url");					//视频播放url
+					Date zqy_video_date = rs.getDate("ZQY_video_date");						//上传日期
+					String zqy_video_pic_url = rs.getString("ZQY_video_pic_url");			//视频截图url
+					int zqy_video_played_number = rs.getInt("zqy_video_played_number");		//视频播放次数
+					String zqy_video_intro = rs.getString("zqy_video_intro");				//视频简介
+					String zqy_video_uploader = rs.getString("zqy_video_uploader");			//视频上传者
+					String zqy_player_name = rs.getString("player_name");				//选手姓名
+					
+					// 构造注入
+					collegeVoiceVideoBean = new CollegeVoiceVideoBean(zqy_video_id, 
+							zqy_video_name, 
+							zqy_video_url, 
+							zqy_video_date, 
+							zqy_video_pic_url, 
+							zqy_video_played_number, 
+							zqy_video_intro, 
+							zqy_video_uploader, 
+							zqy_player_name);
+					
+				}
+			} catch (Exception e) {
+				collegeVoiceVideoBean = null;
+			}
 			return collegeVoiceVideoBean;
 			
 		}
 		/**
 		 * 获取所有视频
 		 */
-		@SuppressWarnings("unchecked")
 		public List<CollegeVoiceVideoBean> fetchAllVideos() {
 			
 			List<CollegeVoiceVideoBean> collegeVoiceVideoBeans = new ArrayList<>();
-			Session session = Hibernate4Util.getSession();
-			
-			//HQL
-			String hql = "from CollegeVoiceVideoBean";
-			Query query = session.createQuery(hql);
-			
-			collegeVoiceVideoBeans = query.list();
-			
-			session.close();
-			
+			Connection connection = new DBUtils().getCon();
+			//构造SQL查询视图
+			String sql = "select * from college_voice_video_view order by ZQY_video_id desc";
+			PreparedStatement pstmt;
+			try {
+				pstmt = connection.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {	
+					int zqy_video_id = rs.getInt("ZQY_video_id");							//id
+					String zqy_video_name = rs.getString("ZQY_video_name");					//视频名称
+					String zqy_video_url = rs.getString("ZQY_video_url");					//视频播放url
+					Date zqy_video_date = rs.getDate("ZQY_video_date");						//上传日期
+					String zqy_video_pic_url = rs.getString("ZQY_video_pic_url");			//视频截图url
+					int zqy_video_played_number = rs.getInt("zqy_video_played_number");		//视频播放次数
+					String zqy_video_intro = rs.getString("zqy_video_intro");				//视频简介
+					String zqy_video_uploader = rs.getString("zqy_video_uploader");			//视频上传者
+					String zqy_player_name = rs.getString("player_name");				//选手姓名
+					// 构造注入
+				    CollegeVoiceVideoBean collegeVoiceVideoBean = new CollegeVoiceVideoBean(zqy_video_id, 
+							zqy_video_name, 
+							zqy_video_url, 
+							zqy_video_date, 
+							zqy_video_pic_url, 
+							zqy_video_played_number, 
+							zqy_video_intro, 
+							zqy_video_uploader, 
+							zqy_player_name);
+				    
+				    collegeVoiceVideoBeans.add(collegeVoiceVideoBean);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 			return collegeVoiceVideoBeans;
 		}
 		/**
@@ -73,16 +120,24 @@ public class CollegeVoiceVideoDaoImpl implements CollegeVoiceVideoDao {
 		 */
 		public void addPlayTimeNumber(int ZQY_video_id) {
 
-			//开启事务
-			Session session = Hibernate4Util.getSession();
-			Transaction transaction = session.beginTransaction();
-			
-			//设置次数，先查询后修改
-			CollegeVoiceVideoBean collegeVoiceVideoBean = (CollegeVoiceVideoBean) session.get(CollegeVoiceVideoBean.class, ZQY_video_id);
-			collegeVoiceVideoBean.setZqy_video_played_number(collegeVoiceVideoBean.getZqy_video_played_number() + 1);
-			
-			transaction.commit();
-			session.close();
+			String sql = "UPDATE college_voice_video "
+					+ "SET zqy_video_played_number=zqy_video_played_number+1 "
+					+ "WHERE ZQY_video_id = ?;"; //通过id获取视频全部信息
+			try {
+				Connection connection = new DBUtils().getCon();
+				PreparedStatement pstmt = connection.prepareStatement(sql);
+				pstmt.setInt(1, ZQY_video_id);
+				int returnNum = pstmt.executeUpdate();
+				
+				if (returnNum > 0) {
+					System.out.println("设置成功");
+				} else {
+					System.out.println("设置失败");
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		/**
@@ -108,19 +163,18 @@ public class CollegeVoiceVideoDaoImpl implements CollegeVoiceVideoDao {
 					int zqy_video_played_number = rs.getInt("zqy_video_played_number");		//视频播放次数
 					String zqy_video_intro = rs.getString("zqy_video_intro");				//视频简介
 					String zqy_video_uploader = rs.getString("zqy_video_uploader");			//视频上传者
-					String zqy_player_Number = rs.getString("player_number");				//选手编号
-					// set注入
-					CollegeVoiceVideoBean collegeVoiceVideoBean = new CollegeVoiceVideoBean();
-					collegeVoiceVideoBean.setZqy_video_id(zqy_video_id);
-					collegeVoiceVideoBean.setZqy_video_name(zqy_video_name);
-					collegeVoiceVideoBean.setZqy_video_url(zqy_video_url);
-					collegeVoiceVideoBean.setZqy_video_date(zqy_video_date);
-					collegeVoiceVideoBean.setZqy_video_pic_url(zqy_video_pic_url);
-					collegeVoiceVideoBean.setZqy_video_played_number(zqy_video_played_number);
-					collegeVoiceVideoBean.setZqy_video_intro(zqy_video_intro);
-					collegeVoiceVideoBean.setZqy_video_uploader(zqy_video_uploader);
-					collegeVoiceVideoBean.setZqy_player_Number(zqy_player_Number);
-
+					String zqy_player_name = rs.getString("player_name");				//选手姓名
+					
+					// 构造注入
+					CollegeVoiceVideoBean collegeVoiceVideoBean = new CollegeVoiceVideoBean(zqy_video_id, 
+							zqy_video_name, 
+							zqy_video_url, 
+							zqy_video_date, 
+							zqy_video_pic_url, 
+							zqy_video_played_number, 
+							zqy_video_intro, 
+							zqy_video_uploader, 
+							zqy_player_name);
 					
 					collegeVoiceVideoBeans.add(collegeVoiceVideoBean);
 				}
@@ -159,18 +213,19 @@ public class CollegeVoiceVideoDaoImpl implements CollegeVoiceVideoDao {
 					int zqy_video_played_number = rs.getInt("zqy_video_played_number");		//视频播放次数
 					String zqy_video_intro = rs.getString("zqy_video_intro");				//视频简介
 					String zqy_video_uploader = rs.getString("zqy_video_uploader");			//视频上传者
-					String zqy_player_Number = rs.getString("player_number");				//选手编号
-					// set注入
-					CollegeVoiceVideoBean collegeVoiceVideoBean = new CollegeVoiceVideoBean();
-					collegeVoiceVideoBean.setZqy_video_id(zqy_video_id);
-					collegeVoiceVideoBean.setZqy_video_name(zqy_video_name);
-					collegeVoiceVideoBean.setZqy_video_url(zqy_video_url);
-					collegeVoiceVideoBean.setZqy_video_date(zqy_video_date);
-					collegeVoiceVideoBean.setZqy_video_pic_url(zqy_video_pic_url);
-					collegeVoiceVideoBean.setZqy_video_played_number(zqy_video_played_number);
-					collegeVoiceVideoBean.setZqy_video_intro(zqy_video_intro);
-					collegeVoiceVideoBean.setZqy_video_uploader(zqy_video_uploader);
-					collegeVoiceVideoBean.setZqy_player_Number(zqy_player_Number);
+					String zqy_player_name = rs.getString("player_name");				//选手姓名
+					
+					// 构造注入
+					CollegeVoiceVideoBean collegeVoiceVideoBean = new CollegeVoiceVideoBean(zqy_video_id, 
+							zqy_video_name, 
+							zqy_video_url, 
+							zqy_video_date, 
+							zqy_video_pic_url, 
+							zqy_video_played_number, 
+							zqy_video_intro, 
+							zqy_video_uploader, 
+							zqy_player_name);
+					
 
 					
 					collegeVoiceVideoBeans.add(collegeVoiceVideoBean);

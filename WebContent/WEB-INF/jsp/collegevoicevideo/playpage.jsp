@@ -19,7 +19,7 @@
 	int played_time = collegeVoiceVideoBean.getZqy_video_played_number();//播放次数
 	String video_intro = collegeVoiceVideoBean.getZqy_video_intro();	//视频介绍
 	String video_uploader = collegeVoiceVideoBean.getZqy_video_uploader();//上传者
-	String video_singer = collegeVoiceVideoBean.getCollegeVoicePlayerBean().getPlayerName();//演唱者
+	String video_singer = collegeVoiceVideoBean.getZqy_player_name();	//演唱者
 		//获取推荐视频
 		List<CollegeVoiceVideoBean> collegeVoiceVideoRecommendation = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoRecommendation");
 	%>
@@ -154,11 +154,7 @@
 			<div class="content-video-intro">
 				<hr />
 				<div class="video-intro-control">
-					<div>
-						<strong>
-							演唱者：<%=video_singer %>
-						</strong>
-					</div>
+					
 					<div>
 						<strong>
 							视频简介：
@@ -166,6 +162,9 @@
 					</div>
 					<div class="control-words">
 						<%=video_intro %>
+					</div>
+					<div>
+							演唱者：<%=video_singer %>
 					</div>
 				</div>
 				<hr />

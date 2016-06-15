@@ -19,8 +19,5 @@
 	</property>
 	<property name="hibernate.show_sql">true</property>
 	<property name="hibernate.format_sql">true</property>
-	
-	<mapping resource="com/sunonline/web/mapping/CollegeVoicePlayerBean.hbm.xml" />
-	<mapping resource="com/sunonline/web/mapping/CollegeVoiceVideoBean.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

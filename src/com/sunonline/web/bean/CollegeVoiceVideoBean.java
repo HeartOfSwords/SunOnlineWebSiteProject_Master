@@ -21,23 +21,15 @@ public class CollegeVoiceVideoBean extends Bean  {
 	private int zqy_video_played_number;	//最强音视频播放次数
 	private String zqy_video_intro;			//最强音视频简介
 	private String zqy_video_uploader;		//最强音上传者
-	private String zqy_player_Number;		//选手编号
-	public String getZqy_player_Number() {
-		return zqy_player_Number;
-	}
-
-	public void setZqy_player_Number(String zqy_player_Number) {
-		this.zqy_player_Number = zqy_player_Number;
-	}
-
-	private CollegeVoicePlayerBean collegeVoicePlayerBean;		//最强音选手
+	private String zqy_player_name;		//选手姓名
 	
 	public CollegeVoiceVideoBean() {
 	}
 
+	
 	public CollegeVoiceVideoBean(int zqy_video_id, String zqy_video_name, String zqy_video_url, Date zqy_video_date,
 			String zqy_video_pic_url, int zqy_video_played_number, String zqy_video_intro, String zqy_video_uploader,
-			CollegeVoicePlayerBean collegeVoicePlayerBean) {
+			String zqy_player_name) {
 		super();
 		this.zqy_video_id = zqy_video_id;
 		this.zqy_video_name = zqy_video_name;
@@ -47,79 +39,65 @@ public class CollegeVoiceVideoBean extends Bean  {
 		this.zqy_video_played_number = zqy_video_played_number;
 		this.zqy_video_intro = zqy_video_intro;
 		this.zqy_video_uploader = zqy_video_uploader;
-		this.collegeVoicePlayerBean = collegeVoicePlayerBean;
+		this.zqy_player_name = zqy_player_name;
 	}
+
 
 	public int getZqy_video_id() {
 		return zqy_video_id;
 	}
-
 	public void setZqy_video_id(int zqy_video_id) {
 		this.zqy_video_id = zqy_video_id;
 	}
-
 	public String getZqy_video_name() {
 		return zqy_video_name;
 	}
-
 	public void setZqy_video_name(String zqy_video_name) {
 		this.zqy_video_name = zqy_video_name;
 	}
-
 	public String getZqy_video_url() {
 		return zqy_video_url;
 	}
-
 	public void setZqy_video_url(String zqy_video_url) {
 		this.zqy_video_url = zqy_video_url;
 	}
-
 	public Date getZqy_video_date() {
 		return zqy_video_date;
 	}
-
 	public void setZqy_video_date(Date zqy_video_date) {
 		this.zqy_video_date = zqy_video_date;
 	}
-
 	public String getZqy_video_pic_url() {
 		return zqy_video_pic_url;
 	}
-
 	public void setZqy_video_pic_url(String zqy_video_pic_url) {
 		this.zqy_video_pic_url = zqy_video_pic_url;
 	}
-
 	public int getZqy_video_played_number() {
 		return zqy_video_played_number;
 	}
-
 	public void setZqy_video_played_number(int zqy_video_played_number) {
 		this.zqy_video_played_number = zqy_video_played_number;
 	}
-
 	public String getZqy_video_intro() {
 		return zqy_video_intro;
 	}
-
 	public void setZqy_video_intro(String zqy_video_intro) {
 		this.zqy_video_intro = zqy_video_intro;
 	}
-
 	public String getZqy_video_uploader() {
 		return zqy_video_uploader;
 	}
-
 	public void setZqy_video_uploader(String zqy_video_uploader) {
 		this.zqy_video_uploader = zqy_video_uploader;
 	}
-
-	public CollegeVoicePlayerBean getCollegeVoicePlayerBean() {
-		return collegeVoicePlayerBean;
+	public String getZqy_player_name() {
+		return zqy_player_name;
 	}
-
-	public void setCollegeVoicePlayerBean(CollegeVoicePlayerBean collegeVoicePlayerBean) {
-		this.collegeVoicePlayerBean = collegeVoicePlayerBean;
+	public void setZqy_player_name(String zqy_player_name) {
+		this.zqy_player_name = zqy_player_name;
 	}
+	
 
+	
 }

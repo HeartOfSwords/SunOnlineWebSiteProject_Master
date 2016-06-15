@@ -1,4 +1,4 @@
-package com.sunonline.web.webpai.bean.videos;
+package com.sunonline.web.webapi.bean.videos;
 
 import java.sql.Date;
 

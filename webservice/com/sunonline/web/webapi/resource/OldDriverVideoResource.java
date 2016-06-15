@@ -14,8 +14,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.sunonline.web.webpai.bean.videos.OldDriverVideoBean;
 import com.sunonline.web.utils.DBUtils;
+import com.sunonline.web.webapi.bean.videos.OldDriverVideoBean;
 
 /**
  * 影视老司机资源

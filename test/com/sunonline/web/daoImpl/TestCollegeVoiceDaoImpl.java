@@ -19,7 +19,7 @@ public class TestCollegeVoiceDaoImpl {
 	
 	@Test
 	public void testAddPlayedTime() {
-		new CollegeVoiceVideoDaoImpl().addPlayTimeNumber(1);
+		new CollegeVoiceVideoDaoImpl().addPlayTimeNumber(6);
 	}
 	
 	@Test
