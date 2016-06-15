@@ -63,7 +63,7 @@
 					<li><a href="index.jsp">首页</a></li>
 					<li><a href="HigoPager">HIGO大学季</a></li>
 					<li><a href="OldDriverPager">影视老司机</a></li>
-					<li><a href="#">高校最强音</a></li>
+					<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
 					<li><a href="#">高校人物风采录</a></li>
 					<li><a href="#">山西高校图片库</a></li>
 					<li><a href="#">其它</a></li>
@@ -86,8 +86,8 @@
 			<!-- 路径部分开始-->
 			<div class="nav-content min_height">
 				<ol class="breadcrumb">
-					<li><a href="#">首页</a></li>
-					<li class="active">HIGO大学季</li>
+					<li><a href="index.jsp">首页</a></li>
+					<li class="active">影视老司机</li>
 				</ol>
 
 			</div>
