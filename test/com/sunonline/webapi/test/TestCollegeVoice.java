@@ -10,6 +10,6 @@ public class TestCollegeVoice {
 	public void testGetByID() {
 		System.out.println(new CollegeVoiceVideoResource().getCollegeVoiceVideoRecommendation().size());
 		System.out.println(new CollegeVoiceVideoResource().fetchAllVideos().size());
-		System.out.println(new CollegeVoiceVideoResource().getVideoByID(6).getVideoId());
+		System.out.println(new CollegeVoiceVideoResource().getVideoByID(1).getVideoId());
 	}
 }

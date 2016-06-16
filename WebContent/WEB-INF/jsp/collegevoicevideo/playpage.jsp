@@ -81,7 +81,7 @@
 					<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
 					<li><a href="#">高校人物风采录</a></li>
 					<li><a href="#">山西高校图片库</a></li>
-					<li><a href="#">其它</a></li>
+					<li><a href="aboutUs.html">关于我们</a></li>
 				</ul>
 				<ul class="list-unstyled list-inline nav-style right_float">
 					<li><a href="#">登录</a></li>|
