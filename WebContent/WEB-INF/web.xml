@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>SunOnlineWebSiteProject_Master</display-name>
   <welcome-file-list>
+  <welcome-file>IndexRouter</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -132,5 +133,15 @@
   <servlet-mapping>
     <servlet-name>CollegeVoiceVideoPlayPage</servlet-name>
     <url-pattern>/CollegeVoiceVideoPlayPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>首页路由</description>
+    <display-name>IndexRouter</display-name>
+    <servlet-name>IndexRouter</servlet-name>
+    <servlet-class>com.sunonline.web.service.index.IndexRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexRouter</servlet-name>
+    <url-pattern>/IndexRouter</url-pattern>
   </servlet-mapping>
 </web-app>
