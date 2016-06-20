@@ -60,7 +60,7 @@
 			<div class="nav-content">
 				<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
-					<li><a href="index.jsp">首页</a></li>
+					<li><a href="IndexRouter">首页</a></li>
 					<li><a href="HigoPager">HIGO大学季</a></li>
 					<li><a href="OldDriverPager">影视老司机</a></li>
 					<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
