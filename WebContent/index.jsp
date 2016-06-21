@@ -12,8 +12,6 @@
 </head>
 <body>
 
-<h1><a href="OldDriverPager">影视老司机</a></h1>
-<h1><a href="CollegeVoiceVideoPager">高校最强音</a></h1>
 <%
 	//Higo列表
 	List<HigoVideoBean> higoVideoBeans = (List<HigoVideoBean>)request.getAttribute("higoVideoBeans");
@@ -27,13 +25,13 @@
 <!-- Higo大学季第一条数据 -->
 <%
 	HigoVideoBean higoVideoBean = higoVideoBeans.get(0);
-	String videoName = higoVideoBean.getHigoVideoName();
-	String videoPicUrl = higoVideoBean.getHigoVideoPicUrl();
-	Integer playTime = higoVideoBean.getHigoVideoPlayedNumber();
+	String HvideoName = higoVideoBean.getHigoVideoName();
+	String HvideoPicUrl = higoVideoBean.getHigoVideoPicUrl();
+	Integer HplayTime = higoVideoBean.getHigoVideoPlayedNumber();
 %>
-<div>视频名<%=videoName %></div><br/>
-<div>截图地址<%=videoPicUrl %></div><br/>
-<div>播放次数<%=playTime %></div><br/>
+<div>视频名<%=HvideoName %></div><br/>
+<div>截图地址<%=HvideoPicUrl %></div><br/>
+<div>播放次数<%=HplayTime %></div><br/>
 ================
 <h2>迭代剩余数据</h2>
 <%
@@ -44,6 +42,61 @@
 		<div>视频名<%=higoVideoBeans.get(i).getHigoVideoName() %></div><br/>
 		<div>截图地址<%=higoVideoBeans.get(i).getHigoVideoPicUrl() %></div><br/>
 		<div>播放次数<%=higoVideoBeans.get(i).getHigoVideoPlayedNumber() %></div><br/>
+<% 	
+		}
+	}
+	
+%>
+
+<h1><a href="OldDriverPager">影视老司机</a></h1>
+<h2>影视老司机第一条</h2>
+<!-- 影视老司机第一条数据 -->
+<%
+	OldDriverVideoBean oldDriverVideoBean = oldDriverVideoBeans.get(0);
+	String OvideoName = oldDriverVideoBean.getLSJ_video_name();
+	String OvideoPicUrl = oldDriverVideoBean.getLSJ_video_pic_url();
+	Integer OplayTime = oldDriverVideoBean.getLSJ_video_played_number();
+%>
+<div>视频名<%=OvideoName %></div><br/>
+<div>截图地址<%=OvideoPicUrl %></div><br/>
+<div>播放次数<%=OplayTime %></div><br/>
+================
+<h2>迭代剩余数据</h2>
+<%
+	if(oldDriverVideoBeans != null && oldDriverVideoBeans.size() > 0) {
+		for(int i = 1; i < oldDriverVideoBeans.size(); i++) {
+%>
+	
+		<div>视频名<%=oldDriverVideoBeans.get(i).getLSJ_video_name() %></div><br/>
+		<div>截图地址<%=oldDriverVideoBeans.get(i).getLSJ_video_pic_url() %></div><br/>
+		<div>播放次数<%=oldDriverVideoBeans.get(i).getLSJ_video_played_number() %></div><br/>
+<% 	
+		}
+	}
+	
+%>
+<h1><a href="CollegeVoiceVideoPager">高校最强音</a></h1>
+<h2>高校最强音第一条</h2>
+<!-- 高校最强音第一条数据 -->
+<%
+	CollegeVoiceVideoBean collegeVoiceVideoBean = collegeVoiceVideoBeans.get(0);
+	String CvideoName = collegeVoiceVideoBean.getZqy_video_name();
+	String CvideoPicUrl = collegeVoiceVideoBean.getZqy_video_pic_url();
+	Integer CplayTime = collegeVoiceVideoBean.getZqy_video_played_number();
+%>
+<div>视频名<%=CvideoName %></div><br/>
+<div>截图地址<%=CvideoPicUrl %></div><br/>
+<div>播放次数<%=CplayTime %></div><br/>
+================
+<h2>迭代剩余数据</h2>
+<%
+	if(collegeVoiceVideoBeans != null && collegeVoiceVideoBeans.size() > 0) {
+		for(int i = 1; i < collegeVoiceVideoBeans.size(); i++) {
+%>
+	
+		<div>视频名<%=collegeVoiceVideoBeans.get(i).getZqy_video_name() %></div><br/>
+		<div>截图地址<%=collegeVoiceVideoBeans.get(i).getZqy_video_pic_url() %></div><br/>
+		<div>播放次数<%=collegeVoiceVideoBeans.get(i).getZqy_video_played_number() %></div><br/>
 <% 	
 		}
 	}

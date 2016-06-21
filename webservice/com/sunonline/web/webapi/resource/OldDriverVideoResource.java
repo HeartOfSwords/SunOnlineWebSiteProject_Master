@@ -23,7 +23,7 @@ import com.sunonline.web.webapi.bean.videos.OldDriverVideoBean;
  * 2016.6.7
  */
 @Path(value = "")
-public class OldDriverVideoResource {
+public class OldDriverVideoResource  {
 	
 	/*
 	 * 获取所有视频
@@ -164,4 +164,5 @@ public class OldDriverVideoResource {
 		return oldDirverVideoBeans;
 
 	}
+
 }

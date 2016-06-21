@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.sunonline.web.utils.DBUtils;
 import com.sunonline.web.webapi.bean.videos.CollegeVoiceVideoBean;
+import com.sunonline.web.webapi.bean.videos.HigoVideoBean;
 
 /**
  * 高校最强音资源
@@ -23,7 +24,7 @@ import com.sunonline.web.webapi.bean.videos.CollegeVoiceVideoBean;
  * 2016.6.2
  */
 @Path(value = "")
-public class CollegeVoiceVideoResource {
+public class CollegeVoiceVideoResource  {
 	
 	/*
 	 * 按照期数获取
@@ -165,4 +166,5 @@ public class CollegeVoiceVideoResource {
 		return collegeVoiceVideoBeans;
 
 	}
+
 }
