@@ -64,12 +64,15 @@ public class IndexResource {
 	private List<Recommendation> buildcollegeVoiceRecommendation() {
 		// 最强音推荐
 		List<Recommendation> collegeVoiceRecommendations = new ArrayList<>();
-		// Recommendation实体
-		Recommendation recommendation = new Recommendation();
+		
+		
 		// 最强音列表读取
 		List<CollegeVoiceVideoBean> collegeVoiceBeans = new CollegeVoiceVideoResource()
 				.getCollegeVoiceVideoRecommendation();
 		for (CollegeVoiceVideoBean collegeVoiceVideoBean : collegeVoiceBeans) {
+			
+			// Recommendation实体
+			Recommendation recommendation = new Recommendation();
 			// 遍历原始数据重新组装bean
 			recommendation.setVideoDate(collegeVoiceVideoBean.getVideoDate());
 			recommendation.setVideoId(collegeVoiceVideoBean.getVideoId());
@@ -102,11 +105,12 @@ public class IndexResource {
 	private List<Recommendation> buildOldDriverRecommendation() {
 		// 老司机推荐
 		List<Recommendation> oldDriverRecommendations = new ArrayList<>();
-		// Recommendation实体
-		Recommendation recommendation = new Recommendation();
+		
 		// 老司机列表读取
 		List<OldDriverVideoBean> higoVideoBeans = new OldDriverVideoResource().getOldDriverVideoRecommendation();
 		for (OldDriverVideoBean oldDriverVideoBean : higoVideoBeans) {
+			// Recommendation实体
+			Recommendation recommendation = new Recommendation();
 			// 遍历原始数据重新组装bean
 			recommendation.setVideoDate(oldDriverVideoBean.getVideoDate());
 			recommendation.setVideoId(oldDriverVideoBean.getVideoId());
@@ -139,11 +143,12 @@ public class IndexResource {
 	private List<Recommendation> buildHigoRecommendation() {
 		// higo推荐
 		List<Recommendation> higoRecommendations = new ArrayList<>();
-		// Recommendation实体
-		Recommendation recommendation = new Recommendation();
+		
 		// higo列表读取
 		List<HigoVideoBean> higoVideoBeans = new HigoVideoResource().getHigoVideoRecommendation();
 		for (HigoVideoBean higoVideoBean : higoVideoBeans) {
+			// Recommendation实体
+			Recommendation recommendation = new Recommendation();
 			// 遍历原始数据重新组装bean
 			recommendation.setVideoDate(higoVideoBean.getVideoDate());
 			recommendation.setVideoId(higoVideoBean.getVideoId());

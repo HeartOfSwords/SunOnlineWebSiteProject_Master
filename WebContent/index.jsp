@@ -29,6 +29,7 @@
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/navbar_scroll.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/eggShell.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<style>
 		/**

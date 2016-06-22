@@ -59,15 +59,16 @@ public class WebApiDescriptionResource {
 		collegeVoicePathDescription.setIntroduceMessage("");
 		links.add(collegeVoicePathDescription);
 		
-		//高校最强音列表项
+		//主页推荐列表项
 		WebApiLinks indexPathDescription = new WebApiLinks();
-		collegeVoicePathDescription.setRel("collection, webapi/videos/main");
-		collegeVoicePathDescription.setHref("webapi/videos/main");
-		collegeVoicePathDescription.setTitle("主页推荐视频");
-		collegeVoicePathDescription.setType("MediaType.APPLICATION_JSON");
-		collegeVoicePathDescription.setPicUrl("");
-		collegeVoicePathDescription.setIntroduceMessage("");
+		indexPathDescription.setRel("collection, webapi/videos/main");
+		indexPathDescription.setHref("webapi/videos/main");
+		indexPathDescription.setTitle("主页推荐视频");
+		indexPathDescription.setType("MediaType.APPLICATION_JSON");
+		indexPathDescription.setPicUrl("");
+		indexPathDescription.setIntroduceMessage("");
 		links.add(indexPathDescription);
+		
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
