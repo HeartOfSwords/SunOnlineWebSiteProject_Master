@@ -20,7 +20,7 @@ public class TestOldDriverVideoDaoImpl {
 	
 	@Test
 	public void testGetByID() {
-		OldDriverVideoBean oldDriverVideoBean = new OldDriverVideoDaoImpl().getOldDriverVideoByID(9);
+		OldDriverVideoBean oldDriverVideoBean = new OldDriverVideoDaoImpl().getOldDriverVideoByID(1);
 		System.out.println(oldDriverVideoBean.getLSJ_video_intro());
 	}
 	

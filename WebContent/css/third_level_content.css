@@ -1,0 +1,189 @@
+body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.content{
+	margin-top: 11px;
+}
+/**
+ * content-vedio-play部分的CSS样式
+ */
+/*.content .content-vedio-play video{
+	width: 970px;
+	height: 500px;
+	margin-top: 9px;
+}*/
+.content .content-vedio-play .video-player{
+	width: 970PX;
+	margin: 0 auto;
+}
+.content .content-vedio-play .fixed-advertisement-left{
+	border: 1px solid red;
+    height: 280px;
+    width: 100px;
+    position: fixed;
+    left: 35px;
+    top: 50%;
+    margin-top: -140px;
+    /**
+     * 目前隐藏广告位
+     */
+    display: none;
+}
+.content .content-vedio-play .fixed-advertisement-right{
+	border: 1px solid red;
+    height: 280px;
+    width: 100px;
+    position: fixed;
+    top: 50%;
+    right: 35px;
+    margin-top: -140px;
+    /**
+     * 目前隐藏广告位
+     */
+    display: none;
+}
+.content .content-vedio-play .video-title{
+	width: 970px;
+	margin: 0 auto;
+	position: relative;
+}
+.content .content-vedio-play .video-title .video-advertisement-top{
+	border: 1px solid red;
+    width: 330px;
+    height: 68px;
+    position: absolute;
+    right: 0px;
+    top: 49px;
+    /**
+     * 目前隐藏广告位
+     */
+    display: none;
+}
+
+.content .content-vedio-play .video-title .video-info{
+	padding-bottom: 6px;
+    padding-left: 15px;
+}
+.content .content-vedio-play .video-title .video-info i{
+	font-size: 15px;
+    color: #777777;
+}
+.content .content-vedio-play .video-title .video-info span{
+	font-size: 14px;
+}
+.content .content-vedio-play .video-title .video-info .left-move{
+	padding-left: 10px;
+}
+.content .content-vedio-play .video-title .video-title-logo{
+	width: 105px;
+	height: 35px;
+	position: relative;
+}
+.content .content-vedio-play .video-title .video-rode-nav{
+	padding-top: 22px;
+}
+.content .content-vedio-play .video-title .video-rode-nav .breadcrumb{
+	background-color: #ffffff;
+	padding-bottom: 0px;
+    margin-bottom: 12px;
+}
+.content .content-vedio-play .video-title .video-title-logo .video-title-logo-img{
+	display: inline-block;
+    width: 105px;
+    height: 35px;
+    position: absolute;
+    margin-left: 8px;
+    margin-top: 7px;
+}
+.content .content-vedio-play .video-title .video-title-logo .video-title-logo-icon{
+	font-size: 25px;
+    margin-top: 14px;
+    color: rgba(52, 218, 228, 0.77);
+}
+
+/**
+ * content-video-intro部分的CSS样式
+ */
+.content-video-intro{
+	width: 970px;
+    height: 140px;
+    margin: 0 auto;
+    margin-top: 16px;
+    padding-top: 8px;
+    color: #9d9d9d;
+}
+.content-video-intro .video-intro-control{
+	position: relative;
+    height: 54px;
+}
+.content-video-intro .video-intro-control .control-words{
+	position: absolute;
+    left: 70px;
+    top: 0px;
+}
+/**
+ * content-review-recommend部分的CSS样式
+ */
+.content-review-recommend {
+    width: 970px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+.content-review-recommend .review {
+    width: 690px;
+    float: left;
+    padding: 0px 15px;
+}
+.content-review-recommend .recommend {
+    height: 588px;
+    right: 0px;
+    top: -2px;
+    width: 260px;
+    float: left;
+    padding: 0px 15px;
+}
+.content-review-recommend .recommend-content{
+	width: 220px;
+    height: 120px;
+    
+    margin-left: 4px;
+    margin-top: 10px;
+}
+.content-review-recommend .recommend-logo{
+	
+}
+.content-review-recommend .recommend-logo .recommend-logo-icon{
+	font-size: 15px;
+	vertical-align: top;
+    padding-top: 8px;
+    color: #66e3ea;
+}
+.content-review-recommend .recommend-logo .recommend-logo-img {
+    background-image: url(../img/higo_recommend.png);
+    width: 105px;
+    height: 35px;
+    margin-left: 8px;
+    margin-top: 2px;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 3px;
+}
+.content-review-recommend .recommend-content .recommend-content-img{
+	width: 220px;
+	height: 85px;
+}
+.content-review-recommend .recommend-content .recommend-content-img img{
+	width: 220px;
+	height: 85px;
+}
+.content-review-recommend .recommend-content .recommend-content-title{
+	width: 220px;
+	height: 30px;
+	padding-top: 5px;
+	color: #7b7070;
+}
+.content-review-recommend .recommend .divider{
+	border-bottom: 1px solid #CCCCCC;
+}

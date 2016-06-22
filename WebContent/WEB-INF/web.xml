@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>SunOnlineWebSiteProject_Master</display-name>
   <welcome-file-list>
+  <welcome-file>IndexRouter</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -9,6 +10,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description>后台服务配置</description>
+    <servlet-name>webservice</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.sunonline.web.webapi</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>webservice</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description>管理员登录路由</description>
     <display-name>AdminLoginPageRouter</display-name>
@@ -59,7 +74,6 @@
     <filter-name>AdminSessionCheckFilter</filter-name>
     <url-pattern>/WEB-INF/jsp/admin/index.jsp</url-pattern>
   </filter-mapping>
- 
   <servlet>
     <description>Higo大学季分页重定向二级页面</description>
     <display-name>HigoVideoPager</display-name>
@@ -100,20 +114,34 @@
     <servlet-name>OldDriverVideoPlayPage</servlet-name>
     <url-pattern>/OldDriverVideoPlayPage</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
-    <description>后台服务配置</description>
-    <servlet-name>webservice</servlet-name>
-    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-    <init-param>
-      <param-name>jersey.config.server.provider.packages</param-name>
-      <param-value>com.sunonline.web.webapi</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
+  <servlet>
+    <description>最强音播放页二级页面</description>
+    <display-name>CollegeVoiceVideoPager</display-name>
+    <servlet-name>CollegeVoiceVideoPager</servlet-name>
+    <servlet-class>com.sunonline.web.service.collegevoice.CollegeVoiceVideoPager</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>webservice</servlet-name>
-    <url-pattern>/webapi/*</url-pattern>
+    <servlet-name>CollegeVoiceVideoPager</servlet-name>
+    <url-pattern>/CollegeVoiceVideoPager</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description>最强音播放页三级页面</description>
+    <display-name>CollegeVoiceVideoPlayPage</display-name>
+    <servlet-name>CollegeVoiceVideoPlayPage</servlet-name>
+    <servlet-class>com.sunonline.web.service.collegevoice.CollegeVoiceVideoPlayPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CollegeVoiceVideoPlayPage</servlet-name>
+    <url-pattern>/CollegeVoiceVideoPlayPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>首页路由</description>
+    <display-name>IndexRouter</display-name>
+    <servlet-name>IndexRouter</servlet-name>
+    <servlet-class>com.sunonline.web.service.index.IndexRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexRouter</servlet-name>
+    <url-pattern>/IndexRouter</url-pattern>
+  </servlet-mapping>
 </web-app>

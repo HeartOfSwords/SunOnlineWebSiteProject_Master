@@ -23,7 +23,7 @@ public class TestHigoVideoDaoImpl {
 	
 	@Test
 	public void testGetByID() {
-		HigoVideoBean higoVideoBean = new HigoVideoDaoImpl().getHigoVideoByID(261);
+		HigoVideoBean higoVideoBean = new HigoVideoDaoImpl().getHigoVideoByID(1);
 		System.out.println(higoVideoBean.getHigoVideoIntro() + 
 				new SimpleDateFormat().format(higoVideoBean.getHigoVideoDate()));
 	}

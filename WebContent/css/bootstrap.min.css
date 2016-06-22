@@ -1,4 +1,4 @@
-/*!
+/*
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1989,7 +1989,7 @@ pre code {
 
 @media (min-width:768px) {
 	.container {
-		width: 750px
+		width: 970px
 	}
 }
 
@@ -2001,7 +2001,7 @@ pre code {
 
 @media (min-width:1200px) {
 	.container {
-		width: 970px
+		width: 1170px
 	}
 }
 

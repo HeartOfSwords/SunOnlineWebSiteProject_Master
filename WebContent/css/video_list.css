@@ -1,0 +1,199 @@
+@charset "utf-8";
+a {
+	color: #000;
+}
+
+a:hover {
+	color: #337ab7;
+}
+
+.content {
+	position: relative;
+	width: 1024px;
+	margin: 15px 0;
+	float: left;
+}
+
+#left {
+	width: 740px;
+	min-height: 600px; //关键部分代码
+}
+
+#right {
+	position: absolute;
+	right: 2px;
+	top: 53px;
+	width: 260px;
+	height: 588px;
+	padding: 0px 15px;
+}
+
+#right dl dd {
+	padding-top: 10px;
+}
+
+.left_item {
+	width: 350px;
+	height: 188px;
+	float: left;
+	margin-right: 20px;
+	margin-top: 20px;
+	z-index: 100;
+	position: relative;
+	background-color: #f9f9f9;
+}
+
+.footer {
+	float: left;
+}
+
+.recommend-logo-img {
+	width: 105px;
+	height: 35px;
+	display: inline-block;
+	background-image: url(../img/recommend_video.png);
+}
+
+#right .recommend-logo i {
+	vertical-align: top;
+	margin-top: -6px;
+	font-size: 15px;
+	color: #9FA298;
+}
+
+.divider {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#lunbo {
+	width: 720px;
+	height: 250px;
+	text-align: center;
+	font-size: 50px;
+	line-height: 200px;
+}
+
+.page_roll {
+	width: 578px;
+	height: 36px;
+	clear: both;
+	float: right;
+	margin-top: 17px;
+}
+
+.min_height {
+	height: 38px;
+	margin-bottom: 15px;
+	width: 1022px;
+}
+
+.btn-group-vertical>.btn,
+.btn-group>.btn {
+	width: 100px;
+}
+
+.carousel-inner {
+	height: 249px;
+}
+
+
+.carousel-inner>.item>img {
+    height: 249px;
+    width: 100%;
+}
+
+.carousel-indicators {
+	bottom: -70px;
+}
+
+.carousel-control {
+	font-size: 120px;
+}
+
+.btn-group {
+	left: -92px;
+	width: 578px;
+}
+
+
+/*中间部分内容*/
+
+.demo-img {
+	width: 160px;
+	height: 100px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.demo-img img {
+	width: 160px;
+	height: 100px;
+	border-radius: 6px;
+}
+
+.demo-content {
+	position: absolute;
+	width: 161px;
+	top: 10px;
+	right: 10px;
+	bottom: 4px;
+	height: ;
+}
+
+.demo-content .demo-content-title {
+	margin-top: 4px;
+	margin-left: 4px;
+	width: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.demo-content .demo-content-intro {
+	width: 161px;
+	overflow: hidden;
+	height: 55px;
+	margin-left: 4px;
+	margin-top: 11px;
+	line-height: 1.3em;
+	color: #99a2aa;
+}
+
+.demo-content .demo-content-foot {
+	width: 161px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	height: 30px;
+	margin-left: 4px;
+	margin-top: 9px;
+	color: #99a2aa;
+}
+
+.demo-content .demo-content-foot .demo-foot-usericon {
+	font-size: 14px;
+	top: 0px;
+	margin-top: 7px;
+	padding-left: 0px;
+}
+
+.demo-content .demo-content-foot .demo-foot-username {
+	font-size: 12px;
+	display: inline-block;
+	width: 51px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.demo-content .demo-content-foot .demo-foot-playtime {
+	padding-left: 10px;
+}
+
+
+/*广告部分css*/
+
+.adviertisement {
+	width: 100%;
+	height: 450px;
+}

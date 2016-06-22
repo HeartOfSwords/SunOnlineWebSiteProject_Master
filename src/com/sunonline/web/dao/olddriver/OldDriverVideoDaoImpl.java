@@ -37,7 +37,7 @@ public class OldDriverVideoDaoImpl implements OldDriverVideoDao {
 		//获取数据库中数据
 		Connection connection = new DBUtils().getCon();
 		//构造SQL查询视图
-		String sql = "select * from old_driver_video_view";
+		String sql = "select * from old_driver_video_view order by LSJ_video_id desc";
 		PreparedStatement pstmt;
 		try {
 			pstmt = connection.prepareStatement(sql);
@@ -80,7 +80,7 @@ public class OldDriverVideoDaoImpl implements OldDriverVideoDao {
 		//每页包含视频信息列表
 		List<OldDriverVideoBean> oldDriverVideoList = null;
 		
-		String sql = "select * from old_driver_video_view limit ?,?";				 // 分页sql
+		String sql = "select * from old_driver_video_view order by LSJ_video_id desc limit ?,?";				 // 分页sql
 		try {
 			int startIndex = (current_pageNo - 1) * OldDriverPagerBean.PAGE_SIZE; // 起始下标
 			int per_rows = OldDriverPagerBean.PAGE_SIZE; 						 // 每页数目

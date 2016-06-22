@@ -33,12 +33,34 @@
 		<meta http-equiv="Cache" content="no-cache">
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/higovideo_header.css" />
+		<link rel="stylesheet" href="css/video_header.css" />
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
 		<link rel="stylesheet" type="text/css" href="css/video-js.min.css" />
-		<link rel="stylesheet" href="css/content.css" />
+		<link rel="stylesheet" type="text/css" href="css/third_level_content.css" />
 		<script src="js/video.min.js" type="text/javascript" charset="utf-8"></script>
-
+		<style type="text/css">
+		/**
+		 	 * 将毛玻璃的背景图和顶部背景图提取为公共属性
+		 	 * 将每个模块的特有的Logo提取为公共属性
+		     */
+			
+			.nav_back {
+				background-image: url(img/higo_title.png);
+			}
+			
+			.column_logo {
+				background-image: url(img/higo_title.png);
+			}
+			
+			.video-title-logo-img {
+				background-image: url(img/higo_logo.png);
+			}
+			
+			.content-review-recommend .recommend-logo .recommend-logo-img {
+				background-image: url(img/higo_third_rec.png);
+			}
+		}
+		</style>
 </head>
 <body>
 	<!--标题导航栏开始   -->
@@ -49,13 +71,13 @@
 			<div class="nav-content">
 				<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
-					<li><a href="index.jsp">首页</a></li>
+					<li><a href="IndexRouter">首页</a></li>
 					<li><a href="HigoPager">HIGO大学季</a></li>
-					<li><a href="#">影视老司机</a></li>
-					<li><a href="#">高校最强音</a></li>
+					<li><a href="OldDriverPager">影视老司机</a></li>
+					<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
 					<li><a href="#">高校人物风采录</a></li>
 					<li><a href="#">山西高校图片库</a></li>
-					<li><a href="#">其它</a></li>
+					<li><a href="aboutUs.html">关于我们</a></li>
 				</ul>
 				<ul class="list-unstyled list-inline nav-style right_float">
 					<li><a href="#">登录</a></li>|
@@ -83,7 +105,7 @@
 					</div>
 					<div class="video-rode-nav">
 						<ol class="breadcrumb">
-							<li><a href="index.jsp">首页</a></li>
+							<li><a href="IndexRouter">首页</a></li>
 							<li><a href="HigoPager">HIGO大学季</a></li>
 							<li class="active"><%=video_name %></li>
 						</ol>
@@ -107,7 +129,7 @@
 				</div>
 				<!--video.js播放器开始-->
 				<div class="video-player">
-					<video id="videojs" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" data-setup='' poster="<%=pic_url %>">
+					<video id="videojs" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" data-setup='' poster="<%=pic_url %>" width="970px" height="540px">
 						<source id="mp4" src="<%=video_url %>" type="video/mp4"/>
 					</video>
 				</div>

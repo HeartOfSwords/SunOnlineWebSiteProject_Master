@@ -1,0 +1,65 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+a:hover{
+	text-decoration: none;
+}
+.title-img {
+	height: 300px;
+	margin-top: 50px;
+}
+
+.breadcrumb {
+	margin: 10px auto;
+	width: 1140px;
+	font-size: 22px;
+}
+
+.breadcrumb li>a {
+	font-weight: bold;
+}
+
+.hugeScreen {
+	width: 1170px;
+}
+
+.nav-margin {
+	margin-left: 12px;
+}
+
+.company-intro-content {
+	display: none;
+}
+
+.thumbnail {
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, .5);
+}
+
+.thumbnail>img {
+	height: 240px;
+}
+.return{
+	width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 45px;
+    right: 45px;
+}
+
+.return-top{
+	font-size: 53px;
+	color: rgb(51, 164, 183);
+}
+.navbar-default {
+    background-color: rgba(168, 233, 252, 0.85);
+    border-color: #e7e7e7;
+}
+.jumbotron p{
+	text-indent: 2em;
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 0;
+}

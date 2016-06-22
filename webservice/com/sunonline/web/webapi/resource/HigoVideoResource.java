@@ -14,8 +14,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.sunonline.web.bean.HigoVideoBean;
 import com.sunonline.web.utils.DBUtils;
+import com.sunonline.web.webapi.bean.videos.HigoVideoBean;
 
 /**
  * Higo大学季资源
@@ -158,4 +158,5 @@ public class HigoVideoResource {
 		return higoVideoBeans;
 
 	}
+
 }
