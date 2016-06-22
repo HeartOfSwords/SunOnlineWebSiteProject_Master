@@ -86,7 +86,7 @@
 			<!-- 路径部分开始-->
 			<div class="nav-content min_height">
 				<ol class="breadcrumb">
-					<li><a href="index.jsp">首页</a></li>
+					<li><a href="IndexRouter">首页</a></li>
 					<li class="active">HIGO大学季</li>
 				</ol>
 

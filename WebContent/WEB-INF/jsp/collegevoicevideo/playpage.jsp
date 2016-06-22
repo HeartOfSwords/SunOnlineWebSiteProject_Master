@@ -109,7 +109,7 @@
 					</div>
 					<div class="video-rode-nav">
 						<ol class="breadcrumb">
-							<li><a href="index.jsp">首页</a></li>
+							<li><a href="IndexRouter">首页</a></li>
 							<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
 							<li class="active"><%=video_name %></li>
 						</ol>

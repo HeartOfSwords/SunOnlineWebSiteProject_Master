@@ -110,7 +110,7 @@
 					</div>
 					<div class="video-rode-nav">
 						<ol class="breadcrumb">
-							<li><a href="index.jsp">首页</a></li>
+							<li><a href="IndexRouter">首页</a></li>
 							<li><a href="OldDriverPager">影视老司机</a></li>
 							<li class="active"><%=video_name %></li>
 						</ol>

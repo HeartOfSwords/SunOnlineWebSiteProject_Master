@@ -86,7 +86,7 @@
 			<!-- 路径部分开始-->
 			<div class="nav-content min_height">
 				<ol class="breadcrumb">
-					<li><a href="index.jsp">首页</a></li>
+					<li><a href="IndexRouter">首页</a></li>
 					<li class="active">影视老司机</li>
 				</ol>
 
