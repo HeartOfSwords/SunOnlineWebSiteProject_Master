@@ -13,5 +13,5 @@ public final class DBGlobal {
 	//用户名
 	public static final String DB_USERNAME = "root";
 	//密码
-	public static final String DB_PASSWORD = "";
+	public static final String DB_PASSWORD = "root";
 }
