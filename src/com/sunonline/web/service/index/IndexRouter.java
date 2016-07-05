@@ -46,7 +46,7 @@ public class IndexRouter extends HttpServlet {
 	private void getVideoInfos(HttpServletRequest request) {
 		IndexInfoDao indexInfoDao = new IndexInfoDaoImpl();
 		//获取Higo列表
-		List<HigoVideoBean> higoVideoBeans = indexInfoDao.fetchHigoList(7);
+		List<HigoVideoBean> higoVideoBeans = indexInfoDao.fetchHigoList(8);
 		//获取最强音列表
 		List<CollegeVoiceVideoBean> collegeVoiceVideoBeans = indexInfoDao.fetchCollegeVoiceList(7);
 		//获取老司机列表
