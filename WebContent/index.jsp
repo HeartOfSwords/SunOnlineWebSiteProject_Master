@@ -123,26 +123,26 @@
 				<div class="carousel-inner" role="listbox">
 					<!--第一张图片-->
 					<div class="item active">
-						<img src="img/index_1.jpg" alt="">
+						<img src="img/index_1.png" alt="">
 						<div class="carousel-caption">
 							<!--在图片上加入相关内容-->
 						</div>
 					</div>
 					<!--第二张图片-->
 					<div class="item">
-						<img src="img/index_2.jpg" alt="">
+						<img src="img/index_2.png" alt="">
 						<div class="carousel-caption">
 						</div>
 					</div>
 					<!--第三张图片-->
 					<div class="item">
-						<img src="img/index_1.jpg" alt="">
+						<img src="img/index_1.png" alt="">
 						<div class="carousel-caption">
 						</div>
 					</div>
 					<!--第四张图片-->
 					<div class="item">
-						<img src="img/index_4.jpg" alt="">
+						<img src="img/index_4.png" alt="">
 						<div class="carousel-caption">
 						</div>
 					</div>
@@ -233,88 +233,6 @@
 					
 				%>
 
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
 
 				<!--栏目引导位置-->
 				<a href="HigoPager">

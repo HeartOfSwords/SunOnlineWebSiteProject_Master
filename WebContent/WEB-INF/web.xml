@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>SunOnlineWebSiteProject_Master</display-name>
   <welcome-file-list>
-  <welcome-file>IndexRouter</welcome-file>
+    <welcome-file>IndexRouter</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -143,5 +143,35 @@
   <servlet-mapping>
     <servlet-name>IndexRouter</servlet-name>
     <url-pattern>/IndexRouter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>公益课堂播放三级页</description>
+    <display-name>MoocVideoPlayPage</display-name>
+    <servlet-name>MoocVideoPlayPage</servlet-name>
+    <servlet-class>com.sunonline.mooc.service.MoocVideoPlayPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MoocVideoPlayPage</servlet-name>
+    <url-pattern>/MoocVideoPlayPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>公益课堂二级菜单页</description>
+    <display-name>CoursesVideoPager</display-name>
+    <servlet-name>CoursesVideoPager</servlet-name>
+    <servlet-class>com.sunonline.mooc.service.CoursesVideoPager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CoursesVideoPager</servlet-name>
+    <url-pattern>/CoursesVideoPager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MoocIndexPager</display-name>
+    <servlet-name>MoocIndexPager</servlet-name>
+    <servlet-class>com.sunonline.mooc.service.MoocIndexPager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MoocIndexPager</servlet-name>
+    <url-pattern>/mooc</url-pattern>
   </servlet-mapping>
 </web-app>

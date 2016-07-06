@@ -2,12 +2,11 @@ package com.sunonline.web.webapi.resource;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
+import com.sunonline.web.global.StringGlobal;
 import com.sunonline.web.webapi.bean.IndexApiNode;
 import com.sunonline.web.webapi.bean.videos.CollegeVoiceVideoBean;
 import com.sunonline.web.webapi.bean.videos.HigoVideoBean;
@@ -51,9 +50,10 @@ public class IndexResource {
 		IndexApiNode collegeVoiceLists = new IndexApiNode();
 
 		collegeVoiceLists.setName("高校最强音");
-		collegeVoiceLists.setPicUrl("最强音栏目图片url");
+		collegeVoiceLists.setPicUrl("http://o95fizdxg.bkt.clouddn.com/iPhone%E6%9C%80%E5%BC%BA%E9%9F%B3.png");
 		collegeVoiceLists.setIntro("最强音介绍");
-		collegeVoiceLists.setPagerUrl("最强音分页url");
+		collegeVoiceLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/collegevoice/all");
+
 		// 组装最强音推荐列表
 		List<Recommendation> collegeVoiceRecommendations = buildcollegeVoiceRecommendation();
 		collegeVoiceLists.setRecommendations(collegeVoiceRecommendations);
@@ -93,9 +93,9 @@ public class IndexResource {
 		IndexApiNode oldDriverLists = new IndexApiNode();
 
 		oldDriverLists.setName("影视老司机");
-		oldDriverLists.setPicUrl("老司机栏目图片url");
+		oldDriverLists.setPicUrl("http://o95fizdxg.bkt.clouddn.com/iPhone%E8%80%81%E5%8F%B8%E6%9C%BA.png");
 		oldDriverLists.setIntro("老司机介绍");
-		oldDriverLists.setPagerUrl("老司机分页url");
+		oldDriverLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/olddriver/all");
 		List<Recommendation> oldDriverRecommendations = buildOldDriverRecommendation();
 		oldDriverLists.setRecommendations(oldDriverRecommendations);
 		return oldDriverLists;
@@ -131,9 +131,9 @@ public class IndexResource {
 		IndexApiNode higoLists = new IndexApiNode();
 
 		higoLists.setName("Higo大学季");
-		higoLists.setPicUrl("栏目图片url");
+		higoLists.setPicUrl("http://o95fizdxg.bkt.clouddn.com/iPhone%E5%A4%A7%E5%AD%A6%E5%AD%A3.png");
 		higoLists.setIntro("Higo大学季介绍");
-		higoLists.setPagerUrl("分页url");
+		higoLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/higovideo/all");
 		List<Recommendation> higoRecommendations = buildHigoRecommendation();
 		higoLists.setRecommendations(higoRecommendations);
 		return higoLists;

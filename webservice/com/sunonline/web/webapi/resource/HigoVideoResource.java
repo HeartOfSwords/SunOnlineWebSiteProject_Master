@@ -37,7 +37,7 @@ public class HigoVideoResource {
 		//获取数据库中数据
 		Connection connection = new DBUtils().getCon();
 		//构造SQL查询视图
-		String sql = "select * from higo_video_view";
+		String sql = "select * from higo_video_view order by HIGO_video_id desc";
 		PreparedStatement pstmt;
 		try {
 			pstmt = connection.prepareStatement(sql);
