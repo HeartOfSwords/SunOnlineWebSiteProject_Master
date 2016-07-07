@@ -139,6 +139,10 @@
     <display-name>IndexRouter</display-name>
     <servlet-name>IndexRouter</servlet-name>
     <servlet-class>com.sunonline.web.service.index.IndexRouter</servlet-class>
+ 	<init-param>
+ 		<param-name>profile</param-name>
+ 		<param-value>/WEB-INF/log4j.properties</param-value>
+ 	</init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>IndexRouter</servlet-name>
@@ -173,5 +177,15 @@
   <servlet-mapping>
     <servlet-name>MoocIndexPager</servlet-name>
     <url-pattern>/mooc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoteIpGetter</display-name>
+    <servlet-name>RemoteIpGetter</servlet-name>
+    <servlet-class>com.sunonline.web.global.RemoteIpGetter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoteIpGetter</servlet-name>
+    <url-pattern>/RemoteIpGetter</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -29,8 +29,8 @@
 <title>Higo大学季-<%=video_name %></title>
 </head>
 <body>
-<div>
-	<h2><p>播放器</p></h2>
+		<div>
+			<h2><p>播放器</p></h2>
 		</div>
 		<div class="video_player">
 			<video id="player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="640" height="264" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}">
