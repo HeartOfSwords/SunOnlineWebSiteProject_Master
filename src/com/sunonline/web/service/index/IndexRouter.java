@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.sunonline.web.bean.CollegeVoiceVideoBean;
 import com.sunonline.web.bean.HigoVideoBean;
 import com.sunonline.web.bean.OldDriverVideoBean;
@@ -23,7 +26,15 @@ import com.sunonline.web.dao.index.IndexInfoDaoImpl;
 public class IndexRouter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
+    @Override
+    public void init() throws ServletException {
+    	super.init();
+    	//获取路径名
+    	String path = getServletContext().getRealPath("/");
+    	String profile = path + getInitParameter("propfile");
+    	//配置log4j环境
+    	PropertyConfigurator.configure(profile);
+    }
     public IndexRouter() {
         super();
     }
@@ -36,6 +47,13 @@ public class IndexRouter extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
+		//获取远程主机ip及主机名并写入日志
+		String remoteHostAddress = request.getRemoteAddr();
+		String remoteHostName = request.getRemoteHost();
+		//lOG4J获取日志
+		Logger logger = Logger.getLogger("logger");
+		logger.info("远程主机ip:" + remoteHostAddress + "远程主机名：" + remoteHostName);
+		System.out.println("===========================================================");
 		//获取数据
 		getVideoInfos(request);
 		//页面重定向

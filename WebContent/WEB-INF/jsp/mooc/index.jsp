@@ -38,12 +38,12 @@ if (typeBeans != null && typeBeans.size() > 0) {
 			课程id：<%=coursesBean.getC_id() %><br/>
 			课程名：<%=coursesBean.getC_name() %><br/>
 			课程介绍：<%=coursesBean.getC_introduce() %><br/>
-			图片url：<%=coursesBean.getC_pic_url() %><br/>
+			图片url：<img alt="无效链接" src="<%=coursesBean.getC_pic_url() %>"><br/>
 			讲师名：<%=coursesBean.getC_teacher_name() %><br/>
 			讲师介绍：<%=coursesBean.getC_teacher_intro() %><br/>
 			类别id：<%=coursesBean.getT_id() %><br/>
 			<hr>
-			<%}} %>
+			<%}}%>
 	<hr>
 	
 <%}} %>

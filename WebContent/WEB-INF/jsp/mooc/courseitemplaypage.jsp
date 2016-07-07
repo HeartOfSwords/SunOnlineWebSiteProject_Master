@@ -31,6 +31,15 @@ mooc播放页
 	<%
 		if(courseListItemBean != null) {
 	%>
+	<div>
+			<h2><p>播放器</p></h2>
+		</div>
+		<div class="video_player">
+			<video id="player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="940" height="400" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}">
+		    		<source id="mp4" src="<%=cl_video_url %>" type="video/mp4"/>
+    		</video>
+		</div>
+		<hr>
 		课程条目id：<%=cl_id %><br/>
 		课程条目名称：<%=cl_name %><br/>
 		课程条目截图url：<%=cl_pic_url %><br/>
