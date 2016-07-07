@@ -1,0 +1,121 @@
+body {
+	font-family: "微软雅黑";
+}
+
+hr {
+	border-top: 1px solid #9E9E9E;
+}
+@media only screen and (max-width: 760px) {
+	.side-navbar{
+		display: none;
+	}
+}
+.container-fluid {
+	padding-right: 63px;
+	padding-left: 63px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.videojs-dimensions {
+	width: 100%;
+}
+
+.video-block {
+	background: rgba(239, 239, 239, 0.9);
+	width: 100%;
+}
+
+.combo-block {
+	background: rgba(0, 0, 255, 0.29);
+	;
+	width: 100%;
+}
+
+.breadcrumb {
+	padding: 8px 15px;
+	margin-bottom: 20px;
+	list-style: none;
+	background-color: #ffffff;
+	border-radius: 4px;
+	margin-top: 20px;
+	    box-shadow: 0px 0px 10px;
+}
+
+.navbar {
+	position: relative;
+	min-height: 50px;
+	margin-bottom: 0px;
+	border: 1px solid transparent;
+	box-shadow: 1px 0px 2px;
+}
+
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.dynamic_header {
+	display: none;
+	position: fixed;
+}
+
+.threeD-block {
+	background: #FFEB3B;
+	width: 100%;
+}
+
+
+/*
+ * 侧边导航栏样式
+ */
+
+.module {
+	width: 500px;
+	height: 500px;
+	border: 1px solid red;
+	margin: 0px auto;
+}
+
+.side-navbar {
+	width: 100px;
+	height: 200px;
+	position: fixed;
+	top: 50%;
+	margin-top: -150px;
+	left: 10px;
+	box-shadow: 0px 0px 5px;
+	border-radius: 18px;
+}
+
+.nav>li>a {
+	padding-left: 10px;
+	padding-right: 12px;
+}
+
+.return-top {
+	display: inline-block;
+	position: absolute;
+	top: 0px;
+	left:0px;
+	width: 99px;
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.distance-top {
+	margin-top: 50px;
+}
+
+.style-common {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.navbar-default .navbar-nav>.active>a {
+	border-radius: 18px;
+}

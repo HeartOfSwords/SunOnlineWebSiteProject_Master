@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.sunonline.web.webapi.bean.WebApiLinks;
@@ -222,6 +223,35 @@ public class WebApiDescriptionResource {
 		schools.setRel("collection, webapi/images/sxcollegepiclib/schools");
 		schools.setHref("webapi/images/sxcollegepiclib/schools");
 		schools.setTitle("山西高校图片库所有学校列表");
+		schools.setType("MediaType.APPLICATION_JSON");
+		links.add(schools);
+		//按学校名称获取对应学校的图片
+		WebApiLinks picsBySchoolName = new WebApiLinks();	
+		picsBySchoolName.setRel("collection, webapi/images/sxcollegepiclib/pictures/{schoolname}");
+		picsBySchoolName.setHref("webapi/images/sxcollegepiclib/pictures/{schoolname}");
+		picsBySchoolName.setTitle("山西高校图片库获取对应学校的照片");
+		picsBySchoolName.setType("MediaType.APPLICATION_JSON");
+		links.add(picsBySchoolName);
+		
+		webApiRoot.setLinks(links);
+		return webApiRoot;
+	}
+	
+	/**
+	 * 公益课堂路径描述HATEOAS
+	 */
+	@GET
+	@Path("/mooc")
+	@Produces(MediaType.APPLICATION_JSON)
+	public WebApiRoot getSMoocDescription() {
+		
+		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
+		List<WebApiLinks> links = new ArrayList<>();	//列表项
+		//获取所有学校
+		WebApiLinks schools = new WebApiLinks();	
+		schools.setRel("collection, webapi/mooc/index");
+		schools.setHref("webapi/mooc/index");
+		schools.setTitle("公益课堂所有分类及其之下的视频列表");
 		schools.setType("MediaType.APPLICATION_JSON");
 		links.add(schools);
 		//按学校名称获取对应学校的图片

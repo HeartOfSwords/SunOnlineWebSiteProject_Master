@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/footer.css" />
 <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>

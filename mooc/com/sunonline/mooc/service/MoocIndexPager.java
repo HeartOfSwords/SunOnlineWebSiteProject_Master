@@ -8,10 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.javafx.collections.MappingChange.Map;
 import com.sunonline.mooc.dao.MoocVideoDao;
 import com.sunonline.mooc.dao.MoocVideoDaoImpl;
 import com.sunonline.mooc.model.CoursesBean;
 import com.sunonline.mooc.model.TypeBean;
+import com.sunonline.web.webapi.bean.mooc.MediasAfter;
+import com.sunonline.web.webapi.bean.mooc.RadioInterview;
+import com.sunonline.web.webapi.bean.mooc.SoftwareDeveloping;
+import com.sunonline.web.webapi.resource.MoocResource;
 /**
  * 公益课堂主页路由
  * @author snowalker
@@ -35,8 +40,18 @@ public class MoocIndexPager extends HttpServlet {
 		MoocVideoDao moocVideoDao = new MoocVideoDaoImpl();
 		
 		List<TypeBean> typeBeans = moocVideoDao.fetchCoursesTypeList();
+		//获取软件开发列表
+		List<SoftwareDeveloping> softwareDevelopings = new MoocResource().getSoftwareDevCoursesList();
+		//获取播音主持列表
+		List<RadioInterview> radioInterviews = new MoocResource().getRadioInterviewCoursesList();
+		//获取后期制作列表
+		List<MediasAfter> mediasAfters = new MoocResource().getMediasAfterCoursesList();
 		//返回类型列表
 		request.setAttribute("typeBeans", typeBeans);
+		//返回类目视频列表
+		request.setAttribute("softwareDevelopings", softwareDevelopings);
+		request.setAttribute("radioInterviews", radioInterviews);
+		request.setAttribute("mediasAfters", mediasAfters);
 		// 重定向到对应id的播放页面
 		request.getRequestDispatcher("/WEB-INF/jsp/mooc/index.jsp").forward(request, response);
 	}

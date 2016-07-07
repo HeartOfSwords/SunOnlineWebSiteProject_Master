@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>自适应屏幕</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/studentGuide.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body data-target="#selector" data-spy="scroll" id="top">
+		<!--导航条开始-->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+      				</button>
+					<img src="img/logo.png" />
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="IndexRouter">首页</a></li>
+						<li><a href="studentGuide.html">新生指南</a></li>
+						<li><a href="mooc">公益课堂</a></li>
+						<li><a href="HigoPager">HIGO大学季</a></li>
+						<li><a href="OldDriverPager">影视老司机</a></li>
+						<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
+						<li><a href="aboutUs.html">关于我们</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">高校人物风采录</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">山西高校图片库</a></li>
+								<li role="separator" class="divider"></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">注册</a></li>
+						<li><a href="#">登录</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--导航条结束-->
+		
+		<!--侧边导航条开始-->
+		<nav class="nav navbar-default side-navbar" role="navigation" id="selector">
+			<ul class="nav navbar-nav">
+				<a href="#top"><span class="return-top">返回顶部</span></a>
+				<li class="active distance-top style-common"><a href="#module_1">视频指南</a></li>
+				<li class="style-common"><a href="#module_2">套餐选购</a></li>
+				<li class="style-common style-common-bottom"><a href="#module_3">3D场景展示</a></li>
+			</ul>
+		</nav>
+		<!--侧边导航条结束-->
+		<!--视频播放器开始-->
+		<div class="video-block" id="module_1">
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<ol class="breadcrumb">
+						<li><a href="#">首页</a></li>
+						<li><a href="#">新生指南</a></li>
+						<li class="active">视频指南</li>
+					</ol>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<!--video.js播放器开始-->
+					<div class="video-player">
+						<video width="100%" height="100%" src="http://221.204.210.202/xdispatch/o7zv69viu.bkt.clouddn.com/%E5%BD%B1%E8%A7%86%E8%80%81%E5%8F%B8%E6%9C%BA%E7%AC%AC%E4%B8%80%E6%9C%9F%E3%80%8A%E8%8D%92%E9%87%8E%E7%8C%8E%E4%BA%BA%E3%80%8B.mp4" controls="controls" poster="">
+						</video>
+					</div>
+					<!--video.js播放器结束-->
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="content-video-intro">
+						<hr />
+						<div class="video-intro-control ">
+							<div>
+								<strong>
+							视频简介：
+						</strong>
+							</div>
+							<div class="control-words">
+								本来这一期是要更新电影《中国最后一个太监》的，因为我的文案已经写得差不多了。但是六一儿童节就这么猝不及防地来了，所以我就赶时间先做了这个回顾童年的葫芦娃解说。由于时间比较匆忙，所以有什么错误的地方还请大家多多包涵。下一期一定更新《中国最后一个太监》……吧！ 本来这一期是要更新电影《中国最后一个太监》的，因为我的文案已经写得差不多了。但是六一儿童节就这么猝不及防地来了，所以我就赶时间先做了这个回顾童年的葫芦娃解说。由于时间比较匆忙，所以有什么错误的地方还请大家多多包涵。下一期一定更新《中国最后一个太监》……吧！
+							</div>
+						</div>
+						<hr />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--视频播放器结束-->
+
+		<!--套餐部分开始-->
+		<div class="combo-block" id="module_2">
+			<div class="container">
+				<!--面包屑导航-->
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<ol class="breadcrumb">
+						<li><a href="#">首页</a></li>
+						<li><a href="#">新生指南</a></li>
+						<li class="active">套餐选购</li>
+					</ol>
+				</div>
+				<!--套餐列表-->
+				<div class="row">
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--套餐部分结束-->
+
+		<!--3D场景展示开始-->
+		<div class="threeD-block" id="module_3">
+			<div class="container">
+				<!--面包屑导航-->
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<ol class="breadcrumb">
+						<li><a href="#">首页</a></li>
+						<li><a href="#">新生指南</a></li>
+						<li class="active">3D场景展示</li>
+					</ol>
+				</div>
+				<!--套餐列表-->
+				<div class="row">
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+					<div class=" col-xs-12 col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="..." alt="...">
+							<div class="caption">
+								<h3>Thumbnail label</h3>
+								<p>...</p>
+								<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--3D场景展示结束-->
+		<div class="footer">
+		<!--上层-->
+		<div class="footer-content">
+			<div class="footer-first-level">
+				<div class="first-level">
+					<i class="glyphicon glyphicon-plane"></i> <span
+						class="footer-title">新手上路</span>
+					<ul class="nav">
+						<li class="nav-divider"></li>
+						<li>会员注册</li>
+						<li>会员分类</li>
+						<li>注册太阳在线会员</li>
+						<li>网站浏览手册</li>
+					</ul>
+				</div>
+				<div class="first-level">
+					<i class="glyphicon glyphicon-duplicate"></i> <span
+						class="footer-title">会员须知</span>
+					<ul class="nav">
+						<li class="nav-divider"></li>
+						<li>用户协议</li>
+						<li>注意事项</li>
+						<li>免责条框</li>
+						<li>法律声明</li>
+						<li>关于会员卡</li>
+					</ul>
+				</div>
+				<div class="first-level">
+					<i class="glyphicon glyphicon-thumbs-up"></i> <span
+						class="footer-title">服务保障</span>
+					<ul class="nav">
+						<li class="nav-divider"></li>
+						<li>隐私保护</li>
+						<li>十大保障</li>
+						<li>24小时客服</li>
+					</ul>
+				</div>
+				<div class="first-level">
+					<i class="glyphicon glyphicon-user"></i> <span class="footer-title">关于我们</span>
+					<ul class="nav">
+						<li class="nav-divider"></li>
+						<li>关于我们</li>
+						<li>加入我们</li>
+						<li>联系我们</li>
+						<li>电商加盟</li>
+						<li>广告服务</li>
+					</ul>
+				</div>
+				<div class="first-level first-level-5">
+					<img src="img/erweima.png" /> <img src="img/erweima2.png"
+						class="footer-img-control" /><br /> 
+						<span>扫二维码，关注太阳在线官方微信平台</span>
+				</div>
+			</div>
+			<div class="footer-second-level">
+					(c)2015-2016 山西太阳在线 SYSTEM All Rights Reserved
+			</div>
+		</div>
+
+	</div>
+	</body>
+	
+
+</html>

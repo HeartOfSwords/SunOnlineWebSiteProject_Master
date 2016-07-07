@@ -2,8 +2,6 @@ package com.sunonline.web.service.index;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +29,7 @@ public class IndexRouter extends HttpServlet {
     	super.init();
     	//获取路径名
     	String path = getServletContext().getRealPath("/");
-    	String profile = path + getInitParameter("propfile");
+    	String profile = path + getInitParameter("profile");
     	//配置log4j环境
     	PropertyConfigurator.configure(profile);
     }

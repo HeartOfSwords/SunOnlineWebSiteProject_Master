@@ -1,0 +1,103 @@
+body {
+	font-family: "微软雅黑";
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.big-pic {
+	width: 100%;
+	height: 300px;
+	border: 1px solid red;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.body_width {
+	width: 1170px;
+}
+
+.recommment {
+	height: 100%;
+}
+
+.recommment_part {
+	width: 252px;
+    height: 172px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 28px;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.center.recommment.body_width .recommment_part {
+	position: relative;
+	top: 0px;
+	left: 0;
+	box-shadow: 0px 0px 2px gray;
+}
+
+.recommment_part .content_part {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 112px;
+	width: 100%;
+	background-color: white;
+	filter: opacity(0.9);
+	/* 针对 IE8 以及更早的版本 */
+	-webkit-filter: opacity(0.9);
+	-moz-filter: opacity(0.9);
+}
+
+.recommment_part .content_part p {
+	color: black;
+	font-weight: bold;
+	padding: 5px 10px 3px 10px;
+	font-size: 18px;
+}
+
+.recommment_part .content_part p.small_content {
+    font-family: "微软雅黑";
+    font-size: 12px;
+    padding: 0 10px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+.recommment_part .price_info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 57px;
+	background: white;
+	font-size: 10px;
+}
+
+.recommment_part .price_info span.price {
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+	color: red;
+}
+
+.recommment_part .price_info span.num {
+	position: absolute;
+	bottom: 15px;
+	right: 10px;
+}
+.block-1{
+	background: rgba(0, 0, 255, 0.29);
+}
+.block-2{
+	background: rgba(255, 202, 0, 0.29);
+}
+.block-3{
+	    background: rgba(255, 25, 0, 0.29);
+}
