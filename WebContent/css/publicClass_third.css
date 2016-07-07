@@ -1,0 +1,109 @@
+* {
+	font-family: "微软雅黑";
+}
+.person_logo{
+	width: 70px;
+    height: 70px;
+    font-size: 55px;
+    text-align: center;
+    line-height: 75px;
+}
+.center {
+	margin: 0 auto;
+}
+
+.video-player {
+	width: 970px;
+	clear: both;
+}
+
+.breadcrumb {
+	width: 1149px;
+	margin-bottom: 20px;
+	background-color: white;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.breadcrumb .cur_pos {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.bottom_content {
+	width: 970px;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.bottom_content .review {
+	width: 690px;
+	height: 910px;
+	position: relative;
+	top: 0;
+	left: 0;
+	padding-top: 77px;
+}
+
+.bottom_content .review .recommend_area {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	font-size: 17px;
+	width: 100%;
+}
+
+.bottom_content .review .recommend_area span {
+	font-size: 17px;
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid red;
+	text-align: center;
+}
+
+.bottom_content .teacher_area {
+	width: 200px;
+	height: 400px;
+	position: absolute;
+	right: 10px;
+	top: 68px;
+}
+
+.bottom_content .teacher_area .title span {
+	font-size: 17px;
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid red;
+	text-align: center;
+}
+
+
+}
+#person_name {
+	position: absolute;
+	top: 71px;
+	right: 0px;
+	width: 126px;
+	height: 70px;
+}
+.info_header #person_name {
+	position: absolute;
+	top: 71px;
+	right: 0px;
+	width: 130px;
+	height: 70px;
+	padding: 10px;
+}
+.info .info_header .persion_detail {
+	width: 100%;
+	height: 300px;
+	margin-top: 10px;
+	padding: 6px 5px;
+}

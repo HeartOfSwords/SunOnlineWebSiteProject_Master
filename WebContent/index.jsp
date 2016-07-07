@@ -70,12 +70,18 @@
 				<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="IndexRouter">首页</a></li>
+					<li><a href="studentGuide.html">新生指南</a></li>
+					<li><a href="mooc">公益课堂</a></li>
 					<li><a href="HigoPager">HIGO大学季</a></li>
 					<li><a href="OldDriverPager">影视老司机</a></li>
 					<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
-					<li><a href="#">高校人物风采录</a></li>
-					<li><a href="#">山西高校图片库</a></li>
 					<li><a href="aboutUs.html">关于我们</a></li>
+					<li class="nav_downSelect"><a href="#">其它</a>
+						<div class="nav_select">
+							<p><a href="#">高校人物风采录</a></p>
+							<p><a href="#">山西高校图片库</a></p>
+						</div>
+					</li>
 				</ul>
 				<ul class="list-unstyled list-inline nav-style right_float">
 					<li><a href="#">登录</a></li>|
@@ -88,12 +94,18 @@
 				<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="IndexRouter">首页</a></li>
+					<li><a href="studentGuide.html">新生指南</a></li>
+					<li><a href="mooc">公益课堂</a></li>
 					<li><a href="HigoPager">HIGO大学季</a></li>
 					<li><a href="OldDriverPager">影视老司机</a></li>
 					<li><a href="CollegeVoiceVideoPager">高校最强音</a></li>
-					<li><a href="#">高校人物风采录</a></li>
-					<li><a href="#">山西高校图片库</a></li>
 					<li><a href="aboutUs.html">关于我们</a></li>
+					<li class="nav_downSelect"><a href="#">其它</a>
+						<div class="nav_select">
+							<p><a href="#">高校人物风采录</a></p>
+							<p><a href="#">山西高校图片库</a></p>
+						</div>
+					</li>
 				</ul>
 				<ul class="list-unstyled list-inline nav-style right_float">
 					<li><a href="#">登录</a></li>|

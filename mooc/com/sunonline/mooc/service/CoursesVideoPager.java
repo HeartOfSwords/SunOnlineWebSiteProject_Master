@@ -67,12 +67,14 @@ public class CoursesVideoPager extends HttpServlet {
 		
 		//获取某一页面下分页数据
 		List<CourseListItemBean> courseListItemList = moocVideoDao.fetchAllVideos(current_pageno, c_id);
+		//通过c_id获取讲师信息及课程信息
+		CoursesBean coursesBean = moocVideoDao.getCourseInfoByID(Integer.valueOf(c_id));
 		//组装分页bean
 		CoursesPagerBean coursesPagerBean = new CoursesPagerBean();
 		coursesPagerBean.setCurPage(current_pageno);	//当前页码
 		coursesPagerBean.setMaxPage(max_page);			//最大页码数量
 		
-	
+		request.setAttribute("coursesBean", coursesBean);
 		request.setAttribute("coursesPagerBean", coursesPagerBean);			//分页bean
 		request.setAttribute("courseListItemList", courseListItemList);		//视频列表
 		request.getRequestDispatcher("/WEB-INF/jsp/mooc/coursemenupage.jsp").forward(request, response);
