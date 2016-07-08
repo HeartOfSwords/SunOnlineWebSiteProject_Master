@@ -10,9 +10,14 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.sunonline.mooc.dao.MoocVideoDao;
+import com.sunonline.mooc.dao.MoocVideoDaoImpl;
 import com.sunonline.mooc.model.CourseListItemBean;
 import com.sunonline.web.utils.DBUtils;
 import com.sunonline.web.webapi.bean.mooc.IndexRoot;
@@ -27,7 +32,7 @@ import com.sunonline.web.webapi.bean.videos.HigoVideoBean;
  * 2016.7.7
  */
 @Path(value = "")
-public class MoocResource {
+public class MoocResource implements IMoocResource {
 	
 	//软件开发类型id
 	private final static Integer SOFTWARE_DEVELOPING_ID = 3;
@@ -45,7 +50,6 @@ public class MoocResource {
 	public IndexRoot fetchAllVideos() {
 		//首页根容器
 		IndexRoot indexRoot = new IndexRoot();
-		
 		/*分别组装json*/
 		
 		//软件开发
@@ -185,4 +189,34 @@ public class MoocResource {
 	}
 	
 	
+	/*
+	 * 通过c_id即课程id获取对应id下的课程分页列表
+	 * c_pageno 当前页数
+	 * c_id     课程id
+	 */
+	@GET
+	@Path("mooc/index/courselists")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Override
+	public List<CourseListItemBean> fetchCourseListVideos(@QueryParam("c_pageno")int current_pageno,  @QueryParam("c_id")Integer c_id) {
+		return new MoocVideoDaoImpl().fetchAllVideos(current_pageno, c_id);
+	}
+	
+	/*
+	 * 通过每一节课的单独id获取每一个courseItem
+	 * c_id 课程本身id
+	 * itemid 每一节课本身的id
+	 */
+	@GET
+	@Path("mooc/index/courseitem")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Override
+	public CourseListItemBean getMoocVideoItemByID(@QueryParam("c_id")int c_id, @QueryParam("itemid") int itemID) {
+		MoocVideoDao moocVideoDao = new MoocVideoDaoImpl();
+		//首先增加视频播放次数
+		moocVideoDao.addPlayTimeNumber(itemID);
+		//获取该视频单体
+		CourseListItemBean courseListItemBean = moocVideoDao.getMoocVideoItemByID(c_id ,itemID);
+		return courseListItemBean;
+	}
 }

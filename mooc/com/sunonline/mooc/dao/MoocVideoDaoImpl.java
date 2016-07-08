@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,43 @@ import com.sunonline.web.utils.DBUtils;
  * 16.7.6
  */
 public class MoocVideoDaoImpl implements MoocVideoDao {
+	
+	//获取某一课程类目下的某一个具体视频信息
+	public CourseListItemBean getMoocVideoItemByID(int c_id, int itemID) {
+
+		CourseListItemBean courseListItemBean = null;
+		String sql = "select * from smooc_courselist_view where c_id=? and cl_id=?;"; //通过id获取视频全部信息
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setInt(1, c_id);
+			pstmt.setInt(2, itemID);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Integer cl_id 			= rs.getInt("cl_id");				//课程条目id
+				String  cl_name 		= rs.getString("cl_name");			//课程条目名称
+				String  cl_pic_url 		= rs.getString("cl_pic_url");		//课程条目截图url
+				String  cl_video_url 	= rs.getString("cl_video_url");		//课程条目视频url
+				Integer cl_play_time	= rs.getInt("cl_play_time");		//课程播放次数
+				String  cl_video_intro  = rs.getString("cl_video_intro");	//单节视频介绍
+				Date    cl_upload_time  = rs.getDate("cl_upload_time");		//视频上传时间
+
+				// 构造注入
+				courseListItemBean = new CourseListItemBean(cl_id, 
+						cl_name,
+						cl_pic_url, 
+						cl_video_url, 
+						cl_play_time, 
+						cl_video_intro, 
+						cl_upload_time, 
+						c_id);
+			}
+		} catch (Exception e) {
+			courseListItemBean = null;
+		}
+		return courseListItemBean;
+	}
 	
 	//通过视频id获取单个视频信息
 	public CourseListItemBean getMoocVideoItemByID(int itemID) {
@@ -131,7 +169,7 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		return courseListItemBeans;
 	}
 	
-	//获取指定类目下的视频总数
+	//获取指定类目下的视频总数,分页获取
 	@Override
 	public List<CourseListItemBean> fetchAllVideos(int current_pageno, Integer c_id) {
 		//每页包含视频信息列表
@@ -161,7 +199,7 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 				String  cl_video_intro  = rs.getString("cl_video_intro");	//单节视频介绍
 				Date    cl_upload_time  = rs.getDate("cl_upload_time");		//视频上传时间
 				Integer c_id2			= rs.getInt("c_id");				//课程id
-
+				
 				// 构造注入
 				CourseListItemBean courseListItemBean = 
 										new CourseListItemBean(cl_id, 
@@ -238,9 +276,10 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 	}
 	
 	public static void main(String[] args) throws SQLException {
-		System.out.println(new MoocVideoDaoImpl().fetchAllVideos(1, 3).size());
-		System.out.println(new MoocVideoDaoImpl().fetchCoursesTypeList().size());
-		System.out.println("获取类型下的视频个数" + new MoocVideoDaoImpl().getCoursesListByTypeID(3));
+		//System.out.println(new MoocVideoDaoImpl().fetchAllVideos(1, 3).size());
+		//System.out.println(new MoocVideoDaoImpl().fetchCoursesTypeList().size());
+		//System.out.println("获取类型下的视频个数" + new MoocVideoDaoImpl().getCoursesListByTypeID(3));
+		System.out.println(new MoocVideoDaoImpl().getMoocVideoItemByID(3, 1).getCl_name());
 	}
 
 	//通过课程ID获取讲师信息
@@ -272,4 +311,7 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 
 		return coursesBean;
 	}
+	
+	//获取某一个课程分类下的某一节课程
+	
 }

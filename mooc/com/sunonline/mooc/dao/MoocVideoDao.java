@@ -12,6 +12,9 @@ import com.sunonline.mooc.model.TypeBean;
  * 16.7.6
  */
 public interface MoocVideoDao {
+	
+	//获取某一课程类目下的某一个具体视频信息
+	public CourseListItemBean getMoocVideoItemByID(int c_id, int itemID);
 	//通过视频id获取单个视频信息
 	public CourseListItemBean getMoocVideoItemByID(int itemID);
 	//添加播放次数

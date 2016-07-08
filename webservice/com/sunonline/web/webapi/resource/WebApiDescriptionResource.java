@@ -21,8 +21,44 @@ import com.sunonline.web.webapi.bean.WebApiRoot;
 public class WebApiDescriptionResource {
 	
 	/**
+	 * 获取根路径下根分类的HATEOAS
+	 */
+	@GET
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+	public WebApiRoot getRootDescription() {
+		
+		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
+		List<WebApiLinks> links = new ArrayList<>();	//列表项
+		//获取所有视频分类
+		WebApiLinks videos = new WebApiLinks();	
+		videos.setRel("description, webapi/videos");
+		videos.setHref("webapi/videos");
+		videos.setTitle("太阳在线视频API根路径");
+		videos.setType("MediaType.APPLICATION_JSON");
+		links.add(videos);
+		//按课程id和页码获取课程列表
+		WebApiLinks mooc = new WebApiLinks();	
+		mooc.setRel("description, webapi/mooc");
+		mooc.setHref("webapi/mooc");
+		mooc.setTitle("太阳在线公益课堂API根路径");
+		mooc.setType("MediaType.APPLICATION_JSON");
+		links.add(mooc);
+		//按照课程id和某一节课具体的id获取课程单体信息
+		WebApiLinks images = new WebApiLinks();	
+		images.setRel("collection, /webapi/images");
+		images.setHref("/webapi/images");
+		images.setTitle("太阳在线图片API路径");
+		images.setType("MediaType.APPLICATION_JSON");
+		links.add(images);
+		webApiRoot.setLinks(links);
+		return webApiRoot;
+	}
+	
+	
+	/**
 	 * 视频根路径路径描述
-	 * @param newParam TODO
+	 * @param 
 	 * @return
 	 */
 	@GET
@@ -73,7 +109,11 @@ public class WebApiDescriptionResource {
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
-	
+	/**
+	 * 图片分类路径描述
+	 * @param newParam
+	 * @return
+	 */
 	@GET
 	@Path("/images")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -247,21 +287,27 @@ public class WebApiDescriptionResource {
 		
 		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
-		//获取所有学校
-		WebApiLinks schools = new WebApiLinks();	
-		schools.setRel("collection, webapi/mooc/index");
-		schools.setHref("webapi/mooc/index");
-		schools.setTitle("公益课堂所有分类及其之下的视频列表");
-		schools.setType("MediaType.APPLICATION_JSON");
-		links.add(schools);
-		//按学校名称获取对应学校的图片
-		WebApiLinks picsBySchoolName = new WebApiLinks();	
-		picsBySchoolName.setRel("collection, webapi/images/sxcollegepiclib/pictures/{schoolname}");
-		picsBySchoolName.setHref("webapi/images/sxcollegepiclib/pictures/{schoolname}");
-		picsBySchoolName.setTitle("山西高校图片库获取对应学校的照片");
-		picsBySchoolName.setType("MediaType.APPLICATION_JSON");
-		links.add(picsBySchoolName);
-		
+		//获取所有视频分类
+		WebApiLinks index = new WebApiLinks();	
+		index.setRel("collection, webapi/mooc/index");
+		index.setHref("webapi/mooc/index");
+		index.setTitle("公益课堂所有分类及其之下的视频列表");
+		index.setType("MediaType.APPLICATION_JSON");
+		links.add(index);
+		//按课程id和页码获取课程列表
+		WebApiLinks courselists = new WebApiLinks();	
+		courselists.setRel("collection, webapi/mooc/index/courselists?c_pageno=?&c_id=?");
+		courselists.setHref("webapi/mooc/index/courselists?c_pageno=?&c_id=?");
+		courselists.setTitle("分页获取某一个具体课程下的课程列表");
+		courselists.setType("MediaType.APPLICATION_JSON");
+		links.add(courselists);
+		//按照课程id和某一节课具体的id获取课程单体信息
+		WebApiLinks courseitem = new WebApiLinks();	
+		courseitem.setRel("single, /webapi/mooc/index/courseitem?itemid=?&c_id=?");
+		courseitem.setHref("/webapi/mooc/index/courseitem?itemid=?&c_id=?");
+		courseitem.setTitle("按照课程id和某一节课具体的id获取课程单体信息即播放页信息,同时增加视频播放次数");
+		courseitem.setType("MediaType.APPLICATION_JSON");
+		links.add(courseitem);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
