@@ -18,4 +18,7 @@ public interface IMoocResource {
 	public List<CourseListItemBean> fetchCourseListVideos(int current_pageno, Integer c_id);
 	/*通过每一节课的单独id获取每一个courseItem*/
 	public CourseListItemBean getMoocVideoItemByID(int c_id, int itemID);
+	/*获取每一个门类的最后课程*/
+	public List<CourseListItemBean> fetchCoursesRecommendation();
+
 }

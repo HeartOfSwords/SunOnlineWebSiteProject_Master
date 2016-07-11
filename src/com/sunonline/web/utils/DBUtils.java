@@ -9,9 +9,6 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sunonline.web.global.DBGlobal;
 
 /**

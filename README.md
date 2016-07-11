@@ -44,3 +44,10 @@ WHERE
 视频大小更改video标签属性添加width="970px" height="540px"
 
 ## 6.8访问老司机空指针异常
+## 7.9打包部署到ubuntu server之后运行报错
+
+	Unsupported major.minor version 52.0
+
+解决方法：
+	
+	Properties-->JAVA Compiler-中的Compiler compliance level从1.8改成1.7，之后就可以运行了。

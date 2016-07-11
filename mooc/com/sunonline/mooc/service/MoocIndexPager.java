@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.javafx.collections.MappingChange.Map;
 import com.sunonline.mooc.dao.MoocVideoDao;
 import com.sunonline.mooc.dao.MoocVideoDaoImpl;
-import com.sunonline.mooc.model.CoursesBean;
 import com.sunonline.mooc.model.TypeBean;
 import com.sunonline.web.webapi.bean.mooc.MediasAfter;
 import com.sunonline.web.webapi.bean.mooc.RadioInterview;

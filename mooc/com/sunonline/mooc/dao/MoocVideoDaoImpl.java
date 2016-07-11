@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sunonline.mooc.bean.pager.CoursesPagerBean;
 import com.sunonline.mooc.model.CourseListItemBean;
 import com.sunonline.mooc.model.CoursesBean;

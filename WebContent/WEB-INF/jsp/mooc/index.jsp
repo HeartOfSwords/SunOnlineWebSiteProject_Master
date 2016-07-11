@@ -143,17 +143,6 @@
 				</a>
 				<%}} %>
 					
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -207,17 +196,6 @@
 					</div>
 				<%} %>
 
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -269,30 +247,6 @@
 					</div>
 				<%} %>
 
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-
-					</div>
-
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

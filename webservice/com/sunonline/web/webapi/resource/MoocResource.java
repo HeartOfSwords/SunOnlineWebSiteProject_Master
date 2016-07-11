@@ -15,7 +15,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sunonline.mooc.dao.MoocVideoDao;
 import com.sunonline.mooc.dao.MoocVideoDaoImpl;
 import com.sunonline.mooc.model.CourseListItemBean;
@@ -89,7 +88,7 @@ public class MoocResource implements IMoocResource {
 				String c_teacher_name	= rs.getString("c_teacher_name");	//讲师名
 				String c_teacher_intro	= rs.getString("c_teacher_intro");	//讲师介绍
 				Integer t_id			= rs.getInt("t_id");				//分类id
-				String c_path_url		= "webapi/mooc/index/" + c_id;
+				String c_path_url		= "webapi/mooc/index/courselists?c_id="+ c_id + "&c_pageno=";
 				// 构造注入
 				SoftwareDeveloping softwareDeveloping = 
 											new SoftwareDeveloping(c_id, 
@@ -129,7 +128,7 @@ public class MoocResource implements IMoocResource {
 				String c_teacher_name	= rs.getString("c_teacher_name");	//讲师名
 				String c_teacher_intro	= rs.getString("c_teacher_intro");	//讲师介绍
 				Integer t_id			= rs.getInt("t_id");				//分类id
-				String c_path_url		= "webapi/mooc/index/" + c_id;	//webapi相对路径
+				String c_path_url		= "webapi/mooc/index/courselists?c_id="+ c_id + "&c_pageno=";	//webapi相对路径
 				// 构造注入
 				MediasAfter mediasAfter = 
 						new MediasAfter(c_id, 
@@ -169,7 +168,7 @@ public class MoocResource implements IMoocResource {
 				String c_teacher_name	= rs.getString("c_teacher_name");	//讲师名
 				String c_teacher_intro	= rs.getString("c_teacher_intro");	//讲师介绍
 				Integer t_id			= rs.getInt("t_id");				//分类id
-				String c_path_url		= "webapi/mooc/index/" + c_id;
+				String c_path_url		= "webapi/mooc/index/courselists?c_id="+ c_id + "&c_pageno=";
 				// 构造注入
 				RadioInterview radioInterview = 
 						new RadioInterview(c_id, 
@@ -218,5 +217,60 @@ public class MoocResource implements IMoocResource {
 		//获取该视频单体
 		CourseListItemBean courseListItemBean = moocVideoDao.getMoocVideoItemByID(c_id ,itemID);
 		return courseListItemBean;
+	}
+	
+	/*
+	 * 查询每一个分类的最后一条组成推荐列表
+	 */
+	@GET
+	@Path("mooc/index/recommendation")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Override
+	public List<CourseListItemBean> fetchCoursesRecommendation() {
+		
+		List<CourseListItemBean> recommendationlists = new ArrayList<>();
+		
+		CourseListItemBean courseListItemBean = null;
+		//获取数据库中数据
+		Connection connection = new DBUtils().getCon();
+		//构造SQL查询视图返回某一个课程号下的所有视频
+		String sql = "SELECT a.* FROM smooc_courselist a WHERE" +
+				 "( SELECT COUNT(*) " +
+				 " FROM smooc_courselist " +
+				 " WHERE c_id= a.c_id " +
+				 " AND cl_id > a.cl_id " +
+				 ") < 1 ";
+		try {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			//注意注入参数的顺序
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {	
+				Integer cl_id 			= rs.getInt("cl_id");				//课程条目id
+				String  cl_name 		= rs.getString("cl_name");			//课程条目名称
+				String  cl_pic_url 		= rs.getString("cl_pic_url");		//课程条目截图url
+				String  cl_video_url 	= rs.getString("cl_video_url");		//课程条目视频url
+				Integer cl_play_time	= rs.getInt("cl_play_time");		//课程播放次数
+				String  cl_video_intro  = rs.getString("cl_video_intro");	//单节视频介绍
+				Date    cl_upload_time  = rs.getDate("cl_upload_time");		//视频上传时间
+				Integer c_id            = rs.getInt("c_id");
+				String c_path_url		= "webapi/mooc/index/courseitem?c_id="+ c_id + "&itemid=" + cl_id;
+				// 构造注入
+				// 构造注入
+				courseListItemBean = new CourseListItemBean(cl_id, 
+						cl_name,
+						cl_pic_url, 
+						cl_video_url, 
+						cl_play_time, 
+						cl_video_intro, 
+						cl_upload_time, 
+						c_id,
+						c_path_url);
+				recommendationlists.add(courseListItemBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return recommendationlists;
 	}
 }

@@ -24,7 +24,19 @@ public class CourseListItemBean {
 	private Date    cl_upload_time;		//视频上传时间
 
 	private Integer  c_id;				//课程id
+
+	private String c_path_url;			//路径url
 	
+	
+	
+	public String getC_path_url() {
+		return c_path_url;
+	}
+
+	public void setC_path_url(String c_path_url) {
+		this.c_path_url = c_path_url;
+	}
+
 	public CourseListItemBean() {
 	}
 	
@@ -42,6 +54,21 @@ public class CourseListItemBean {
 	}
 
 
+
+	public CourseListItemBean(Integer cl_id2, String cl_name2, String cl_pic_url2, String cl_video_url2,
+			Integer cl_play_time2, String cl_video_intro2, java.sql.Date cl_upload_time2, Integer c_id2,
+			String c_path_url2) {
+		super();
+		this.cl_id = cl_id2;
+		this.cl_name = cl_name2;
+		this.cl_pic_url = cl_pic_url2;
+		this.cl_video_url = cl_video_url2;
+		this.cl_play_time = cl_play_time2;
+		this.cl_video_intro = cl_video_intro2;
+		this.cl_upload_time = cl_upload_time2;
+		this.c_id = c_id2;
+		this.c_path_url = c_path_url2;
+	}
 
 	public Integer getCl_id() {
 		return cl_id;
