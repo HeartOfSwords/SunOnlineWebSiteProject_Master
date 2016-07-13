@@ -8,5 +8,5 @@ console.log(" .:;;.     ;r;  *　　 **     **   **    **   **    ****.,***    *
 console.log("    ,;r;;;;:;;  *******      *******    **   **    :******      **.  **   ****   **  **  **     ******");
 console.log("    .; ..r.                                                                                      ");
 console.log("         .                                                                                        ");
-console.log("太阳在线官方网站欢迎你\n前端工程师：Sanbel KingLand\n后端工程师：SnoWalker\n网页设计师：Jing");
+console.log("太阳在线官方网站欢迎你\n前端工程师：Sanbel KingLand\n后端工程师：SnoWalker\n网页设计师：Jing\n慕课图片设计：W3ND");
 console.log("如果你有志于开发漂亮的页面，那么我们需要你！\n如果你有志于服务端开发，那么我们需要你！\n如果你有志于交互设计，我们同样需要你！\n小伙伴们，加入我们这个大家庭吧~\n联系电话：4000-712-878");

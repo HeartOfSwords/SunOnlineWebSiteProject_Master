@@ -9,7 +9,7 @@ body {
 .big-pic {
 	width: 100%;
 	height: 300px;
-	border: 1px solid red;
+	background-image: url("../img/mooc_titlebar.png");
 }
 
 .center {

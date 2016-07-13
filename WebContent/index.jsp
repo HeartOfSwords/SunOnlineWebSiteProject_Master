@@ -1,3 +1,4 @@
+<%@page import="com.sunonline.mooc.model.CoursesBean"%>
 <%@page import="com.sunonline.web.bean.OldDriverVideoBean"%>
 <%@page import="com.sunonline.web.bean.CollegeVoiceVideoBean"%>
 <%@page import="com.sunonline.web.bean.HigoVideoBean"%>
@@ -14,6 +15,8 @@
 	List<CollegeVoiceVideoBean> collegeVoiceVideoBeans = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoBeans");
 	//获取老司机列表
 	List<OldDriverVideoBean> oldDriverVideoBeans = (List<OldDriverVideoBean>)request.getAttribute("oldDriverVideoBeans");
+	//获取公益课堂列表
+	List<CoursesBean> coursesBeans = (List<CoursesBean>)request.getAttribute("coursesBeans");
 %>
 <!DOCTYPE html>
 <html>
@@ -182,6 +185,90 @@
 			<div class="column_header">
 				<span class="column_header_logo"></span>
 				<div class="column_title_more">
+					<span class="column_title">公益课堂</span>
+					<div class="column_more">
+						<a href="mooc">更多</a>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</div>
+				</div>
+			</div>
+			<div class="divider"></div>
+			<div class="column_body">
+
+				<!--大图栏目-->
+				
+				<!-- 公益课堂第一条数据 -->
+				<%
+					CoursesBean coursesBean = coursesBeans.get(0);
+					
+					Integer c_id			= coursesBean.getC_id();				//课程id
+					String  c_name			= coursesBean.getC_name();				//课程 名称
+					String  c_introduce		= coursesBean.getC_introduce();  		//课程介绍
+					String  c_pic_url		= coursesBean.getC_pic_url();			//视频截图url
+					String  c_teacher_name  = coursesBean.getC_teacher_name(); 		//讲师姓名
+					String  c_teacher_intro = coursesBean.getC_teacher_intro();		//讲师介绍
+					Integer t_id			= coursesBean.getT_id();				//视频所属类型id
+					
+					
+				%>
+				<a href="CoursesVideoPager?current_pageno=1&c_id=<%=c_id%>">
+					<dl class="column_body_big">
+						<dt>
+						<img src="<%=c_pic_url%>"  width="336px"  height="263px" alt="推荐视频"/>
+						<span class="player_num">
+							<div class="player_flag"></div>
+							<!-- 播放次数 -->
+						</span>
+					</dt>
+						<dd><%=c_name %>
+						</dd>
+
+					</dl>
+
+				</a>
+				<!-- 普通栏目 -->
+				<%
+					if(coursesBeans != null && coursesBeans.size() > 0) {
+						for(int i = 1; i < coursesBeans.size(); i++) {
+				%>
+			
+						<a href="CoursesVideoPager?current_pageno=1&c_id=<%=coursesBeans.get(i).getC_id()%>">
+							<dl class="column_body_normal">
+								<dt>
+								<img src="<%=coursesBeans.get(i).getC_pic_url() %>"  width="200px"  height="101px" alt="推荐视频"/>
+								<span class="player_num">
+									<div class="player_flag"></div>
+								</span>
+							</dt>
+								<dd><%=coursesBeans.get(i).getC_teacher_name()%></dd>
+							</dl>
+
+						</a>
+				
+				
+				<% 	
+						}
+					}
+					
+				%>
+
+
+				<!--栏目引导位置-->
+				<a href="mooc">
+					<dl class="column_body_normal column_body_normal_end_green">
+						<div class="column_tip">进入公益课堂>></div>
+					</dl>
+
+				</a>
+
+			</div>
+		</div>
+		<!--公益课堂版块结束-->
+		<!--Higo大学季版块开始-->
+		<div class="column center">
+			<div class="column_header">
+				<span class="column_header_logo"></span>
+				<div class="column_title_more">
 					<span class="column_title">HIGO大学季</span>
 					<div class="column_more">
 						<a href="HigoPager">更多</a>
@@ -191,8 +278,6 @@
 			</div>
 			<div class="divider"></div>
 			<div class="column_body">
-
-				<!--大图栏目-->
 				<!-- Higo大学季第一条数据 -->
 				<%
 					HigoVideoBean higoVideoBean = higoVideoBeans.get(0);

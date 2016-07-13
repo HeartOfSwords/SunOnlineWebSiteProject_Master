@@ -31,6 +31,7 @@ public interface MoocVideoDao {
 	public List<CoursesBean> getCoursesListByTypeID(Integer t_id);
 	//获取讲师信息以及课程信息
 	public CoursesBean getCourseInfoByID(Integer c_id);
-	
+	//获取所有的课程信息，二级主课程列表
+	public List<CoursesBean> getAllCoursesInfo();
 
 }

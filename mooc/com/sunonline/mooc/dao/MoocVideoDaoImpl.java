@@ -278,7 +278,7 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		//System.out.println(new MoocVideoDaoImpl().fetchAllVideos(1, 3).size());
 		//System.out.println(new MoocVideoDaoImpl().fetchCoursesTypeList().size());
 		//System.out.println("获取类型下的视频个数" + new MoocVideoDaoImpl().getCoursesListByTypeID(3));
-		System.out.println(new MoocVideoDaoImpl().getMoocVideoItemByID(3, 1).getCl_name());
+		System.out.println(new MoocVideoDaoImpl().getAllCoursesInfo().size());
 	}
 
 	//通过课程ID获取讲师信息
@@ -309,6 +309,35 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		}
 
 		return coursesBean;
+	}
+
+	@Override
+	public List<CoursesBean> getAllCoursesInfo() {
+		List<CoursesBean> coursesBeans = new ArrayList<>();
+		CoursesBean coursesBean = null;
+		//获取数据库中数据
+		Connection connection = new DBUtils().getCon();
+		//构造SQL查询视图返回某一个课程号下的所有视频
+		String sql = "SELECT * from smooc_courses_view;";
+		try {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {	
+				Integer c_idtemp		= rs.getInt("c_id");	            //课程id
+				String  c_name		    = rs.getString("c_name");	        //课程 名称
+				String  c_introduce	    = rs.getString("c_introduce");	    //课程介绍
+				String  c_pic_url	    = rs.getString("c_pic_url");	    //视频截图url
+				String  c_teacher_name  = rs.getString("c_teacher_name");	//讲师姓名
+				String  c_teacher_intro	= rs.getString("c_teacher_intro");	//讲师介绍
+				Integer t_id		    = rs.getInt("t_id"); 	        //视频所属类型id
+				coursesBean = new CoursesBean(c_idtemp, c_name, c_introduce, c_pic_url, c_teacher_name, c_teacher_intro, t_id);
+				coursesBeans.add(coursesBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return coursesBeans;
 	}
 	
 	//获取某一个课程分类下的某一节课程

@@ -51,3 +51,25 @@ WHERE
 解决方法：
 	
 	Properties-->JAVA Compiler-中的Compiler compliance level从1.8改成1.7，之后就可以运行了。
+
+## 7.11笔记
+
+webapi中添加功能：获取每一个课程类别下的最新一条数据通过
+
+	SELECT a.* 
+	 
+	FROM smooc_courselist a 
+	 
+	WHERE 
+	 
+	( 
+	  SELECT COUNT(*) 
+	 
+	  FROM smooc_courselist 
+	 
+	  WHERE c_id= a.c_id
+	 
+	  AND cl_id < a.cl_id 
+	 
+	) < 1 
+实现

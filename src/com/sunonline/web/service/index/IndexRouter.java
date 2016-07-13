@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import com.sunonline.mooc.dao.MoocVideoDaoImpl;
+import com.sunonline.mooc.model.CoursesBean;
 import com.sunonline.web.bean.CollegeVoiceVideoBean;
 import com.sunonline.web.bean.HigoVideoBean;
 import com.sunonline.web.bean.OldDriverVideoBean;
@@ -67,11 +69,13 @@ public class IndexRouter extends HttpServlet {
 		List<CollegeVoiceVideoBean> collegeVoiceVideoBeans = indexInfoDao.fetchCollegeVoiceList(7);
 		//获取老司机列表
 		List<OldDriverVideoBean> oldDriverVideoBeans = indexInfoDao.fetchOldDriverList(7);
-		
+		//获取mooc信息
+		List<CoursesBean> coursesBeans = new MoocVideoDaoImpl().getAllCoursesInfo();
 		//返回数据
 		request.setAttribute("higoVideoBeans", higoVideoBeans);
 		request.setAttribute("collegeVoiceVideoBeans", collegeVoiceVideoBeans);
 		request.setAttribute("oldDriverVideoBeans", oldDriverVideoBeans);
+		request.setAttribute("coursesBeans", coursesBeans);
 	}
 
 

