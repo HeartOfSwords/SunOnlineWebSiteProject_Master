@@ -73,3 +73,7 @@ webapi中添加功能：获取每一个课程类别下的最新一条数据通�
 	 
 	) < 1 
 实现
+
+## 7.15笔记
+插入手机号提示Out of range value for column
+解决方法：设置字段类型从int到BigInt

@@ -106,7 +106,7 @@
 
 		<!--大图区-->
 		<div class="big-pic">
-			
+			<img alt="加载失败" src="img/mooc_titlebar.png">
 		</div>
 		<!--大图区-->
 		<!--技术板块一区-->

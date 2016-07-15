@@ -34,7 +34,6 @@ body {
 .column .column_header .column_header_logo {
 	width: 40px;
 	height: 40px;
-	border: 1px solid red;
 	position: absolute;
 	display: inline-block;
 	top: 50%;

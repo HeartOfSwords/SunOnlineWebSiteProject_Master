@@ -183,7 +183,9 @@
 		<!--Higo大学季版块开始-->
 		<div class="column center">
 			<div class="column_header">
-				<span class="column_header_logo"></span>
+				<span class="column_header_logo">
+					<img alt="加载失败" src="img/mooc_index_logo.png" width="40px" hei>
+				</span>
 				<div class="column_title_more">
 					<span class="column_title">公益课堂</span>
 					<div class="column_more">
@@ -267,7 +269,9 @@
 		<!--Higo大学季版块开始-->
 		<div class="column center">
 			<div class="column_header">
-				<span class="column_header_logo"></span>
+				<span class="column_header_logo">
+					<img alt="加载失败" src="img/higo_index_logo.png" width="40px" height="40px">
+				</span>
 				<div class="column_title_more">
 					<span class="column_title">HIGO大学季</span>
 					<div class="column_more">
@@ -346,7 +350,9 @@
 		<!--影视老司机版块开始-->
 		<div class="column center">
 			<div class="column_header">
-				<span class="column_header_logo"></span>
+				<span class="column_header_logo">
+					<img alt="加载失败" src="img/old_driver_index_logo.png" width="40px" height="40px">
+				</span>
 				<div class="column_title_more">
 					<span class="column_title">影视老司机</span>
 					<div class="column_more">
@@ -450,7 +456,9 @@
 		<!--最强音版块开始-->
 		<div class="column center">
 			<div class="column_header">
-				<span class="column_header_logo"></span>
+				<span class="column_header_logo">	
+					<img alt="加载失败" src="img/collegevoice_index_logo.png" width="40px" height="40px">
+				</span>
 				<div class="column_title_more">
 					<span class="column_title">高校最强音</span>
 					<div class="column_more">
