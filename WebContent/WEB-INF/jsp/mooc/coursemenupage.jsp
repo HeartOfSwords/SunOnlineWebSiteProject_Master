@@ -59,8 +59,8 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">注册</a></li>
-						<li><a href="#">登录</a></li>
+						<li><a href="UserLoginRouter">登录</a></li>
+						<li><a href="UserRegisterRouter">注册</a></li>
 					</ul>
 				</div>
 			</div>

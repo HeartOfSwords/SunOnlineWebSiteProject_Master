@@ -1,12 +1,10 @@
 package com.sunonline.web.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.sunonline.web.bean.OldDriverVideoBean;
 import com.sunonline.web.utils.DBUtils;
 import com.sunonline.web.utils.StringEncodeUtils;
 
@@ -17,7 +15,11 @@ import com.sunonline.web.utils.StringEncodeUtils;
  */ 
 public class UserDaoImpl implements UserDao {
 
+	//成员变量，从数据库中得到的用户密码
 	private String userpwdInDB;
+	//成员变量，从数据库中得到的用户昵称
+	@SuppressWarnings("unused")
+	private String userNickName;
 
 
 	//用户注册
@@ -119,6 +121,62 @@ public class UserDaoImpl implements UserDao {
 			return "Login Successfully";
 		} else {
 			return "Login failed";
+		}
+	}
+	
+	/*
+	 * 通过用户邮箱得到用户昵称
+	 */
+	@Override
+	public String getUserNickNameByUserEmail(String useremail) {
+		userNickName = "WWW.BAIDU.COM";
+		//构造sql
+		String sql = "SELECT usernickname from userlogin_view where useremail=?";
+		
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, useremail);
+			ResultSet rs = pstmt.executeQuery();
+			//从数据库中遍历取出对应的密码
+			while (rs.next()) {
+				//获取数据库中的用户昵称并且记录到成员变量之中
+				userNickName = rs.getString("usernickname");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return userNickName;
+	}
+	
+	//根据邮箱判断用户登录返回boolean类型
+	public Boolean verifyUser(String useremail, String userpwd) {
+		/*注意登录判断对数据进行MD5加密之后再进行比较
+		 *构造查询sql 获取对应账户下的密码并对输入的密码进行加密处理
+		 *之后与取出的密码进行比对
+		 *如果相等则登录成功否则登录失败
+		 */
+		String sql = "SELECT userpwd from userlogin_view where useremail=?";
+		//对输入的密码进行MD5加密
+		String MD5EncodePwd = StringEncodeUtils.EncodePassword(userpwd);
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, useremail);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				//获取数据库中的用户密码并记录到成员变量之中
+				userpwdInDB = rs.getString("userpwd");
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		//对账户密码进行比对
+		if (userpwdInDB != null && userpwdInDB != "" && userpwdInDB.equals(MD5EncodePwd)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 }

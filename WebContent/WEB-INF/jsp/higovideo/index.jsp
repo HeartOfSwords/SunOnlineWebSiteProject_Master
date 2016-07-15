@@ -75,8 +75,8 @@
 					</li>
 				</ul>
 				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="#">登录</a></li>|
-					<li><a href="#">注册</a></li>
+					<li><a href="UserLoginRouter">登录</a></li>
+					<li><a href="UserRegisterRouter">注册</a></li>
 				</ul>
 			</div>
 

@@ -13,7 +13,12 @@ public class TestUserLoginAndRegister {
 	
 	@Test
 	public void testUserLoginVerify() {
-		System.out.println(new UserDaoImpl().verifyUserEmail("sunonliney1x@163.com", "123456"));
+		System.out.println(new UserDaoImpl().verifyUserEmail("sunonlineyx@163.com", "123456"));
 		System.out.println(new UserDaoImpl().verifyUserMobile("15201112222", "123456"));
+	}
+	
+	@Test
+	public void testGetUserNickNameByUserEmail() {
+		System.out.println(new UserDaoImpl().getUserNickNameByUserEmail("sunonlineyx@163.com"));
 	}
 }
