@@ -48,7 +48,7 @@ public class UserLogin extends HttpServlet {
 		} else {
 			//登录失败回显
 			request.setAttribute("useremail", useremail);
-			String message = "登录失败，请核对您的账户或密码";
+			String message = "登录失败，请核对信息";
 			request.setAttribute("message", message);
 			request.getRequestDispatcher("/UserLoginRouter").forward(request, response);
 		}

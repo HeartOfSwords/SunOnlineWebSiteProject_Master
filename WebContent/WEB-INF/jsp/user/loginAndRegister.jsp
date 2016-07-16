@@ -12,9 +12,8 @@
 		message = (String) request.getAttribute("message");
 	}
 	//注册信息回显
-	String rMessage = "";
 	if (request.getAttribute("rMessage") != null) {
-		rMessage = (String) request.getAttribute("rMessage");
+		message = (String) request.getAttribute("rMessage");
 	}
 %>
 <!DOCTYPE html>
@@ -124,7 +123,7 @@
 				<!--注册-->
 				<div class="qlogin" id="qlogin" style="display: none;">
 					<!--注册返回信息-->
-					<span class="regis-result"><%=rMessage %></span>
+					<span class="regis-result"><%=message %></span>
 
 					<div class="web_login userRegister">
 						<form action="UserRegister" method="post">

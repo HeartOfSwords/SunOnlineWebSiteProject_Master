@@ -117,7 +117,7 @@
 			</div>
 
 				<!-- 多说评论框 start -->
-				<div class="ds-thread" data-thread-key="1" data-title="文章标题" data-url="请替换成文章的网址"></div>
+				<div class="ds-thread" data-thread-key="<%="公益课堂 " + cl_id %>" data-title="<%="公益课堂 :" + cl_name %>" data-url="请替换成文章的网址"></div>
 				<!-- 多说评论框 end -->
 				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 				<script type="text/javascript">

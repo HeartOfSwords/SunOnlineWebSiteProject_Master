@@ -48,9 +48,9 @@ $(document).ready(function() {
 
 	//注册表单验证——用户昵称验证
 	$("#user_regis_id").focusout(function() {
-		if($(this).val().length < 2 || $(this).val().length > 6) {
+		if($(this).val().length < 2 || $(this).val().length > 13) {
 			$(this).val("");
-			$(this).attr("placeholder", "用户昵称长度为2到6位");
+			$(this).attr("placeholder", "用户昵称长度为2到13位");
 			$(this).addClass("invalid");
 			return_regis_flag[0] = 0;
 		} else {
