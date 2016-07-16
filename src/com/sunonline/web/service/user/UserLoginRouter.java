@@ -19,7 +19,7 @@ public class UserLoginRouter extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/jsp/user/user.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/user/loginAndRegister.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

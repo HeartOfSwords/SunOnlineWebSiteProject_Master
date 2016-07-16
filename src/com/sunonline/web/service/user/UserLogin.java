@@ -39,7 +39,6 @@ public class UserLogin extends HttpServlet {
 		//实例化用户dao
 		userDao = new UserDaoImpl();
 		Boolean flag = userDao.verifyUser(useremail, userpwd);
-		System.out.println(flag);
 		if (flag) {
 			//登录成功获取对应的用户昵称
 			String usernickname = userDao.getUserNickNameByUserEmail(useremail);

@@ -47,7 +47,6 @@ public class UserRegister extends HttpServlet {
 			request.setAttribute("rMessage", rMessage);
 			request.getRequestDispatcher("UserLoginRouter").forward(request, response);
 		}
-		System.out.println(usernickname + " " + userpwd + " " + usermobile + " " + useremail + " ");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
