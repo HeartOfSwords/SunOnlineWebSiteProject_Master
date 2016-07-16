@@ -58,7 +58,9 @@
 		<!-- 毛玻璃过滤结束部分-->
 		<div class="header">
 			<div class="nav-content">
+			<a href="IndexRouter">
 				<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				</a>
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="IndexRouter">首页</a></li>
 					<li><a href="studentGuide.html">新生指南</a></li>

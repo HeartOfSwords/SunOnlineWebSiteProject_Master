@@ -70,7 +70,9 @@
 
 		<div class="header">
 			<div class="nav-content">
-				<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				<a href="IndexRouter">
+					<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				</a>
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="IndexRouter">首页</a></li>
 					<li><a href="studentGuide.html">新生指南</a></li>
@@ -151,7 +153,7 @@
 					</div>
 					<!--第三张图片-->
 					<div class="item">
-						<img src="img/index_1.png" alt="">
+						<img src="img/index_3.png" alt="">
 						<div class="carousel-caption">
 						</div>
 					</div>

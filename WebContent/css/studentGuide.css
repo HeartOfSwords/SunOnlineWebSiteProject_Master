@@ -119,3 +119,8 @@ hr {
 .navbar-default .navbar-nav>.active>a {
 	border-radius: 18px;
 }
+@media only screen and (max-width: 760px) {
+	.footer{
+		display: none;
+	}
+}

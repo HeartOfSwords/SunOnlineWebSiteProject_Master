@@ -74,7 +74,7 @@
 		<!-- 毛玻璃过滤结束部分-->
 		<div class="header">
 			<div class="nav-content">
-				<a href="#">
+				<a href="IndexRouter">
 					<img src="img/logo_light.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
 				</a>
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
