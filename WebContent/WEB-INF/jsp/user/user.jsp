@@ -8,13 +8,25 @@
 </head>
 <body>
 <%
+	//邮箱回显
 	String backShowUserEmail = "";
 	if (request.getAttribute("useremail") != null) {
-		backShowUserEmail = (String)request.getAttribute("useremail");
+		backShowUserEmail = (String) request.getAttribute("useremail");
+	}
+	//登录信息回显
+	String message = "";
+	if (request.getAttribute("message") != null) {
+		message = (String) request.getAttribute("message");
+	}
+	//注册信息回显
+	String rMessage = "";
+	if (request.getAttribute("rMessage") != null) {
+		rMessage = (String) request.getAttribute("rMessage");
 	}
 %>
 <h1>登录</h1>
 <form action="UserLogin" method="POST">
+	<%=message %>
 	邮箱：<input type="text" name="useremail" maxlength="20" value="<%=backShowUserEmail%>"/><br/>
 	密码：<input type="password" name="userpwd" maxlength="20"/><br/>
 	<input type="submit" value="提交"/>
@@ -22,10 +34,12 @@
 <hr>
 <h1>注册</h1>
 <form action="UserRegister" method="POST">
-	用户昵称：<input type="text" name="usernickname" maxlength="20"/><br/>
-	用户密码：<input type="text" name="userpwd" maxlength="20"/><br/>
-	用户手机：<input type="text" name="usermobile" maxlength="20"/><br/>
-	用户邮箱：<input type="text" name="useremail" maxlength="20"/><br/>
+	<%=rMessage %>
+	用户昵称：<input type="text" name="usernickname" maxlength="20"/><br/><br/>
+	用户密码：<input type="text" name="userpwd" maxlength="20"/><br/><br/>
+	用户手机：<input type="text" name="usermobile" maxlength="20"/><br/><br/>
+	用户邮箱：<input type="text" name="useremail" maxlength="20"/><br/><br/>
+	<input type="submit" value="提交"/>
 </form>
 </body>
 </html>

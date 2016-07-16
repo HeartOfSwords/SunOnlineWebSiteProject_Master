@@ -47,20 +47,27 @@ public class WebApiDescriptionResource {
 		videos.setTitle("太阳在线视频API根路径");
 		videos.setType("MediaType.APPLICATION_JSON");
 		links.add(videos);
-		//按课程id和页码获取课程列表
+		//获取mooc根路径
 		WebApiLinks mooc = new WebApiLinks();	
 		mooc.setRel("description, webapi/mooc");
 		mooc.setHref("webapi/mooc");
 		mooc.setTitle("太阳在线公益课堂API根路径");
 		mooc.setType("MediaType.APPLICATION_JSON");
 		links.add(mooc);
-		//按照课程id和某一节课具体的id获取课程单体信息
+		//图片根路径
 		WebApiLinks images = new WebApiLinks();	
 		images.setRel("collection, /webapi/images");
 		images.setHref("/webapi/images");
 		images.setTitle("太阳在线图片API路径");
 		images.setType("MediaType.APPLICATION_JSON");
 		links.add(images);
+		//用户路径
+		WebApiLinks user = new WebApiLinks();	
+		user.setRel("operation, /webapi/user");
+		user.setHref("/webapi/user");
+		user.setTitle("用户操作路径");
+		user.setType("MediaType.APPLICATION_JSON");
+		links.add(user);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
@@ -325,6 +332,36 @@ public class WebApiDescriptionResource {
 		recommendationItem.setTitle("获取每一个课程分类下的最新课程并组成推荐课程列表");
 		recommendationItem.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendationItem);
+		webApiRoot.setLinks(links);
+		return webApiRoot;
+	}
+	
+	
+	/**
+	 * 用户登录注册路径描述HATEOAS
+	 */
+	@GET
+	@Path("/user")
+	@Produces(MediaType.APPLICATION_JSON)
+	public WebApiRoot getUserOperationDescription() {
+		
+		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
+		List<WebApiLinks> links = new ArrayList<>();	//列表项
+		//用户登录路径描述
+		WebApiLinks userLogin = new WebApiLinks();	
+		userLogin.setRel("PlainText, webapi/user/login?inputString=*&userpwd=*");
+		userLogin.setHref("webapi/user/login");
+		userLogin.setTitle("用户登录");
+		userLogin.setType("MediaType.APPLICATION_JSON");
+		links.add(userLogin);
+		//用户注册路径描述
+		WebApiLinks userRegister = new WebApiLinks();	
+		userRegister.setRel("PlainText, webapi/user/register?pwd=*&usermobile=*&useremail=*");
+		userRegister.setHref("webapi/user/register?pwd=*&usermobile=*&useremail=*");
+		userRegister.setTitle("用户注册，用户名随机生成 ");
+		userRegister.setType("MediaType.APPLICATION_JSON");
+		links.add(userRegister);
+		
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}

@@ -45,11 +45,12 @@ public class UserLogin extends HttpServlet {
 			String usernickname = userDao.getUserNickNameByUserEmail(useremail);
 			session = request.getSession();
 			session.setAttribute("usernickname", usernickname);
-			System.out.println("测试成功");
 			request.getRequestDispatcher("/IndexRouter").forward(request, response);
 		} else {
 			//登录失败回显
 			request.setAttribute("useremail", useremail);
+			String message = "登录失败，请核对您的账户或密码";
+			request.setAttribute("message", message);
 			request.getRequestDispatcher("/UserLoginRouter").forward(request, response);
 		}
 		
