@@ -34,7 +34,7 @@ public class DBUtils {
 			Class.forName(DBGlobal.DB_DRIVER);
 			// 建立连接
 			connection = DriverManager.getConnection(DBGlobal.DB_URL, DBGlobal.DB_USERNAME, DBGlobal.DB_PASSWORD);
-			System.out.println(new SimpleDateFormat("yyyy-mm-dd,hh:mm:ss ").format(new Date()) + "connected==>" + connection.getMetaData().getURL());
+			System.out.println(new SimpleDateFormat("yyyy-MM-dd,hh:mm:ss ").format(new Date()) + "connected==>" + connection.getMetaData().getURL());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -66,7 +66,7 @@ public class IndexRouter extends HttpServlet {
 		//获取Higo列表
 		List<HigoVideoBean> higoVideoBeans = indexInfoDao.fetchHigoList(8);
 		//获取最强音列表
-		List<CollegeVoiceVideoBean> collegeVoiceVideoBeans = indexInfoDao.fetchCollegeVoiceList(7);
+		List<CollegeVoiceVideoBean> collegeVoiceVideoBeans = indexInfoDao.fetchCollegeVoiceList(8);
 		//获取老司机列表
 		List<OldDriverVideoBean> oldDriverVideoBeans = indexInfoDao.fetchOldDriverList(7);
 		//获取mooc信息

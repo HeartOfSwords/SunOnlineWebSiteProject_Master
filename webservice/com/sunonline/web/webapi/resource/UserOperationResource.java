@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.persistence.internal.jpa.parsing.UnaryMinus;
 
+import com.sunonline.web.bean.User;
 import com.sunonline.web.dao.UserDao;
 import com.sunonline.web.dao.UserDaoImpl;
 import com.sunonline.web.utils.UserUtils;
@@ -49,7 +50,7 @@ public class UserOperationResource implements IUserOperationResource {
 	@Path("user/login")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Override
-	public String userLoginVerifyByMobileOrEmail(@QueryParam("inputString")String inputString, @QueryParam("userpwd")String userpwd) {
+	public User userLoginVerifyByMobileOrEmail(@QueryParam("inputString")String inputString, @QueryParam("userpwd")String userpwd) {
 		/*根据输入字符串的类型判断是何种
 		inputString是邮箱*/
 		if (inputString != null && inputString.contains("@") && inputString.contains("."))  {
@@ -59,7 +60,7 @@ public class UserOperationResource implements IUserOperationResource {
 			return userdao.verifyUserMobile(inputString, userpwd);
 		} 
 		//其他情况不进行验证直接返回失败
-		return "login failed";
+		return null;
 	}
 	
 	@Override

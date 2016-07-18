@@ -522,62 +522,6 @@
 				%>
 
 				
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
 
 				<!--栏目引导位置-->
 				<a href="CollegeVoiceVideoPager">

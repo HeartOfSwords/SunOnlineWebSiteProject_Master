@@ -1,4 +1,7 @@
 package com.sunonline.web.webapi.resource;
+
+import com.sunonline.web.bean.User;
+
 /**
  * 用户操作资源接口
  * @author snowalker
@@ -15,7 +18,7 @@ public interface IUserOperationResource {
 	public String userRegister(String pwd, String usermobile, String useremail);
 	//用户登录，通过邮箱/手机号
 	//参数中的inputString不确定，做判断之后再根据具体是什么数据进行判断
-	public String userLoginVerifyByMobileOrEmail(String inputString, String userpwd);
+	public User userLoginVerifyByMobileOrEmail(String inputString, String userpwd);
 	//用户修改用户名
 	public String userModifyUsername();
 }

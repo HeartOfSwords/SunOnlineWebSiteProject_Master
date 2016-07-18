@@ -4,6 +4,7 @@ package com.sunonline.web.bean;
  * @date 2016.5.3
  * <p>function:用户注册bean</p>
  * modify: 2016.7.15
+ * modify: 2016.7.18 添加用户头像字段
  */
 public class User {
 	
@@ -16,6 +17,9 @@ public class User {
 	private String userMobile;				//用户注册手机
 	
 	private String userEmail;				//用户邮箱
+	
+	private String userAvatar;				//用户头像地址
+	
 	
 	public User() {
 	}
@@ -36,14 +40,28 @@ public class User {
 		this.userMobile = userMobile;
 		this.userEmail = userEmail;
 	}
-
+	
 	public Integer getUser_id() {
 		return user_id;
 	}
 
+	
+	//添加头像之后的用户构造方法
+	public User(Integer user_id, String usernickName, String userPwd, String userMobile, String userEmail,
+			String userAvatar) {
+		super();
+		this.user_id = user_id;
+		this.usernickName = usernickName;
+		this.userPwd = userPwd;
+		this.userMobile = userMobile;
+		this.userEmail = userEmail;
+		this.userAvatar = userAvatar;
+	}
+	
 	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
 	}
+
 
 	public String getUsernickName() {
 		return usernickName;
@@ -76,5 +94,15 @@ public class User {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
+
+	public String getUserAvatar() {
+		return userAvatar;
+	}
+
+	public void setUserAvatar(String userAvatar) {
+		this.userAvatar = userAvatar;
+	}
+	
+	
 		
 }
