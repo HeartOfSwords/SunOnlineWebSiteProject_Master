@@ -228,4 +228,14 @@
     <servlet-name>UserRegisterRouter</servlet-name>
     <url-pattern>/UserRegisterRouter</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserLogout</display-name>
+    <servlet-name>UserLogout</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.UserLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogout</servlet-name>
+    <url-pattern>/UserLogout</url-pattern>
+  </servlet-mapping>
 </web-app>

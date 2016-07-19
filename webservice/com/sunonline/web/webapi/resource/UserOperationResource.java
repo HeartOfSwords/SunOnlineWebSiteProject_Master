@@ -1,13 +1,10 @@
 package com.sunonline.web.webapi.resource;
 
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import org.eclipse.persistence.internal.jpa.parsing.UnaryMinus;
 
 import com.sunonline.web.bean.User;
 import com.sunonline.web.dao.UserDao;
@@ -39,9 +36,9 @@ public class UserOperationResource implements IUserOperationResource {
 		访问Dao层写入数据库*/
 		String flag = userdao.UserRegister(usernickname, pwd, usermobile, useremail);
 		if ("successfully creating user".equals(flag)) {
-			return "successfully creating user";
+			return "注册成功，用户已创建";
 		}
-		return "failed creating user";
+		return "您使用的手机号或邮箱已经被他人占用，请更换之后重新注册";
 	}
 
 	//用户登录，通过邮箱/手机号

@@ -349,7 +349,7 @@ public class WebApiDescriptionResource {
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
 		//用户登录路径描述
 		WebApiLinks userLogin = new WebApiLinks();	
-		userLogin.setRel("PlainText, webapi/user/login?inputString=*&userpwd=*");
+		userLogin.setRel("SingleEntity, webapi/user/login?inputString=*&userpwd=*");
 		userLogin.setHref("webapi/user/login");
 		userLogin.setTitle("用户登录");
 		userLogin.setType("MediaType.APPLICATION_JSON");

@@ -10,8 +10,9 @@
 	OldDriverVideoDao oldDirverVideoDao =  new OldDriverVideoDaoImpl();
 	List<OldDriverVideoBean> oldDriverVideos = oldDirverVideoDao.fetchAllVideos();
 	//获取推荐视频
-	//获取推荐视频
 	List<OldDriverVideoBean> oldDriverRecommendation = (List<OldDriverVideoBean>)request.getAttribute("oldDriverRecommendation");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
 %>
 <!DOCTYPE html>
 <html>
@@ -76,10 +77,29 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="UserLoginRouter">登录</a></li>
-					<li><a href="UserRegisterRouter">注册</a></li>
-				</ul>
+				<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
+
 			</div>
 
 		</div>

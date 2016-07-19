@@ -5,20 +5,23 @@
 <%@page import="java.sql.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
-<%	
-		//获取视频信息实体
-		OldDriverVideoBean oldDriverVideoBean = (OldDriverVideoBean)request.getAttribute("oldDriverVideoInfo");
-		//逐条获取视频信息
-		int video_id = oldDriverVideoBean.getLSJ_video_id();
-		String video_url = oldDriverVideoBean.getLSJ_video_url();
-		String video_name = oldDriverVideoBean.getLSJ_video_name();
-		Date upload_date = oldDriverVideoBean.getLSJ_video_date();
-		String pic_url = oldDriverVideoBean.getLSJ_video_pic_url();
-		int played_time = oldDriverVideoBean.getLSJ_video_played_number();
-		String video_intro = oldDriverVideoBean.getLSJ_video_intro();
-		String video_uploader = oldDriverVideoBean.getLSJ_video_uploader();
-		//获取推荐视频
-		List<OldDriverVideoBean> oldDriverRecommendation = (List<OldDriverVideoBean>)request.getAttribute("oldDriverRecommendation");
+<%
+	//获取视频信息实体
+	OldDriverVideoBean oldDriverVideoBean = (OldDriverVideoBean) request.getAttribute("oldDriverVideoInfo");
+	//逐条获取视频信息
+	int video_id = oldDriverVideoBean.getLSJ_video_id();
+	String video_url = oldDriverVideoBean.getLSJ_video_url();
+	String video_name = oldDriverVideoBean.getLSJ_video_name();
+	Date upload_date = oldDriverVideoBean.getLSJ_video_date();
+	String pic_url = oldDriverVideoBean.getLSJ_video_pic_url();
+	int played_time = oldDriverVideoBean.getLSJ_video_played_number();
+	String video_intro = oldDriverVideoBean.getLSJ_video_intro();
+	String video_uploader = oldDriverVideoBean.getLSJ_video_uploader();
+	//获取推荐视频
+	List<OldDriverVideoBean> oldDriverRecommendation = (List<OldDriverVideoBean>) request
+			.getAttribute("oldDriverRecommendation");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");
 %>
 <!DOCTYPE html>
 <html>
@@ -92,10 +95,29 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="UserLoginRouter">登录</a></li>
-					<li><a href="UserRegisterRouter">注册</a></li>
-				</ul>
+				<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
+
 			</div>
 		</div>
 		<!-- 标题导航栏结束-->

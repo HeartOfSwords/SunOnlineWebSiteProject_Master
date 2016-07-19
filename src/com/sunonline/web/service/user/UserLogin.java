@@ -44,6 +44,8 @@ public class UserLogin extends HttpServlet {
 			String usernickname = userDao.getUserNickNameByUserEmail(useremail);
 			session = request.getSession();
 			session.setAttribute("usernickname", usernickname);
+			request.setAttribute("usernickname", usernickname);
+			System.out.println(usernickname);
 			request.getRequestDispatcher("/IndexRouter").forward(request, response);
 		} else {
 			//登录失败回显

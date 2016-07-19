@@ -20,9 +20,11 @@
 	String video_intro = collegeVoiceVideoBean.getZqy_video_intro();	//视频介绍
 	String video_uploader = collegeVoiceVideoBean.getZqy_video_uploader();//上传者
 	String video_singer = collegeVoiceVideoBean.getZqy_player_name();	//演唱者
-		//获取推荐视频
-		List<CollegeVoiceVideoBean> collegeVoiceVideoRecommendation = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoRecommendation");
-	%>
+	//获取推荐视频
+	List<CollegeVoiceVideoBean> collegeVoiceVideoRecommendation = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoRecommendation");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -87,10 +89,28 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="UserLoginRouter">登录</a></li>
-					<li><a href="UserRegisterRouter">注册</a></li>
-				</ul>
+				<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
 			</div>
 		</div>
 		<!-- 标题导航栏结束-->

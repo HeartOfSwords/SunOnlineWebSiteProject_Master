@@ -18,13 +18,15 @@
 	List<MediasAfter> mediasAfters = (List<MediasAfter>)request.getAttribute("mediasAfters");
 	
 	MoocVideoDao moocVideoDao = new MoocVideoDaoImpl();
+	
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
 %>
 <!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
@@ -97,10 +99,28 @@
 							</ul>
 						</li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
+					
+					<%
+						if (userNickName != null && userNickName.length() > 0) {
+					%>
+                    <!-- 登陆之后显示 -->
+                    <ul class="nav navbar-nav navbar-right">
+						<li><a>用户名：<strong><%=userNickName %></strong></a></li>
+						<li><a href="UserLogout" style="color: blue;">注销</a></li>
+					</ul>
+
+					<%
+						} else {
+					%>
+
+                    <ul class="nav navbar-nav navbar-right">
 						<li><a href="UserLoginRouter">登录</a></li>
 						<li><a href="UserRegisterRouter">注册</a></li>
 					</ul>
+
+					<%
+						}
+					%>
 				</div>
 			</div>
 		</nav>

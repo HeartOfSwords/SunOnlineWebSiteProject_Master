@@ -199,7 +199,6 @@ public class UserDaoImpl implements UserDao {
 	 */
 	@Override
 	public String getUserNickNameByUserEmail(String useremail) {
-		userNickName = "WWW.BAIDU.COM";
 		//构造sql
 		String sql = "SELECT usernickname from userlogin_view where useremail=?";
 		
@@ -248,5 +247,10 @@ public class UserDaoImpl implements UserDao {
 		} else {
 			return false;
 		}
+	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println(new UserDaoImpl().getUserNickNameByUserEmail("1234@qq.com"));
 	}
 }

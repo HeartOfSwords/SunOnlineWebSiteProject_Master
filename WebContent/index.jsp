@@ -17,6 +17,8 @@
 	List<OldDriverVideoBean> oldDriverVideoBeans = (List<OldDriverVideoBean>)request.getAttribute("oldDriverVideoBeans");
 	//获取公益课堂列表
 	List<CoursesBean> coursesBeans = (List<CoursesBean>)request.getAttribute("coursesBeans");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
 %>
 <!DOCTYPE html>
 <html>
@@ -88,11 +90,31 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="UserLoginRouter">登录</a></li>
-					<li><a href="UserRegisterRouter">注册</a></li>
-				</ul>
-			</div>
+			<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
+
+
+		</div>
 		</div>
 		<div class="dynamic_header header">
 			<div class="nav-content">
@@ -112,10 +134,28 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="#">登录</a></li>|
-					<li><a href="#">注册</a></li>
+	
+				<%
+					if (userNickName != null && userNickName.length() > 0) {
+				%>
+				<!-- 登陆之后 -->
+				<ul
+					class="list-unstyled list-inline nav-style right_float right_float_hidden">
+					<li>用户名：<strong><%=userNickName %></strong></li>
+					<li><a href="UserLogout" style="color: red;">注销</a></li>
 				</ul>
+	
+				<%
+					} else {
+				%>
+	
+				<ul class="list-unstyled list-inline nav-style right_float">
+					<li><a href="UserLoginRouter">登录</a></li>
+					<li><a href="UserRegisterRouter">注册</a></li>
+				</ul>
+				<%
+					}
+				%>
 			</div>
 		</div>
 		<!-- 标题导航栏结束-->
