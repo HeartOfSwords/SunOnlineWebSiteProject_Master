@@ -184,6 +184,13 @@ public class WebApiDescriptionResource {
 		recommendVideos.setTitle("Higo大学季推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
+		//获取分页视频
+		WebApiLinks getVideosByPageNo = new WebApiLinks();
+		getVideosByPageNo.setRel("collection, webapi/videos/higovideo/pager?pageno=*");
+		getVideosByPageNo.setHref("webapi/videos/higovideo/pager?pageno=*");
+		getVideosByPageNo.setTitle("获取higo分页视频");
+		getVideosByPageNo.setType("MediaType.APPLICATION_JSON");
+		links.add(getVideosByPageNo);
 		
 		webApiRoot.setLinks(links);
 		return webApiRoot;
@@ -222,7 +229,13 @@ public class WebApiDescriptionResource {
 		recommendVideos.setTitle("影视老司机推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
-		
+		//获取分页视频
+		WebApiLinks getVideosByPageNo = new WebApiLinks();
+		getVideosByPageNo.setRel("collection, webapi/videos/olddriver/pager?pageno=*");
+		getVideosByPageNo.setHref("webapi/videos/olddriver/pager?pageno=*");
+		getVideosByPageNo.setTitle("获取影视老司机分页视频");
+		getVideosByPageNo.setType("MediaType.APPLICATION_JSON");
+		links.add(getVideosByPageNo);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
@@ -259,7 +272,13 @@ public class WebApiDescriptionResource {
 		recommendVideos.setTitle("高校最强音推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
-		
+		//获取分页视频
+		WebApiLinks getVideosByPageNo = new WebApiLinks();
+		getVideosByPageNo.setRel("collection, webapi/videos/collegevoice/pager?pageno=*");
+		getVideosByPageNo.setHref("webapi/videos/collegevoice/pager?pageno=*");
+		getVideosByPageNo.setTitle("获取高校最强音分页视频");
+		getVideosByPageNo.setType("MediaType.APPLICATION_JSON");
+		links.add(getVideosByPageNo);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
