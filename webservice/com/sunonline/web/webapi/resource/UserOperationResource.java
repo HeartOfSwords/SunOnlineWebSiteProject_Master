@@ -60,9 +60,63 @@ public class UserOperationResource implements IUserOperationResource {
 		return null;
 	}
 	
+	/*
+	 * 用户修改昵称
+	 * 接收新的用户昵称
+	 * 替换原有的昵称
+	 * 无条件直接修改
+	 * @param 接收参数  用户手机号
+	 */
+	@POST
+	@Path("user/changer/nickname")
+	@Produces(MediaType.APPLICATION_JSON)
 	@Override
-	public String userModifyUsername() {
-		return null;
+	public String userModifyUserNickName(@QueryParam("mobile")String userMobile, @QueryParam("nickname")String newNickName) {
+		
+		return userdao.modifyUserNickName(userMobile, newNickName);
+	}
+
+
+	/*
+	 * 用户修改密码
+	 * 用户初始状态为登录
+	 * 只需要提供用户的信息及要更改的密码即可
+	 */
+	@POST
+	@Path("user/changer/userpwd/logged")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Override
+	public String userModifyUserPasswdDirectly(@QueryParam("userpwd")String userpwd, @QueryParam("mobile")String userMobile) {
+		
+		return userdao.userModifyUserPasswdDirectly(userpwd, userMobile);
+	}
+	/*
+	 * 用户修改密码
+	 * 用户初始状态为未登录
+	 * 需要首先验证要验证用户合法性
+	 * step:A
+	 */
+	@POST
+	@Path("user/changer/userpwd/notlogged")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Override
+	public String userVerifyValidityBeforeModifyUserpwd(@QueryParam("mobile") String userMobile) {
+		
+		return userdao.userVerifyValidityBeforeModifyUserpwd(userMobile);
+	}
+	/*
+	 * 如果验证 成功
+	 * 则进入该阶段
+	 * step:B
+	 * 使用该手机号更改密码
+	 */
+	@POST
+	@Path("user/changer/userpwd/notlogged/validater")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Override
+	public String userModifyUserPasswdValidated(@QueryParam("userpwd")String userpwd, @QueryParam("mobile")String userMobile) {
+		
+		return userdao.userModifyUserPasswdDirectly(userpwd, userMobile);
 	}
 
 }

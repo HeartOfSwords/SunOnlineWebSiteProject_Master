@@ -378,9 +378,52 @@ public class WebApiDescriptionResource {
 		userRegister.setRel("PlainText, webapi/user/register?pwd=*&usermobile=*&useremail=*");
 		userRegister.setHref("webapi/user/register?pwd=*&usermobile=*&useremail=*");
 		userRegister.setTitle("用户注册，用户名随机生成 ");
-		userRegister.setType("MediaType.APPLICATION_JSON");
+		userRegister.setType("MediaType.PLAINTEXT");
 		links.add(userRegister);
-		
+		//用户修改昵称路径描述
+		WebApiLinks userNickNameModify = new WebApiLinks();
+		userNickNameModify.setRel("PlainText, webapi/user/changer/nickname?mobile=*&nickname=*");
+		userNickNameModify.setHref("webapi/user/changer/nickname?mobile=*&nickname=*");
+		userNickNameModify.setTitle("修改用户昵称 ");
+		userNickNameModify.setType("MediaType.PLAIN_TEXT");
+		links.add(userNickNameModify);
+		/*
+		 * 用户登录后直接修改密码
+		 * 此时接受的参数为前台传来的用户手机号
+		 * 及用户想要修改的新密码
+		 */
+		WebApiLinks modifyUserpwdDirectly = new WebApiLinks();
+		modifyUserpwdDirectly.setRel("PlainText, webapi/user/changer/userpwd/logged?mobile=*&userpwd=*");
+		modifyUserpwdDirectly.setHref("webapi/user/changer/userpwd/logged?mobile=*&userpwd=*");
+		modifyUserpwdDirectly.setTitle("登录后直接修改用户密码");
+		modifyUserpwdDirectly.setType("MediaType.PLAIN_TEXT");
+		links.add(modifyUserpwdDirectly);
+		/*
+		 * 用户忘记密码
+		 * 修改密码需要进行
+		 * 身份合法性验证
+		 * 如果验证合法则发起密码修改请求
+		 * 否则直接返回错误信息
+		 * step:A
+		 */
+		WebApiLinks verifyUserValidity = new WebApiLinks();
+		verifyUserValidity.setRel("PlainText, webapi/user/changer/userpwd/notlogged?mobile=*");
+		verifyUserValidity.setHref("webapi/user/changer/userpwd/notlogged?mobile=*");
+		verifyUserValidity.setTitle("未登录用户验证账号是否存在");
+		verifyUserValidity.setType("MediaType.PLAIN_TEXT");
+		links.add(verifyUserValidity);
+		/*
+		 * 如果验证 成功
+		 * 则进入该阶段
+		 * step:B
+		 * 使用该手机号更改密码
+		 */
+		WebApiLinks modifyUserpwdValidated = new WebApiLinks();
+		modifyUserpwdValidated.setRel("PlainText, webapi/user/changer/userpwd/notlogged/validater?mobile=*&userpwd=*");
+		modifyUserpwdValidated.setHref("webapi/user/changer/userpwd/notlogged/validater?mobile=*&userpwd=*");
+		modifyUserpwdValidated.setTitle("用户存在性验证成功用户更改密码");
+		modifyUserpwdValidated.setType("MediaType.PLAIN_TEXT");
+		links.add(modifyUserpwdValidated);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}

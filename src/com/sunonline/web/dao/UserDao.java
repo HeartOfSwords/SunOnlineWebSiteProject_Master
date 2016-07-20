@@ -19,4 +19,11 @@ public interface UserDao {
 	public String getUserNickNameByUserEmail(String useremail);
 	//根据邮箱判断用户登录返回boolean类型
 	public Boolean verifyUser(String useremail, String userpwd);
+	//修改用户昵称
+	public String modifyUserNickName(String userMobile, String newNickName);
+	//用户修改密码,初始状态为登录
+	public String userModifyUserPasswdDirectly(String userpwd, String userMobile);
+	//用户修改密码，忘记密码
+	//首先验证密码合法性
+	public String userVerifyValidityBeforeModifyUserpwd(String userMobile);
 }

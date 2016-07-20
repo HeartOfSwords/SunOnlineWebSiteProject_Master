@@ -1,4 +1,4 @@
-package com.sunonline.web.dao;
+ package com.sunonline.web.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,6 +23,9 @@ public class UserDaoImpl implements UserDao {
 	@SuppressWarnings("unused")
 	private String userNickName;
 	private User user;
+	private int flagNickName;	//昵称标记
+	private int flagPwd;		//密码标记
+	private String mobileInDB;
 
 
 	//用户注册
@@ -249,8 +252,103 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 	
+	/*
+	 * 修改用户昵称
+	 * 接受参数为 ：
+	 * 	登录的用户账号，要设置的用户昵称
+	 * 此处手机号过长，因此使用long进行设值
+	 * @see com.sunonline.web.dao.UserDao#modifyUserNickName(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public String modifyUserNickName(String userMobile, String newNickName) {
+		//构造sql
+		String sql = "update user set usernickname=? where usermobile=?";
+		//转换手机号字符串为整形数
+		Long mobileNum = Long.valueOf(userMobile);
+		
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			//sql设值
+			pstmt.setString(1, newNickName);
+			pstmt.setLong(2, mobileNum);
+			
+			flagNickName = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//flag结果判断
+		if (flagNickName > 0) {
+			return "昵称修改成功，新的昵称是:" + newNickName;
+		} else {
+			return "昵称修改失败";
+		}
+	}
+	
+	/*
+	 * 用户修改密码，初始装填为直接登录
+	 */
+	public String userModifyUserPasswdDirectly(String userpwd, String userMobile) {
+		//构造sql
+		String sql = "update user set userpwd=? where usermobile=?";
+		//转换手机号字符串为整形数
+		Long mobileNum = Long.valueOf(userMobile);
+		//对密码进行加密
+		String userpwdEncode = StringEncodeUtils.EncodePassword(userpwd);
+
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			//sql设值
+			pstmt.setString(1, userpwdEncode);
+			pstmt.setLong(2, mobileNum);
+
+			flagPwd = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//flag结果判断
+		if (flagPwd > 0) {
+			return "密码修改成功";
+		} else {
+			return "密码修改失败";
+		}
+	}
+
+	//用户修改密码，忘记密码
+	//首先验证密码合法性
+	@Override
+	public String userVerifyValidityBeforeModifyUserpwd(String userMobile) {
+		String sql = "SELECT usermobile from userlogin_view where usermobile=?";
+		//转换字符串为long型
+		Long mobile = Long.valueOf(userMobile);
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setLong(1, mobile);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				mobileInDB = rs.getString("usermobile");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();;
+		}
+		//对账户密码进行比对
+		if (mobileInDB != null && mobileInDB.equals(userMobile)) {
+			return "用户合法性验证成功";
+		} else {
+			return "用户不存在，请核对信息后重试";
+		}
+	}
+
 	
 	public static void main(String[] args) {
-		System.out.println(new UserDaoImpl().getUserNickNameByUserEmail("1234@qq.com"));
+		//System.out.println(new UserDaoImpl().getUserNickNameByUserEmail("1234@qq.com"));
+		//System.out.println(new UserDaoImpl().modifyUserNickName("12345678900", "知行合一"));
+		System.out.println(new UserDaoImpl().userVerifyValidityBeforeModifyUserpwd("12345678900"));
 	}
+	
 }

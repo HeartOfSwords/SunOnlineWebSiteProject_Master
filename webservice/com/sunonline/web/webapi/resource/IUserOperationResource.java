@@ -19,6 +19,26 @@ public interface IUserOperationResource {
 	//用户登录，通过邮箱/手机号
 	//参数中的inputString不确定，做判断之后再根据具体是什么数据进行判断
 	public User userLoginVerifyByMobileOrEmail(String inputString, String userpwd);
-	//用户修改用户名
-	public String userModifyUsername();
+	//用户修改昵称
+	public String userModifyUserNickName(String userMobile, String newNickName);
+	/*
+	 * 用户修改密码
+	 * 用户初始状态为登录
+	 * 只需要提供用户的信息及要更改的密码即可
+	 */
+	public String userModifyUserPasswdDirectly(String userpwd, String userMobile);
+	/*
+	 * 用户修改密码
+	 * 用户初始状态为未登录
+	 * 需要首先验证要验证用户合法性
+	 * step:A
+	 */
+	public String userVerifyValidityBeforeModifyUserpwd(String userMobile);
+	/*
+	 * 如果验证 成功
+	 * 则进入该阶段
+	 * step:B
+	 * 使用该手机号更改密码
+	 */
+	public String userModifyUserPasswdValidated(String userpwd, String userMobile);
 }
