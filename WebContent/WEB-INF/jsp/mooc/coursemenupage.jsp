@@ -9,6 +9,8 @@
 <%
 	//课程信息
 	CoursesBean coursesBean = (CoursesBean)request.getAttribute("coursesBean");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
 %>
 <!DOCTYPE html>
 <html>
@@ -37,7 +39,9 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
       				</button>
+      				<a href="IndexRouter">
 					<img src="img/logo.png" />
+					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
@@ -58,10 +62,27 @@
 							</ul>
 						</li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">注册</a></li>
-						<li><a href="#">登录</a></li>
+					<%
+						if (userNickName != null && userNickName.length() > 0) {
+					%>
+                    <!-- 登陆之后显示 -->
+                    <ul class="nav navbar-nav navbar-right">
+						<li><a>用户名：<strong><%=userNickName %></strong></a></li>
+						<li><a href="UserLogout" style="color: blue;">注销</a></li>
 					</ul>
+
+					<%
+						} else {
+					%>
+
+                    <ul class="nav navbar-nav navbar-right">
+						<li><a href="UserLoginRouter">登录</a></li>
+						<li><a href="UserRegisterRouter">注册</a></li>
+					</ul>
+
+					<%
+						}
+					%>
 				</div>
 			</div>
 		</nav>

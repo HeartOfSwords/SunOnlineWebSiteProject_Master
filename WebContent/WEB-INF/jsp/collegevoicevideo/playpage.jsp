@@ -20,9 +20,11 @@
 	String video_intro = collegeVoiceVideoBean.getZqy_video_intro();	//视频介绍
 	String video_uploader = collegeVoiceVideoBean.getZqy_video_uploader();//上传者
 	String video_singer = collegeVoiceVideoBean.getZqy_player_name();	//演唱者
-		//获取推荐视频
-		List<CollegeVoiceVideoBean> collegeVoiceVideoRecommendation = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoRecommendation");
-	%>
+	//获取推荐视频
+	List<CollegeVoiceVideoBean> collegeVoiceVideoRecommendation = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoRecommendation");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -69,7 +71,9 @@
 		<!-- 毛玻璃过滤结束部分-->
 		<div class="header">
 			<div class="nav-content">
-				<img src="img/logo_light.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				<a href="IndexRouter">
+					<img src="img/logo_light.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				</a>
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="IndexRouter">首页</a></li>
 					<li><a href="studentGuide.html">新生指南</a></li>
@@ -85,10 +89,28 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="#">登录</a></li>|
-					<li><a href="#">注册</a></li>
-				</ul>
+				<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
 			</div>
 		</div>
 		<!-- 标题导航栏结束-->
@@ -177,7 +199,7 @@
 				<div class="row">
 					<div class="review">
 						<!-- 多说评论框 start -->
-						<div class="ds-thread" data-thread-key="1" data-title="文章标题" data-url="请替换成文章的网址"></div>
+						<div class="ds-thread" data-thread-key="<%="collegevoice " + video_id %>" data-title="<%="collegevoice " + video_name %>" data-url="请替换成文章的网址"></div>
 						<!-- 多说评论框 end -->
 						<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 						<script type="text/javascript">

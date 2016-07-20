@@ -52,7 +52,7 @@ public class IndexResource {
 		collegeVoiceLists.setName("高校最强音");
 		collegeVoiceLists.setPicUrl("http://o95fizdxg.bkt.clouddn.com/iPhone%E6%9C%80%E5%BC%BA%E9%9F%B3.png");
 		collegeVoiceLists.setIntro("最强音介绍");
-		collegeVoiceLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/collegevoice/all");
+		collegeVoiceLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/collegevoice/pager?pageno=");
 
 		// 组装最强音推荐列表
 		List<Recommendation> collegeVoiceRecommendations = buildcollegeVoiceRecommendation();
@@ -95,7 +95,7 @@ public class IndexResource {
 		oldDriverLists.setName("影视老司机");
 		oldDriverLists.setPicUrl("http://o95fizdxg.bkt.clouddn.com/iPhone%E8%80%81%E5%8F%B8%E6%9C%BA.png");
 		oldDriverLists.setIntro("老司机介绍");
-		oldDriverLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/olddriver/all");
+		oldDriverLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/olddriver/pager?pageno=");
 		List<Recommendation> oldDriverRecommendations = buildOldDriverRecommendation();
 		oldDriverLists.setRecommendations(oldDriverRecommendations);
 		return oldDriverLists;
@@ -133,7 +133,7 @@ public class IndexResource {
 		higoLists.setName("Higo大学季");
 		higoLists.setPicUrl("http://o95fizdxg.bkt.clouddn.com/iPhone%E5%A4%A7%E5%AD%A6%E5%AD%A3.png");
 		higoLists.setIntro("Higo大学季介绍");
-		higoLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/higovideo/all");
+		higoLists.setPagerUrl(StringGlobal.STRING_IP_HOSTNAME + "/webapi/videos/higovideo/pager?pageno=");
 		List<Recommendation> higoRecommendations = buildHigoRecommendation();
 		higoLists.setRecommendations(higoRecommendations);
 		return higoLists;

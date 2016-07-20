@@ -44,3 +44,42 @@ WHERE
 视频大小更改video标签属性添加width="970px" height="540px"
 
 ## 6.8访问老司机空指针异常
+## 7.9打包部署到ubuntu server之后运行报错
+
+	Unsupported major.minor version 52.0
+
+解决方法：
+	
+	Properties-->JAVA Compiler-中的Compiler compliance level从1.8改成1.7，之后就可以运行了。
+
+## 7.11笔记
+
+webapi中添加功能：获取每一个课程类别下的最新一条数据通过
+
+	SELECT a.* 
+	 
+	FROM smooc_courselist a 
+	 
+	WHERE 
+	 
+	( 
+	  SELECT COUNT(*) 
+	 
+	  FROM smooc_courselist 
+	 
+	  WHERE c_id= a.c_id
+	 
+	  AND cl_id < a.cl_id 
+	 
+	) < 1 
+实现
+
+## 7.15笔记
+插入手机号提示Out of range value for column
+解决方法：设置字段类型从int到BigInt
+
+## 7.16笔记
+关于文章的一对一评论问题的解决：在对应的播放条目中使用jsp动态获取该视频所在类别及其id，在服务端动态的获取评论
+
+## 7.19笔记
+全站动态页面登录认证及会话保持

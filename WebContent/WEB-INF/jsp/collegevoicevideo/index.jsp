@@ -12,6 +12,8 @@
 	List<CollegeVoiceVideoBean> collegeVoiceVideoVideos = collegeVoiceVideoDao.fetchAllVideos();
 	//推荐视频
 	List<CollegeVoiceVideoBean> collegeVoiceVideoRecommendation = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoRecommendation");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
 %>
 <!DOCTYPE html>
 <html>
@@ -62,7 +64,9 @@
 		<!-- 毛玻璃过滤结束部分-->
 		<div class="header">
 			<div class="nav-content">
-				<img src="img/logo_light.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				<a href="IndexRouter">
+					<img src="img/logo_light.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				</a>
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="IndexRouter">首页</a></li>
 					<li><a href="studentGuide.html">新生指南</a></li>
@@ -78,10 +82,28 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="#">登录</a></li>|
-					<li><a href="#">注册</a></li>
-				</ul>
+				<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
 			</div>
 
 		</div>

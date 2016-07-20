@@ -1,3 +1,4 @@
+<%@page import="com.sunonline.mooc.model.CoursesBean"%>
 <%@page import="com.sunonline.web.bean.OldDriverVideoBean"%>
 <%@page import="com.sunonline.web.bean.CollegeVoiceVideoBean"%>
 <%@page import="com.sunonline.web.bean.HigoVideoBean"%>
@@ -14,6 +15,10 @@
 	List<CollegeVoiceVideoBean> collegeVoiceVideoBeans = (List<CollegeVoiceVideoBean>)request.getAttribute("collegeVoiceVideoBeans");
 	//获取老司机列表
 	List<OldDriverVideoBean> oldDriverVideoBeans = (List<OldDriverVideoBean>)request.getAttribute("oldDriverVideoBeans");
+	//获取公益课堂列表
+	List<CoursesBean> coursesBeans = (List<CoursesBean>)request.getAttribute("coursesBeans");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
 %>
 <!DOCTYPE html>
 <html>
@@ -67,7 +72,9 @@
 
 		<div class="header">
 			<div class="nav-content">
-				<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				<a href="IndexRouter">
+					<img src="img/logo.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
+				</a>
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
 					<li><a href="IndexRouter">首页</a></li>
 					<li><a href="studentGuide.html">新生指南</a></li>
@@ -83,11 +90,31 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="#">登录</a></li>|
-					<li><a href="#">注册</a></li>
-				</ul>
-			</div>
+			<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
+
+
+		</div>
 		</div>
 		<div class="dynamic_header header">
 			<div class="nav-content">
@@ -107,10 +134,28 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="#">登录</a></li>|
-					<li><a href="#">注册</a></li>
+	
+				<%
+					if (userNickName != null && userNickName.length() > 0) {
+				%>
+				<!-- 登陆之后 -->
+				<ul
+					class="list-unstyled list-inline nav-style right_float right_float_hidden">
+					<li>用户名：<strong><%=userNickName %></strong></li>
+					<li><a href="UserLogout" style="color: red;">注销</a></li>
 				</ul>
+	
+				<%
+					} else {
+				%>
+	
+				<ul class="list-unstyled list-inline nav-style right_float">
+					<li><a href="UserLoginRouter">登录</a></li>
+					<li><a href="UserRegisterRouter">注册</a></li>
+				</ul>
+				<%
+					}
+				%>
 			</div>
 		</div>
 		<!-- 标题导航栏结束-->
@@ -148,7 +193,7 @@
 					</div>
 					<!--第三张图片-->
 					<div class="item">
-						<img src="img/index_1.png" alt="">
+						<img src="img/index_3.png" alt="">
 						<div class="carousel-caption">
 						</div>
 					</div>
@@ -180,7 +225,95 @@
 		<!--Higo大学季版块开始-->
 		<div class="column center">
 			<div class="column_header">
-				<span class="column_header_logo"></span>
+				<span class="column_header_logo">
+					<img alt="加载失败" src="img/mooc_index_logo.png" width="40px" hei>
+				</span>
+				<div class="column_title_more">
+					<span class="column_title">公益课堂</span>
+					<div class="column_more">
+						<a href="mooc">更多</a>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</div>
+				</div>
+			</div>
+			<div class="divider"></div>
+			<div class="column_body">
+
+				<!--大图栏目-->
+				
+				<!-- 公益课堂第一条数据 -->
+				<%
+					CoursesBean coursesBean = coursesBeans.get(0);
+					
+					Integer c_id			= coursesBean.getC_id();				//课程id
+					String  c_name			= coursesBean.getC_name();				//课程 名称
+					String  c_introduce		= coursesBean.getC_introduce();  		//课程介绍
+					String  c_pic_url		= coursesBean.getC_pic_url();			//视频截图url
+					String  c_teacher_name  = coursesBean.getC_teacher_name(); 		//讲师姓名
+					String  c_teacher_intro = coursesBean.getC_teacher_intro();		//讲师介绍
+					Integer t_id			= coursesBean.getT_id();				//视频所属类型id
+					
+					
+				%>
+				<a href="CoursesVideoPager?current_pageno=1&c_id=<%=c_id%>">
+					<dl class="column_body_big">
+						<dt>
+						<img src="<%=c_pic_url%>"  width="336px"  height="263px" alt="推荐视频"/>
+						<span class="player_num">
+							<div class="player_flag"></div>
+							<!-- 播放次数 -->
+						</span>
+					</dt>
+						<dd><%=c_name %>
+						</dd>
+
+					</dl>
+
+				</a>
+				<!-- 普通栏目 -->
+				<%
+					if(coursesBeans != null && coursesBeans.size() > 0) {
+						for(int i = 1; i < coursesBeans.size(); i++) {
+				%>
+			
+						<a href="CoursesVideoPager?current_pageno=1&c_id=<%=coursesBeans.get(i).getC_id()%>">
+							<dl class="column_body_normal">
+								<dt>
+								<img src="<%=coursesBeans.get(i).getC_pic_url() %>"  width="200px"  height="101px" alt="推荐视频"/>
+								<span class="player_num">
+									<div class="player_flag"></div>
+								</span>
+							</dt>
+								<dd><%=coursesBeans.get(i).getC_teacher_name()%></dd>
+							</dl>
+
+						</a>
+				
+				
+				<% 	
+						}
+					}
+					
+				%>
+
+
+				<!--栏目引导位置-->
+				<a href="mooc">
+					<dl class="column_body_normal column_body_normal_end_green">
+						<div class="column_tip">进入公益课堂>></div>
+					</dl>
+
+				</a>
+
+			</div>
+		</div>
+		<!--公益课堂版块结束-->
+		<!--Higo大学季版块开始-->
+		<div class="column center">
+			<div class="column_header">
+				<span class="column_header_logo">
+					<img alt="加载失败" src="img/higo_index_logo.png" width="40px" height="40px">
+				</span>
 				<div class="column_title_more">
 					<span class="column_title">HIGO大学季</span>
 					<div class="column_more">
@@ -191,8 +324,6 @@
 			</div>
 			<div class="divider"></div>
 			<div class="column_body">
-
-				<!--大图栏目-->
 				<!-- Higo大学季第一条数据 -->
 				<%
 					HigoVideoBean higoVideoBean = higoVideoBeans.get(0);
@@ -261,7 +392,9 @@
 		<!--影视老司机版块开始-->
 		<div class="column center">
 			<div class="column_header">
-				<span class="column_header_logo"></span>
+				<span class="column_header_logo">
+					<img alt="加载失败" src="img/old_driver_index_logo.png" width="40px" height="40px">
+				</span>
 				<div class="column_title_more">
 					<span class="column_title">影视老司机</span>
 					<div class="column_more">
@@ -365,7 +498,9 @@
 		<!--最强音版块开始-->
 		<div class="column center">
 			<div class="column_header">
-				<span class="column_header_logo"></span>
+				<span class="column_header_logo">	
+					<img alt="加载失败" src="img/collegevoice_index_logo.png" width="40px" height="40px">
+				</span>
 				<div class="column_title_more">
 					<span class="column_title">高校最强音</span>
 					<div class="column_more">
@@ -427,62 +562,6 @@
 				%>
 
 				
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
-
-
-				<a href="#">
-					<dl class="column_body_normal">
-						<dt>
-						<img src="img/erweima.png"  width="200px"  height="101px" alt="推荐视频"/>
-						<span class="player_num">
-							<div class="player_flag"></div>
-							120
-						</span>
-					</dt>
-						<dd>精彩敬请期待</dd>
-					</dl>
-
-				</a>
 
 				<!--栏目引导位置-->
 				<a href="CollegeVoiceVideoPager">

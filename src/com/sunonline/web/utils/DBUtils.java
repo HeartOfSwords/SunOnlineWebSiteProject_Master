@@ -9,9 +9,6 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sunonline.web.global.DBGlobal;
 
 /**
@@ -37,7 +34,7 @@ public class DBUtils {
 			Class.forName(DBGlobal.DB_DRIVER);
 			// 建立连接
 			connection = DriverManager.getConnection(DBGlobal.DB_URL, DBGlobal.DB_USERNAME, DBGlobal.DB_PASSWORD);
-			System.out.println(new SimpleDateFormat("yyyy-mm-dd,hh:mm:ss ").format(new Date()) + "connected==>" + connection.getMetaData().getURL());
+			System.out.println(new SimpleDateFormat("yyyy-MM-dd,hh:mm:ss ").format(new Date()) + "connected==>" + connection.getMetaData().getURL());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

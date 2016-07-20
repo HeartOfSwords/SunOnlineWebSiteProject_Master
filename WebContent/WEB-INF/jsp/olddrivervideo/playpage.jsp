@@ -5,20 +5,23 @@
 <%@page import="java.sql.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
-<%	
-		//获取视频信息实体
-		OldDriverVideoBean oldDriverVideoBean = (OldDriverVideoBean)request.getAttribute("oldDriverVideoInfo");
-		//逐条获取视频信息
-		int video_id = oldDriverVideoBean.getLSJ_video_id();
-		String video_url = oldDriverVideoBean.getLSJ_video_url();
-		String video_name = oldDriverVideoBean.getLSJ_video_name();
-		Date upload_date = oldDriverVideoBean.getLSJ_video_date();
-		String pic_url = oldDriverVideoBean.getLSJ_video_pic_url();
-		int played_time = oldDriverVideoBean.getLSJ_video_played_number();
-		String video_intro = oldDriverVideoBean.getLSJ_video_intro();
-		String video_uploader = oldDriverVideoBean.getLSJ_video_uploader();
-		//获取推荐视频
-		List<OldDriverVideoBean> oldDriverRecommendation = (List<OldDriverVideoBean>)request.getAttribute("oldDriverRecommendation");
+<%
+	//获取视频信息实体
+	OldDriverVideoBean oldDriverVideoBean = (OldDriverVideoBean) request.getAttribute("oldDriverVideoInfo");
+	//逐条获取视频信息
+	int video_id = oldDriverVideoBean.getLSJ_video_id();
+	String video_url = oldDriverVideoBean.getLSJ_video_url();
+	String video_name = oldDriverVideoBean.getLSJ_video_name();
+	Date upload_date = oldDriverVideoBean.getLSJ_video_date();
+	String pic_url = oldDriverVideoBean.getLSJ_video_pic_url();
+	int played_time = oldDriverVideoBean.getLSJ_video_played_number();
+	String video_intro = oldDriverVideoBean.getLSJ_video_intro();
+	String video_uploader = oldDriverVideoBean.getLSJ_video_uploader();
+	//获取推荐视频
+	List<OldDriverVideoBean> oldDriverRecommendation = (List<OldDriverVideoBean>) request
+			.getAttribute("oldDriverRecommendation");
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");
 %>
 <!DOCTYPE html>
 <html>
@@ -74,7 +77,7 @@
 		<!-- 毛玻璃过滤结束部分-->
 		<div class="header">
 			<div class="nav-content">
-				<a href="#">
+				<a href="IndexRouter">
 					<img src="img/logo_light.png" width="180px" height="50px" alt="太阳在线" class="nav-style" />
 				</a>
 				<ul class="list-unstyled list-inline nav-style" id="logo_right">
@@ -92,10 +95,29 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="list-unstyled list-inline nav-style right_float">
-					<li><a href="#">登录</a></li>|
-					<li><a href="#">注册</a></li>
-				</ul>
+				<%
+				if (userNickName != null && userNickName.length() > 0) {
+			%>
+			<!-- 登陆之后 -->
+			<ul
+				class="list-unstyled list-inline nav-style right_float right_float_hidden">
+				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a href="UserLogout" style="color: red;">注销</a></li>
+			</ul>
+
+			<%
+				} else {
+			%>
+
+			<ul class="list-unstyled list-inline nav-style right_float">
+				<li><a href="UserLoginRouter">登录</a></li>
+				<li><a href="UserRegisterRouter">注册</a></li>
+			</ul>
+
+			<%
+				}
+			%>
+
 			</div>
 		</div>
 		<!-- 标题导航栏结束-->
@@ -178,7 +200,7 @@
 				<div class="row">
 					<div class="review">
 						<!-- 多说评论框 start -->
-						<div class="ds-thread" data-thread-key="1" data-title="文章标题" data-url="请替换成文章的网址"></div>
+						<div class="ds-thread" data-thread-key="<%="olddriver " + video_id %>" data-title="<%="olddriver " + video_name %>" data-url="请替换成文章的网址"></div>
 						<!-- 多说评论框 end -->
 						<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 						<script type="text/javascript">

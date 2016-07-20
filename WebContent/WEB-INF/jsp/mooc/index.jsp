@@ -18,13 +18,15 @@
 	List<MediasAfter> mediasAfters = (List<MediasAfter>)request.getAttribute("mediasAfters");
 	
 	MoocVideoDao moocVideoDao = new MoocVideoDaoImpl();
+	
+	//获取用户昵称
+	String userNickName = (String) session.getAttribute("usernickname");	
 %>
 <!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
@@ -74,7 +76,9 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
       				</button>
-					<img src="img/logo.png" />
+      				<a href="IndexRouter">
+						<img src="img/logo.png" />
+					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
@@ -95,10 +99,28 @@
 							</ul>
 						</li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">注册</a></li>
-						<li><a href="#">登录</a></li>
+					
+					<%
+						if (userNickName != null && userNickName.length() > 0) {
+					%>
+                    <!-- 登陆之后显示 -->
+                    <ul class="nav navbar-nav navbar-right">
+						<li><a>用户名：<strong><%=userNickName %></strong></a></li>
+						<li><a href="UserLogout" style="color: blue;">注销</a></li>
 					</ul>
+
+					<%
+						} else {
+					%>
+
+                    <ul class="nav navbar-nav navbar-right">
+						<li><a href="UserLoginRouter">登录</a></li>
+						<li><a href="UserRegisterRouter">注册</a></li>
+					</ul>
+
+					<%
+						}
+					%>
 				</div>
 			</div>
 		</nav>
@@ -106,7 +128,7 @@
 
 		<!--大图区-->
 		<div class="big-pic">
-
+			<img alt="加载失败" src="img/mooc_titlebar.png">
 		</div>
 		<!--大图区-->
 		<!--技术板块一区-->
@@ -143,17 +165,6 @@
 				</a>
 				<%}} %>
 					
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -207,17 +218,6 @@
 					</div>
 				<%} %>
 
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -269,30 +269,6 @@
 					</div>
 				<%} %>
 
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-
-					</div>
-
-					<div class="recommment_part">
-						<img src="img/a.jpg" style="display: inline-block;" width="252px" height="124px" />
-						<div class="content_part">
-							<p> HTML5 移动Web App阅读器</p>
-							<p class="small_content"> 用HTML5、ES6、Ajax异步、Touch事件等技术，开发商业Web APP </p>
-						</div>
-						<div class="price_info">
-							<span class="price">￥2000</span>
-							<span class="num">5000人在学</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

@@ -139,10 +139,10 @@
     <display-name>IndexRouter</display-name>
     <servlet-name>IndexRouter</servlet-name>
     <servlet-class>com.sunonline.web.service.index.IndexRouter</servlet-class>
- 	<init-param>
- 		<param-name>profile</param-name>
- 		<param-value>/WEB-INF/log4j.properties</param-value>
- 	</init-param>
+    <init-param>
+      <param-name>profile</param-name>
+      <param-value>/WEB-INF/log4j.properties</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>IndexRouter</servlet-name>
@@ -169,7 +169,7 @@
     <url-pattern>/CoursesVideoPager</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
+    <description>公益课堂主页路由</description>
     <display-name>MoocIndexPager</display-name>
     <servlet-name>MoocIndexPager</servlet-name>
     <servlet-class>com.sunonline.mooc.service.MoocIndexPager</servlet-class>
@@ -179,7 +179,7 @@
     <url-pattern>/mooc</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
+    <description>获取远程ip</description>
     <display-name>RemoteIpGetter</display-name>
     <servlet-name>RemoteIpGetter</servlet-name>
     <servlet-class>com.sunonline.web.global.RemoteIpGetter</servlet-class>
@@ -187,5 +187,55 @@
   <servlet-mapping>
     <servlet-name>RemoteIpGetter</servlet-name>
     <url-pattern>/RemoteIpGetter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>用户登录判断逻辑</description>
+    <display-name>UserLogin</display-name>
+    <servlet-name>UserLogin</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.UserLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogin</servlet-name>
+    <url-pattern>/UserLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>用户注册逻辑</description>
+    <display-name>UserRegister</display-name>
+    <servlet-name>UserRegister</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.UserRegister</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserRegister</servlet-name>
+    <url-pattern>/UserRegister</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>用户登录路由</description>
+    <display-name>UserLoginRouter</display-name>
+    <servlet-name>UserLoginRouter</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.UserLoginRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLoginRouter</servlet-name>
+    <url-pattern>/UserLoginRouter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>用户注册路由实现</description>
+    <display-name>UserRegisterRouter</display-name>
+    <servlet-name>UserRegisterRouter</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.UserRegisterRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserRegisterRouter</servlet-name>
+    <url-pattern>/UserRegisterRouter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserLogout</display-name>
+    <servlet-name>UserLogout</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.UserLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogout</servlet-name>
+    <url-pattern>/UserLogout</url-pattern>
   </servlet-mapping>
 </web-app>

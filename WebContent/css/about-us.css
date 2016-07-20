@@ -13,7 +13,6 @@ a:hover{
 
 .breadcrumb {
 	margin: 10px auto;
-	width: 1140px;
 	font-size: 22px;
 }
 
@@ -22,7 +21,7 @@ a:hover{
 }
 
 .hugeScreen {
-	width: 1170px;
+	
 }
 
 .nav-margin {
@@ -62,4 +61,9 @@ a:hover{
 .navbar-fixed-top {
     top: 0;
     border-width: 0 0 0;
+}
+@media only screen and (max-width: 760px) {
+	.footer{
+		display: none;
+	}
 }

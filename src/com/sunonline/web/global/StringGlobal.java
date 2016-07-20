@@ -6,7 +6,7 @@ package com.sunonline.web.global;
  */
 public final class StringGlobal {
 	//字符串盐
-	public final static String STRING_SALT = "password";
+	public final static String STRING_SALT = "sunonline";
 	//网站域名/IP
-	public final static String STRING_IP_HOSTNAME = "http://119.29.3.138";
+	public final static String STRING_IP_HOSTNAME = "http://139.129.221.162";
 }
