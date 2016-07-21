@@ -96,7 +96,13 @@ public class UserDaoImpl implements UserDao {
 			return null;
 		}
 	}
-
+	//通过用户邮箱返回用户信息
+	@Override
+	public User fetchUserInfo(String useremail) {
+		return this.getUserInfoByUserEmail(useremail);
+	}
+	
+	
 	//成功返回用户信息，接受参数用户邮箱
 	private User getUserInfoByUserEmail(String useremail) {
 		//构造sql
@@ -348,7 +354,8 @@ public class UserDaoImpl implements UserDao {
 	public static void main(String[] args) {
 		//System.out.println(new UserDaoImpl().getUserNickNameByUserEmail("1234@qq.com"));
 		//System.out.println(new UserDaoImpl().modifyUserNickName("12345678900", "知行合一"));
-		System.out.println(new UserDaoImpl().userVerifyValidityBeforeModifyUserpwd("12345678900"));
+		//System.out.println(new UserDaoImpl().userVerifyValidityBeforeModifyUserpwd("12345678900"));
+		System.out.println(new UserDaoImpl().fetchUserInfo("1234555@qq.com").getUsernickName());
 	}
 	
 }

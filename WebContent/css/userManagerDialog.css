@@ -1,0 +1,195 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+.modal-block {
+	display: none;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 1050;
+	background: rgba(10, 10, 10, 0.6);
+}
+
+.dialog {
+	width: 400px;
+	height: 420px;
+	background: white;
+	margin: 0 auto;
+}
+
+.dialog-register {
+	height: 310px;
+}
+
+.center {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -200px;
+}
+
+.modal-close {
+	position: absolute;
+	right: 9px;
+	top: 16px;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.modal-close:hover {
+	color: red;
+}
+
+.nav-tabs>li>a:hover {
+	border-color: #eee #eee #ddd;
+	border-bottom: 1px solid orange;
+}
+
+.nav-tabs>li {
+	float: left;
+	margin-bottom: -2px;
+	font-size: 20px;
+	left: 0px;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+	border: 0px;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+	border-bottom: 1px solid orange;
+	color: black;
+}
+
+.user-form {
+	width: 350px;
+	height: 200px;
+	margin: 20px auto;
+}
+
+.user-form form {}
+
+.input-default {
+	width: 400px;
+	height: 45px;
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+.form-control {
+	margin-bottom: 23px;
+	border-radius: 0px;
+}
+
+.forgetPassword {
+	position: absolute;
+	right: 30px;
+}
+
+.btn-red {
+	color: #fff;
+	background-color: rgb(255, 0, 0);
+	border-color: rgb(255, 0, 0);
+	width: 350px;
+	margin-top: 33px;
+	border-radius: 0px;
+}
+
+.btn-red:hover,
+.btn-red:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: rgba(255, 0, 0, 0.8);
+}
+
+.btn-register {
+	margin-top: 10px;
+}
+
+.invalid:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: red;
+}
+
+.invalid::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: red;
+}
+
+input.invalid:-ms-input-placeholder {
+	color: red;
+}
+
+input.invalid::-webkit-input-placeholder {
+	color: red;
+}
+
+
+/*
+ * 0720
+ */
+
+.user-logo {
+	width: 100%;
+	height: 80px;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.user-logo span {
+	position: absolute;
+	width: 80px;
+	top: 0px;
+	bottom: 0px;
+	left: 50%;
+	margin-left: -40px;
+}
+
+.user-logo span img {
+	width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 5px rgb(140, 148, 255);
+    border-radius: 40px;
+}
+
+.user-logo span img:hover{
+	box-shadow: 0px 0px 15px rgb(140, 148, 255);
+}
+
+.user-info-default {
+	width: 100%;
+    height: 50px;
+    border-left: 4px solid red;
+    margin-top: 12px;
+}
+
+.user-info-default span {
+	display: inline-block;
+	font-size: 20px;
+	line-height: 50px;
+	margin-left: 15px;
+	width: 350px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+#changePwd{
+	margin-top: 55px;
+}
+.user-info-default{
+	box-shadow: 1px 0px 2px rgb(0,0,0);
+}
+.user-info-default:hover{
+	box-shadow: 1px 0px 7px rgb(0,0,0);
+}

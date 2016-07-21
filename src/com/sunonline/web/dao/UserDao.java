@@ -17,6 +17,8 @@ public interface UserDao {
 	public User verifyUserMobile(String inputString, String userpwd);
 	//通过用户邮箱得到用户昵称
 	public String getUserNickNameByUserEmail(String useremail);
+	//通过用户邮箱得到用户全部信息
+	public User fetchUserInfo(String useremail);
 	//根据邮箱判断用户登录返回boolean类型
 	public Boolean verifyUser(String useremail, String userpwd);
 	//修改用户昵称

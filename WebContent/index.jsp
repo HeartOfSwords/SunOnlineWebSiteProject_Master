@@ -1,3 +1,6 @@
+<%@page import="com.sunonline.web.bean.User"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.sunonline.mooc.model.CoursesBean"%>
 <%@page import="com.sunonline.web.bean.OldDriverVideoBean"%>
 <%@page import="com.sunonline.web.bean.CollegeVoiceVideoBean"%>
@@ -5,7 +8,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%	
+<%
 	/*
 	*获取所有视频列表
 	*/
@@ -18,8 +21,14 @@
 	//获取公益课堂列表
 	List<CoursesBean> coursesBeans = (List<CoursesBean>)request.getAttribute("coursesBeans");
 	//获取用户昵称
-	String userNickName = (String) session.getAttribute("usernickname");	
+	String userNickName = (String) session.getAttribute("usernickname");
+	//获取用户手机号
+	String usermobile = (String) session.getAttribute("usermobile");
+	//获取用户昵称修改标记
+	String usernameModifyFlag = (String) session.getAttribute("flag");
+	
 %>
+
 <!DOCTYPE html>
 <html>
 
@@ -96,7 +105,7 @@
 			<!-- 登陆之后 -->
 			<ul
 				class="list-unstyled list-inline nav-style right_float right_float_hidden">
-				<li>用户名：<strong><%=userNickName %></strong></li>
+				<li><a data-toggle="modal" data-target="#userinfo" style="cursor: pointer;color: black;">用户名：<strong><%=userNickName %></strong></a></li>
 				<li><a href="UserLogout" style="color: red;">注销</a></li>
 			</ul>
 
@@ -114,7 +123,7 @@
 			%>
 
 
-		</div>
+			</div>
 		</div>
 		<div class="dynamic_header header">
 			<div class="nav-content">
@@ -141,7 +150,7 @@
 				<!-- 登陆之后 -->
 				<ul
 					class="list-unstyled list-inline nav-style right_float right_float_hidden">
-					<li>用户名：<strong><%=userNickName %></strong></li>
+					<li><a data-toggle="modal" data-target="#userinfo" style="cursor: pointer;color: black;">用户名：<strong><%=userNickName %></strong></a></li>
 					<li><a href="UserLogout" style="color: red;">注销</a></li>
 				</ul>
 	
@@ -574,15 +583,88 @@
 			</div>
 		</div>
 		<!--最强音版块结束-->
-		
+
+	
+
+	<!-- 模态框（Modal） -->
+	<div class="userinfo-modal">
+		<div class="modal fade" id="userinfo" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h2 class="modal-title" id="myModalLabel">
+							<!-- 如果修改用户昵称标记不为空则显示该成功标记否则不显示-->
+						<%
+							if (usernameModifyFlag == null ) {
+						%>
+								<center>用户信息</center>
+						<%
+							} else {
+						%>					
+								<center>用户信息</center>
+								<small><b>
+									<font color="red"><%=usernameModifyFlag %></font>
+								</b></small>
+						<%} %>			
+						</h2>
+					</div>
+					<div class="modal-body">
+						<table class="table table-bordered table-striped table-hover">
+							<tr>
+								<form action="ModifyUserNickName" method="post">
+									<td class="infoname">用户昵称</td>
+									<td>
+										<font color="blue">
+											<input type="hidden" name="usermobile" value="<%=usermobile%>"/>
+											<input type="text" class="form-control" name="usernickname" value="<%=userNickName%>">
+										</font>
+									</td>
+									<td>
+										<button type="submit" class="btn btn-primary btn-lg">修改</button>
+									</td>
+								</form>
+							</tr>
+
+							<tr>
+								<td class="infoname">登录时间</td>
+								<td><%=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())%></td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td class="infoname">密码修改</td>
+								<td>
+									<input type="text" class="form-control" name="olduserpwd"  placeholder="原密码">
+									<input type="text" class="form-control" name="newuserpwd"  placeholder="新密码">
+								</td>
+								<td>
+									<button type="submit" class="btn btn-primary btn-lg">修改</button>
+								</td>
+							</tr>
+							
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning btn-lg" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+
 		<!--foot部分开始-->
 		<div class="footer">
 			<!--上层-->
 			<div class="footer-content">
 				<div class="footer-first-level">
 					<div class="first-level">
-						<i class="glyphicon glyphicon-plane"></i>
-						<span class="footer-title">新手上路</span>
+						<i class="glyphicon glyphicon-plane"></i> <span
+							class="footer-title">新手上路</span>
 						<ul class="nav">
 							<li class="nav-divider"></li>
 							<li>会员注册</li>
@@ -592,8 +674,8 @@
 						</ul>
 					</div>
 					<div class="first-level">
-						<i class="glyphicon glyphicon-duplicate"></i>
-						<span class="footer-title">会员须知</span>
+						<i class="glyphicon glyphicon-duplicate"></i> <span
+							class="footer-title">会员须知</span>
 						<ul class="nav">
 							<li class="nav-divider"></li>
 							<li>用户协议</li>
@@ -604,8 +686,8 @@
 						</ul>
 					</div>
 					<div class="first-level">
-						<i class="glyphicon glyphicon-thumbs-up"></i>
-						<span class="footer-title">服务保障</span>
+						<i class="glyphicon glyphicon-thumbs-up"></i> <span
+							class="footer-title">服务保障</span>
 						<ul class="nav">
 							<li class="nav-divider"></li>
 							<li>隐私保护</li>
@@ -614,8 +696,8 @@
 						</ul>
 					</div>
 					<div class="first-level">
-						<i class="glyphicon glyphicon-user"></i>
-						<span class="footer-title">关于我们</span>
+						<i class="glyphicon glyphicon-user"></i> <span
+							class="footer-title">关于我们</span>
 						<ul class="nav">
 							<li class="nav-divider"></li>
 							<li>关于我们</li>
@@ -626,17 +708,16 @@
 						</ul>
 					</div>
 					<div class="first-level first-level-5">
-						<img src="img/erweima.png" />
-						<img src="img/erweima2.png" class="footer-img-control" /><br />
-						<span>扫二维码，关注太阳在线官方微信平台</span>
+						<img src="img/erweima.png" /> <img src="img/erweima2.png"
+							class="footer-img-control" /><br /> <span>扫二维码，关注太阳在线官方微信平台</span>
 					</div>
 				</div>
-				<div class="footer-second-level">
-					(c)2015-2016 山西太阳在线 SYSTEM All Rights Reserved
-				</div>
+				<div class="footer-second-level">(c)2015-2016 山西太阳在线 SYSTEM
+					All Rights Reserved</div>
 			</div>
 		</div>
 		<!--foot部分结束-->
-	</body>
+
+</body>
 
 </html>
