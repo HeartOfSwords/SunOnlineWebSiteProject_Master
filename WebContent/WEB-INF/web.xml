@@ -248,4 +248,14 @@
     <servlet-name>ModifyUserNickName</servlet-name>
     <url-pattern>/ModifyUserNickName</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>用户密码修改</description>
+    <display-name>ModifyUserpwd</display-name>
+    <servlet-name>ModifyUserpwd</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.ModifyUserpwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifyUserpwd</servlet-name>
+    <url-pattern>/ModifyUserpwd</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -257,3 +257,6 @@ button, input, select, textarea {
 .btn {
     margin-bottom: -5px;
 }
+.modal-header {
+    background: orchid;
+}

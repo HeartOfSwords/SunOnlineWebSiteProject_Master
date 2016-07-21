@@ -123,4 +123,15 @@ hr {
 	.footer{
 		display: none;
 	}
+	.video-block{
+		display: none;
+	}
+}
+#top .lg-pic{
+	width: 100%;
+	height: 105px;
+}
+#top .lg-pic img{
+	width: 100%;
+	height: 100%;
 }

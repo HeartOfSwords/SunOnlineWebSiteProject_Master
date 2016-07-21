@@ -35,9 +35,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>欢迎光临太阳在线</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/video_header.css" />
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
@@ -70,6 +70,13 @@
 		.item img {
 			height: 450px;
 			width: 100%;
+		}
+		.modal-header {
+		    background: orchid;
+		}
+		.h2, h2 {
+		    font-size: 30px;
+		    color: white;
 		}
 	</style>
 
@@ -635,16 +642,30 @@
 							</tr>
 							
 							<tr>
-								<td class="infoname">密码修改</td>
-								<td>
-									<input type="text" class="form-control" name="olduserpwd"  placeholder="原密码">
-									<input type="text" class="form-control" name="newuserpwd"  placeholder="新密码">
-								</td>
-								<td>
-									<button type="submit" class="btn btn-primary btn-lg">修改</button>
+								<form action="ModifyUserpwd" method="post">	
+									<td class="infoname">密码修改</td>
+									<td>
+										<input type="hidden" name="usermobile" value="<%=usermobile%>"/>
+										<input type="password" class="form-control" name="olduserpwd"  placeholder="请输入原密码">
+										<input type="password" class="form-control" name="newuserpwd"  placeholder="请输入新密码">
+										<input type="password" class="form-control" name="renewuserpwd"  placeholder="请再次输入新密码">
+									</td>
+									<td>
+										<button type="submit" class="btn btn-primary btn-lg">修改</button>
+									</td>
+								</form>
+							</tr>
+							<%
+									if (session.getAttribute("passwdflag") != null) {
+							%>
+							<tr>
+								<td colspan="3">
+									<span><font color="red"><%=session.getAttribute("passwdflag") %></font></span>
 								</td>
 							</tr>
-							
+							<%
+								}
+							%>
 						</table>
 					</div>
 					<div class="modal-footer">

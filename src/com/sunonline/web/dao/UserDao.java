@@ -28,4 +28,6 @@ public interface UserDao {
 	//用户修改密码，忘记密码
 	//首先验证密码合法性
 	public String userVerifyValidityBeforeModifyUserpwd(String userMobile);
+	//通过用户手机查找旧密码
+	public String getOldPasswd(String usermobile);
 }

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 
 import com.sunonline.web.bean.User;
 import com.sunonline.web.utils.DBUtils;
@@ -26,6 +26,7 @@ public class UserDaoImpl implements UserDao {
 	private int flagNickName;	//昵称标记
 	private int flagPwd;		//密码标记
 	private String mobileInDB;
+	private String passwdInDB;
 
 
 	//用户注册
@@ -349,13 +350,37 @@ public class UserDaoImpl implements UserDao {
 			return "用户不存在，请核对信息后重试";
 		}
 	}
+	
+	//通过用户手机号查找用户密码
+	public String getOldPasswd(String usermobile) {
+		
+		//转换字符串为long型
+		Long mobile = Long.valueOf(usermobile);
+		String sql = "SELECT userpwd from userlogin_view where usermobile=" + mobile;
+		
+		
+		try {
+			Connection connection = new DBUtils().getCon();
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
 
+			while (rs.next()) {
+				passwdInDB = rs.getString("userpwd");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();;
+		}
+		return passwdInDB;
+		
+	}
 	
 	public static void main(String[] args) {
 		//System.out.println(new UserDaoImpl().getUserNickNameByUserEmail("1234@qq.com"));
 		//System.out.println(new UserDaoImpl().modifyUserNickName("12345678900", "知行合一"));
 		//System.out.println(new UserDaoImpl().userVerifyValidityBeforeModifyUserpwd("12345678900"));
-		System.out.println(new UserDaoImpl().fetchUserInfo("1234555@qq.com").getUsernickName());
+		//System.out.println(new UserDaoImpl().fetchUserInfo("1234555@qq.com").getUsernickName());
+		//System.out.println(new UserDaoImpl().userModifyUserPasswdDirectly("123456", "13545677654"));
+		System.out.println(new UserDaoImpl().getOldPasswd("13545677654"));
 	}
 	
 }
