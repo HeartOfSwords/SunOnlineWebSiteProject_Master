@@ -41,4 +41,12 @@ public interface IUserOperationResource {
 	 * 使用该手机号更改密码
 	 */
 	public String userModifyUserPasswdValidated(String userpwd, String userMobile);
+	/**
+	 * @param user_id
+	 * @param userAvatar_url
+	 * @return 
+	 * 	成功：successfully uploading user avatar URL
+	 *  失败：failed uploading user avatar URL
+	 */
+	public String userAvatarUpload(String user_id, String userAvatar_url);
 }

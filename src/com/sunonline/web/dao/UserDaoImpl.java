@@ -17,16 +17,15 @@ import com.sunonline.web.utils.StringEncodeUtils;
  */ 
 public class UserDaoImpl implements UserDao {
 
-	//成员变量，从数据库中得到的用户密码
-	private String userpwdInDB;
-	//成员变量，从数据库中得到的用户昵称
+	private String userpwdInDB; //成员变量，从数据库中得到的用户密码
 	@SuppressWarnings("unused")
-	private String userNickName;
-	private User user;
-	private int flagNickName;	//昵称标记
-	private int flagPwd;		//密码标记
-	private String mobileInDB;
-	private String passwdInDB;
+	private String userNickName;//用户昵称成员变量
+	private User user;			//用户实例成员变量
+	private int flagNickName;	//昵称标记成员变量
+	private int flagPwd;		//密码标记成员变量
+	private String mobileInDB;	//用户手机号码成员变量
+	private String passwdInDB;	//数据库中的用户密码成员变量
+	private int flagAvatar;		//头像设置成功与否标志位		
 
 
 	//用户注册
@@ -373,6 +372,31 @@ public class UserDaoImpl implements UserDao {
 		return passwdInDB;
 		
 	}
+
+	
+	//通过用户id上传用户头像地址实现方法
+	//enjoy the candy
+	@Override
+	public String userAvatarUpload(String user_id, String userAvatar_url) {
+		//转换用户id为整型变量
+		int u_id = Integer.valueOf(user_id);
+		//构造sql
+		String sql = "update user set useravatar= '" + userAvatar_url + "' where user_id=" + u_id;
+		try {
+			Connection connection = new DBUtils().getCon();
+			Statement statement = connection.createStatement();
+			flagAvatar = statement.executeUpdate(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//对执行结果进行判断
+		if (flagAvatar > 0) {
+			return "successfully set avatar URL";
+		} else {
+			return "failed to set avatar URL";
+		}
+	}
+	
 	
 	public static void main(String[] args) {
 		//System.out.println(new UserDaoImpl().getUserNickNameByUserEmail("1234@qq.com"));
@@ -380,7 +404,8 @@ public class UserDaoImpl implements UserDao {
 		//System.out.println(new UserDaoImpl().userVerifyValidityBeforeModifyUserpwd("12345678900"));
 		//System.out.println(new UserDaoImpl().fetchUserInfo("1234555@qq.com").getUsernickName());
 		//System.out.println(new UserDaoImpl().userModifyUserPasswdDirectly("123456", "13545677654"));
-		System.out.println(new UserDaoImpl().getOldPasswd("13545677654"));
+		//System.out.println(new UserDaoImpl().getOldPasswd("13545677654"));
+		System.out.println(new UserDaoImpl().userAvatarUpload("20", "http://whatthefxxxxxk.com/1.png"));
 	}
 	
 }

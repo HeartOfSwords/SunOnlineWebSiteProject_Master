@@ -39,6 +39,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/video_header.css" />
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>

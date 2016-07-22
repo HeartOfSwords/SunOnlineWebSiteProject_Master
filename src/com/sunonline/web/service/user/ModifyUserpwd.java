@@ -52,6 +52,7 @@ public class ModifyUserpwd extends HttpServlet {
 		request.getRequestDispatcher("IndexRouter").forward(request, response);
 	}
 	//获取旧密码
+	//enjoy the candy
 	private String getOldPasswd(String usermobile) {
 		
 		userDao = new UserDaoImpl();

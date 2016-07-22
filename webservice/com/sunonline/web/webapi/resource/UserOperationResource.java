@@ -1,5 +1,8 @@
 package com.sunonline.web.webapi.resource;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -87,8 +90,47 @@ public class UserOperationResource implements IUserOperationResource {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Override
 	public String userModifyUserPasswdDirectly(@QueryParam("userpwd")String userpwd, @QueryParam("mobile")String userMobile) {
+		if (RegExPatternMatcher(userpwd)) {
+			return userdao.userModifyUserPasswdDirectly(userpwd, userMobile);
+		} else {
+			return "密码格式或长度不正确，应至少包含字母、数字、特殊符号其中两种且长度应在6-12位";
+		}
+	}
+	//正则判断密码是否合法
+	private boolean RegExPatternMatcher(String userpwd) {
+		//声明返回标示
+		Boolean flag = null;
 		
-		return userdao.userModifyUserPasswdDirectly(userpwd, userMobile);
+		String pattern_letter_str = "[a-zA-Z]+";					//纯字母
+		String pattern_symbol_str = "[!@#$%^&*()_+.,.?/]+";			//纯符号
+		String pattern_number_str = "[0-9]*";			   			//纯数字
+		String pattern_length_str = "[a-zA-Z!@#$%^&*()_+.,.?/0-9]{6,12}";			//长度6-12位
+		
+		//首先长度应该在6-12位否则就不合法
+		Pattern pattern_length = Pattern.compile(pattern_length_str);
+		Matcher matcher_length = pattern_length.matcher(userpwd);	//将密码同该模式进行比对
+		//纯字母模式及条件适配器
+		Pattern pattern_letter = Pattern.compile(pattern_letter_str);
+		Matcher matcher_letter = pattern_letter.matcher(userpwd);   //比对密码及模式
+		//纯符号模式及条件适配器
+		Pattern pattern_symbol = Pattern.compile(pattern_symbol_str);
+		Matcher matcher_symbol = pattern_symbol.matcher(userpwd);	//将密码与模式进行比对
+		//纯数字模式及条件适配器
+		Pattern pattern_number = Pattern.compile(pattern_number_str);
+		Matcher matcher_number = pattern_number.matcher(userpwd);	//将密码与模式进行比对
+		
+		//如果特殊情况有一种满足就返回false
+		if (matcher_letter.matches() || matcher_symbol.matches() || matcher_number.matches()) {
+			flag = false;
+		} else {
+			//如果特殊情况排除则判断长度
+			if (matcher_length.matches()) {
+				flag = true;
+			} else {
+				flag = false;
+			}
+		}
+		return flag;
 	}
 	/*
 	 * 用户修改密码
@@ -115,8 +157,28 @@ public class UserOperationResource implements IUserOperationResource {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Override
 	public String userModifyUserPasswdValidated(@QueryParam("userpwd")String userpwd, @QueryParam("mobile")String userMobile) {
-		
-		return userdao.userModifyUserPasswdDirectly(userpwd, userMobile);
+		if (RegExPatternMatcher(userpwd)) {
+			return userdao.userModifyUserPasswdDirectly(userpwd, userMobile);
+		} else {
+			return "密码格式或长度不正确，应至少包含字母、数字、特殊符号其中两种且长度应在6-12位";
+		}
+	}
+	/**
+	 * 用户头像地址上传接口
+	 */
+	@POST
+	@Path("user/avatar/upload")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Override
+	public String userAvatarUpload(@QueryParam("u_id") String user_id, @QueryParam("avatar_url") String userAvatar_url) {
+		String result = "";
+		if (userAvatar_url != null) {
+			//调用dao层方法
+			result = userdao.userAvatarUpload(user_id, userAvatar_url);
+		} else {
+			result = "invalid avatar url";
+		}
+		return result;
 	}
 
 }
