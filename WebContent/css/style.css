@@ -27,7 +27,7 @@ h3 {
 .article-list {
 	width: 713px;
 	height: 650px;
-	margin: 25px 12px;
+	margin: 75px 12px;
 	float: left;
 }
 
@@ -65,7 +65,7 @@ h3 {
 .type-recommand {
 	float: left;
 	width: 427px;
-	margin: 25px 0px 10px;
+	margin: 75px 0px 10px;
 	height: 650px;
 }
 
@@ -190,8 +190,9 @@ h3 {
 	top: 7px;
 	left: 40px;
 	font-size: 14px;
-	width: 280px;
+	width: 180px;
 	white-space: nowrap;
+	overflow: hidden;
 	text-overflow: ellipsis;
 	color: #333333;
 }
@@ -243,7 +244,7 @@ h3 {
 	left: 42px;
 	top: 9px;
 	font-size: 20px;
-	width: 402px;
+	width: 300px;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -283,7 +284,7 @@ h3 {
 	height: 35px;
 	display: inline-block;
 	position: absolute;
-	left: 616px;
+	left: 609px;
 	top: 7px;
 	line-height: 43px;
 	font-size: 14px;

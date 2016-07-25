@@ -73,7 +73,7 @@ public class EducationNewsDaoImpl implements EducationNewsDao {
 		//实例化列表
 		educationNewsList = new ArrayList<>();
 		//构造sql
-		String sql = "select * from edu_news";
+		String sql = "select * from edu_news order by id desc";
 		connection = getConnectionInstance();
 		try {
 			pstmt = connection.prepareStatement(sql);
@@ -102,7 +102,7 @@ public class EducationNewsDaoImpl implements EducationNewsDao {
 		//实例化列表
 		educationNewsList = new ArrayList<>();
 		//构造sql
-		String sql = "SELECT * FROM edu_news WHERE id > (( SELECT count(*) FROM edu_news) - 4)";
+		String sql = "SELECT * FROM edu_news WHERE id > (( SELECT count(*) FROM edu_news) - 4) order by id desc";
 		//获取连接
 		connection = getConnectionInstance();
 		try {

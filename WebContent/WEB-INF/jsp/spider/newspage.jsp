@@ -24,6 +24,7 @@
 		<title>${articleBean.getW_title()}</title>
 		<link rel="stylesheet" type="text/css" href="css/news.css" />
 		<link rel="stylesheet" type="text/css" href="css/footer-news.css"/>
+		<script src="js/eggShell.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<script>
 		$('#myModal').modal('toggle');
@@ -132,7 +133,11 @@
 		</div>
 
 		<!--footer部分开始-->
-		<jsp:include page="footer.jsp"></jsp:include>
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-bottom">
+		  <div class="container">
+		    <span class="footer-content">Copyright ©2016 SunOnline<sup>TM</sup></span>
+		  </div>
+		</nav>
 		<!--footer部分结束-->
 	</body>
 

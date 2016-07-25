@@ -24,6 +24,9 @@
 			.navbar-inverse {
 					background-color: rgba(0, 0, 0, 0.87);
 			}
+			.navbar {
+			    position: fixed;
+			}
 		</style>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
@@ -36,12 +39,18 @@
 		<link rel="stylesheet" type="text/css" href="css/studentGuide.css" />
 		<link rel="stylesheet" type="text/css" href="css/publicClass.css" />
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+		<style type="text/css">
+			.navbar {
+			    position: fixed;
+			}
+		</style>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/eggShell.js" type="text/javascript" charset="utf-8"></script>
 		<title>教育咨询</title>
 	<body>
 	<!--导航条开始-->
-		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse ">
+		<nav class="navbar navbar-fixed-top navbar-inverse ">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -125,7 +134,7 @@
 						<!--上传者信息-->
 						<div class="article-owner">
 							<i class="glyphicon glyphicon-user"></i>
-							<span class="">出处：<%=educationNews.getSource() %></span>
+							<span class="">转自：<%=educationNews.getSource() %></span>
 						</div>
 						<!--上传日期-->
 						<div class="article-date">
@@ -135,7 +144,7 @@
 						<!--阅读次数-->
 						<div class="article-times">
 							<i class="glyphicon glyphicon-play-circle"></i>
-							<span class="">新闻编号:<%=educationNews.getId() %></span>
+							<span class="">编号:<%=educationNews.getId() %></span>
 						</div>
 					</div>
 					<!--单篇文章的样式结束-->
@@ -209,10 +218,9 @@
 					<div class="article-recommand-logo">
 						<span class="glyphicon glyphicon-fire words"></span>
 						<span class="words">&nbsp;热门推荐</span>
-						<hr />
 					</div>
 					<div class="article-recommand-content">
-					
+					<hr />
 					<%
 					if (educationNewsRecommendation != null && educationNewsRecommendation.size() > 0) {
 		
@@ -220,7 +228,6 @@
 					%>
 					
 						<!--热门推荐单条开始-->
-						<hr />
 						<div class="article-recommand-style">
 							<span class="hot">热</span>
 							<a href="EduNewsContentRouter?id=<%=educationNews.getId() %>"><span class="hot-title"><%=educationNews.getTitle() %></span></a>
@@ -229,7 +236,7 @@
 								<span class="">出处：<%=educationNews.getSource()%></span>
 							</div>
 						</div>
-						
+						<hr />
 						<%}} %>
 						<!--热门推荐单条结束-->
 					</div>
