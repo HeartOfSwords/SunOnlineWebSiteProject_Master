@@ -89,7 +89,7 @@ a:hover {
 	left: -7px;
 	z-index: 999;
 	text-align: center;
-	height: 72px;
+	height: 100px;
 }
 
 .nav_downSelect:hover .nav_select {

@@ -258,4 +258,24 @@
     <servlet-name>ModifyUserpwd</servlet-name>
     <url-pattern>/ModifyUserpwd</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>教育资讯菜单页路由</description>
+    <display-name>EduNewsMenuRouter</display-name>
+    <servlet-name>EduNewsMenuRouter</servlet-name>
+    <servlet-class>com.sunonline.spider.gui.service.EduNewsMenuRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EduNewsMenuRouter</servlet-name>
+    <url-pattern>/EduNewsMenuRouter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>教育新闻内容路由</description>
+    <display-name>EduNewsContentRouter</display-name>
+    <servlet-name>EduNewsContentRouter</servlet-name>
+    <servlet-class>com.sunonline.spider.gui.service.EduNewsContentRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EduNewsContentRouter</servlet-name>
+    <url-pattern>/EduNewsContentRouter</url-pattern>
+  </servlet-mapping>
 </web-app>

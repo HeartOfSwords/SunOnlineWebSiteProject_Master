@@ -1,0 +1,88 @@
+body {
+	font-family: "微软雅黑";
+}
+
+.video-rode-nav {
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.content {
+	width: 1170px;
+	/*height: 700px;*/
+	margin: 35px auto;
+	margin-bottom: 30px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3), 0px 0px 40px rgba( 0, 0, 0, 0.1) inset;
+	position: relative;
+	background: #fff;
+}
+
+.content:before,
+.content:after {
+	position: absolute;
+	content: '';
+	background: #000;
+	top: 0px;
+	bottom: 0px;
+	left: 10px;
+	right: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	border-radius: 100px/10px;
+	z-index: -1;
+}
+
+.article {
+}
+/**
+ * 文章标题和信息部分 
+ */
+.article .article-title {
+	width: 100%;
+    height: 50px;
+    padding-top: 20px;
+}
+
+.article .article-title span {
+	font-size: 35px;
+	display: inline-block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.article .article-info {
+	width: 100%;
+    height: 40px;
+    position: relative;
+    margin-top: 16px;
+}
+
+.article .article-info .author {
+	position: absolute;
+	font-size: 17px;
+	line-height: 40px;
+	left: 70px;
+}
+
+.article .article-info .date {
+	position: absolute;
+	font-size: 17px;
+	line-height: 40px;
+	right: 70px;
+}
+
+.article .article-info .times {
+	position: absolute;
+	font-size: 17px;
+	line-height: 40px;
+	right: 70px;
+}
+/**
+ * 文章内容部分 
+ */
+.content .article .article-body{
+	width: 100%;
+/*	height: 500px;*/
+	padding: 30px 70px;
+}
