@@ -102,7 +102,7 @@ public class EducationNewsDaoImpl implements EducationNewsDao {
 		//实例化列表
 		educationNewsList = new ArrayList<>();
 		//构造sql
-		String sql = "SELECT * FROM edu_news WHERE id > (( SELECT count(*) FROM edu_news) - 4) order by id desc";
+		String sql = "SELECT * FROM edu_news WHERE id > ((SELECT MAX(id) FROM edu_news) - 5) order by id desc";
 		//获取连接
 		connection = getConnectionInstance();
 		try {

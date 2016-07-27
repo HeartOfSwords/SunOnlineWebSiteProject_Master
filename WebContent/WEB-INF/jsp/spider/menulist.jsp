@@ -43,6 +43,11 @@
 			.navbar {
 			    position: fixed;
 			}
+			.h1, h1 {
+			    font-size: 18px;
+			    margin-top: 7px;
+			    margin-bottom: 10px;
+			}
 		</style>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
