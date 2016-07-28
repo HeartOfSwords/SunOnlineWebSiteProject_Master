@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/webservice"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/mooc"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/spider"/>
         <property name="context-root" value="SunonlineWebSiteAndWebservice"/>
         <property name="java-output-path" value="/SunonlineWebSiteAndWebservice/build/classes"/>
     </wb-module>

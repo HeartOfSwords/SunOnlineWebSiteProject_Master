@@ -229,7 +229,7 @@
     <url-pattern>/UserRegisterRouter</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
+    <description>用户注销</description>
     <display-name>UserLogout</display-name>
     <servlet-name>UserLogout</servlet-name>
     <servlet-class>com.sunonline.web.service.user.UserLogout</servlet-class>
@@ -237,5 +237,45 @@
   <servlet-mapping>
     <servlet-name>UserLogout</servlet-name>
     <url-pattern>/UserLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>修改用户昵称</description>
+    <display-name>ModifyUserNickName</display-name>
+    <servlet-name>ModifyUserNickName</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.ModifyUserNickName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifyUserNickName</servlet-name>
+    <url-pattern>/ModifyUserNickName</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>用户密码修改</description>
+    <display-name>ModifyUserpwd</display-name>
+    <servlet-name>ModifyUserpwd</servlet-name>
+    <servlet-class>com.sunonline.web.service.user.ModifyUserpwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifyUserpwd</servlet-name>
+    <url-pattern>/ModifyUserpwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>教育资讯菜单页路由</description>
+    <display-name>EduNewsMenuRouter</display-name>
+    <servlet-name>EduNewsMenuRouter</servlet-name>
+    <servlet-class>com.sunonline.spider.gui.service.EduNewsMenuRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EduNewsMenuRouter</servlet-name>
+    <url-pattern>/EduNewsMenuRouter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>教育新闻内容路由</description>
+    <display-name>EduNewsContentRouter</display-name>
+    <servlet-name>EduNewsContentRouter</servlet-name>
+    <servlet-class>com.sunonline.spider.gui.service.EduNewsContentRouter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EduNewsContentRouter</servlet-name>
+    <url-pattern>/EduNewsContentRouter</url-pattern>
   </servlet-mapping>
 </web-app>

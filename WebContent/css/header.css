@@ -1,0 +1,51 @@
+/*
+ * 导航栏部分
+ */
+
+.navbar {
+	border: 0px;
+}
+.navbar-logo{
+	width: 130px;
+    height: 50px;
+    padding: 0px;
+}
+.container-fluid {
+	padding-right: 85px;
+	padding-left: 85px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+}
+
+.navbar-inverse .navbar-brand {
+	color: rgba(236, 236, 236, 0.92);
+	font-size: 25px;
+}
+
+.navbar-inverse {
+	background-color: rgba(82, 76, 76, 0.91);
+	;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: rgba(236, 236, 236, 0.92);
+}
+
+.navbar-nav li {
+	padding-left: 22px;
+}
+
+.user {
+	position: absolute;
+	right: 71px;
+}
+
+.user li {
+	padding-left: 0px;
+}
+.user-info{
+	position: absolute;
+    right: 71px;
+    display: none;
+}

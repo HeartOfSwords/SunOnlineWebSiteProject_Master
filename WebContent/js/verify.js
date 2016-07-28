@@ -85,7 +85,7 @@ $(document).ready(function() {
 			return_regis_flag[1] = 0;
 		} else {
 			$(this).removeClass("invalid");
-			return_regis_flag[1] = 0;
+			return_regis_flag[1] = 1;
 		}
 	});
 	//注册表单验证——用户密码一致性验证

@@ -16,6 +16,7 @@
 		message = (String) request.getAttribute("rMessage");
 	}
 %>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,9 +25,6 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/userlogin.css" />
-		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/verify.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
@@ -127,6 +125,8 @@
 
 					<div class="web_login userRegister">
 						<form action="UserRegister" method="post">
+							<!-- 隐藏表单域防止重复提交 -->
+							<input type="hidden" name="token" value="<%=session.getAttribute("token")%>">
 							<!--用户昵称 -->
 							<br />
 							<div class="input-group">
@@ -169,7 +169,9 @@
 				<!--注册end-->
 			</div>
 			<div class="jianyi">*推荐使用ie8或以上版本ie浏览器或Chrome内核浏览器访问本站</div>
-		</body>
+			<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/verify.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 
 </html>

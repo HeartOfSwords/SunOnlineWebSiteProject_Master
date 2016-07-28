@@ -77,6 +77,7 @@
 					<li><a href="aboutUs.html">关于我们</a></li>
 					<li class="nav_downSelect"><a href="#">其它</a>
 						<div class="nav_select">
+							<p><a href="EduNewsMenuRouter">教育资讯</a></p>
 							<p><a href="#">高校人物风采录</a></p>
 							<p><a href="#">山西高校图片库</a></p>
 						</div>

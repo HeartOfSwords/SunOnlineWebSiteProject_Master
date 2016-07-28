@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sunonline.web.bean.User;
 import com.sunonline.web.dao.UserDao;
 import com.sunonline.web.dao.UserDaoImpl;
 /**
@@ -42,10 +43,15 @@ public class UserLogin extends HttpServlet {
 		if (flag) {
 			//登录成功获取对应的用户昵称
 			String usernickname = userDao.getUserNickNameByUserEmail(useremail);
+			//登录成功之后获取用户的全部信息
+			//取出用户邮箱打回前台
+			User user = userDao.fetchUserInfo(useremail);
+			String userMobile = user.getUserMobile();
 			session = request.getSession();
+			//session设值
 			session.setAttribute("usernickname", usernickname);
-			request.setAttribute("usernickname", usernickname);
-			System.out.println(usernickname);
+			session.setAttribute("usermobile", userMobile);
+			System.out.println(user.getUsernickName());
 			request.getRequestDispatcher("/IndexRouter").forward(request, response);
 		} else {
 			//登录失败回显

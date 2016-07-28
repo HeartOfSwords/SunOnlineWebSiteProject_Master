@@ -1,0 +1,308 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+
+hr {
+	margin: 0;
+}
+
+h3 {
+	font-size: 24px;
+	color: white;
+}
+
+
+/*
+ * 内容部分
+ */
+
+.content {
+	width: 1170px;
+	/*height: 800px;*/
+	margin: 0 auto;
+}
+
+.article-list {
+	width: 713px;
+	height: 650px;
+	margin: 75px 12px;
+	float: left;
+}
+
+.article-list .article-list-logo {
+	width: 100%;
+	height: 35px;
+}
+
+.article-list .article-list-logo .words {
+	font-size: 25px;
+}
+
+.article-type .article-type-logo {
+	width: 100%;
+	height: 35px;
+}
+
+.article-type .article-type-logo .words {
+	font-size: 25px;
+}
+
+.article-recommand .article-recommand-logo {
+	width: 100%;
+	height: 35px;
+}
+
+.article-recommand .article-recommand-logo .words {
+	font-size: 25px;
+}
+
+.article-list .article-list-content {
+	width: 100%;
+}
+
+.type-recommand {
+	float: left;
+	width: 427px;
+	margin: 75px 0px 10px;
+	height: 650px;
+}
+
+.article-type {
+	width: 427px;
+	height: 400px;
+}
+
+.article-type-morebutton {
+	padding-left: 336px;
+}
+
+.modal-header {
+	background: #312e2e;
+}
+
+.modal-span {
+	display: inline-block;
+	font-size: 30px;
+	height: 50px;
+	width: 186px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.article-type .article-type-content .type-common {
+	width: 410px;
+	height: 63px;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+.article-type .article-type-content .type-common:hover {
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+}
+
+.article-type .article-type-content .type-common .type-logo {
+	float: left;
+}
+
+.article-type .article-type-content .type-common .type-logo span {
+	display: inline-block;
+    width: 68px;
+    height: 68px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 60px;
+    color: #00BCD4;
+}
+
+.article-type .article-type-content .type-common .type-name {
+	width: 342px;
+	height: 68px;
+	margin-left: 68px;
+	margin-right: 0px;
+}
+
+.article-type .article-type-content .type-common .type-name span {
+	float: left;
+	font-size: 26px;
+	line-height: 68px;
+	padding-left: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 228px;
+}
+
+.article-type .article-type-content .type-common .type-name .button {
+	width: 108px;
+	text-align: center;
+}
+
+.article-recommand {
+    width: 427px;
+    height: 250px;
+    margin-top: -10px;
+}
+
+
+/*.article-recommand .article-recommand-content .article-recommand-style*/
+
+.article-recommand .article-recommand-content .article-recommand-style {
+	width: 100%;
+	height: 40px;
+	position: relative;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.normal {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	background: rgba(255, 0, 0, 0.56);
+	position: absolute;
+	top: 7px;
+	left: 9px;
+	font-size: 15px;
+	border-radius: 10px;
+}
+
+.hot {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	text-align: center;
+	background: red;
+	position: absolute;
+	top: 3px;
+	left: 6px;
+	font-size: 20px;
+	border-radius: 14px;
+}
+
+.hot-title {
+	position: absolute;
+	top: 7px;
+	left: 40px;
+	font-size: 14px;
+	width: 180px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #333333;
+}
+
+.hot-article-owner {
+	position: absolute;
+	right: 17px;
+	width: 117px;
+	top: 8px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+/**
+	 * 博海畅游文章列表样式
+	 */
+
+.article {
+	width: 100%;
+	height: 50px;
+	position: relative;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+.article:hover {
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+}
+
+.article .article-icon {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	position: absolute;
+	left: 5px;
+	top: 7px;
+	font-size: 26px;
+	text-align: center;
+	line-height: 35px;
+	color: rgb(255, 179, 0);
+}
+
+.article .article-title {
+	display: inline-block;
+	position: absolute;
+	left: 42px;
+	top: 9px;
+	font-size: 20px;
+	width: 300px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #333333;
+}
+
+.article .article-owner {
+	width: 77px;
+	height: 35px;
+	display: inline-block;
+	position: absolute;
+	left: 370px;
+	top: 7px;
+	line-height: 43px;
+	font-size: 14px;
+	color: rgb(158, 154, 154);
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.article .article-date {
+	width: 98px;
+	height: 35px;
+	display: inline-block;
+	position: absolute;
+	left: 507px;
+	top: 7px;
+	line-height: 43px;
+	font-size: 14px;
+	color: rgb(158, 154, 154);
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.article .article-times {
+	width: 62px;
+	height: 35px;
+	display: inline-block;
+	position: absolute;
+	left: 609px;
+	top: 7px;
+	line-height: 43px;
+	font-size: 14px;
+	color: rgb(158, 154, 154);
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+/**
+ * 分页
+ */
+
+.page_roll {
+	width: 640px;
+	height: 36px;
+	clear: both;
+	float: right;
+	margin-top: 40px;
+	margin-right: 35px;
+}

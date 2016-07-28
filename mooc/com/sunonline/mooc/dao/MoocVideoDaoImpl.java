@@ -25,17 +25,30 @@ import com.sunonline.web.utils.DBUtils;
  */
 public class MoocVideoDaoImpl implements MoocVideoDao {
 	
+	//全局静态连接
+	private static Connection connection;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+
+	//单例形式连接
+	private static Connection getConnectionInstance() {
+		if (connection == null) {
+			return new DBUtils().getCon();
+		}
+		return connection;
+	}
+	
 	//获取某一课程类目下的某一个具体视频信息
 	public CourseListItemBean getMoocVideoItemByID(int c_id, int itemID) {
 
 		CourseListItemBean courseListItemBean = null;
 		String sql = "select * from smooc_courselist_view where c_id=? and cl_id=?;"; //通过id获取视频全部信息
 		try {
-			Connection connection = new DBUtils().getCon();
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			connection = getConnectionInstance();
+			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, c_id);
 			pstmt.setInt(2, itemID);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				Integer cl_id 			= rs.getInt("cl_id");				//课程条目id
@@ -68,10 +81,10 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		CourseListItemBean courseListItemBean = null;
 		String sql = "select * from smooc_courselist_view where cl_id=?"; //通过id获取视频全部信息
 		try {
-			Connection connection = new DBUtils().getCon();
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			connection = getConnectionInstance();
+			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, itemID);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
 				Integer cl_id 			= rs.getInt("cl_id");				//课程条目id
@@ -105,8 +118,8 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 				+ "SET cl_play_time=cl_play_time+1 "
 				+ "WHERE cl_id = ?;"; //通过id获取视频全部信息
 		try {
-			Connection connection = new DBUtils().getCon();
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			connection = getConnectionInstance();
+			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, itemID);
 			int returnNum = pstmt.executeUpdate();
 			
@@ -131,14 +144,14 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		
 		List<CourseListItemBean> courseListItemBeans = new ArrayList<>();
 		//获取数据库中数据
-		Connection connection = new DBUtils().getCon();
+		connection = getConnectionInstance();
 		//构造SQL查询视图返回某一个课程号下的所有视频
 		String sql = "select * from smooc_courselist where c_id=? order by cl_id desc";
 		try {
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt = connection.prepareStatement(sql);
 			//注意注入参数的顺序
 			pstmt.setInt(1, c_id);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {	
 				Integer cl_id 			= rs.getInt("cl_id");				//课程条目id
@@ -180,13 +193,13 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 			int startIndex = (current_pageno - 1) * CoursesPagerBean.PAGE_SIZE; // 起始下标
 			int per_rows = CoursesPagerBean.PAGE_SIZE; 						 // 每页数目
 
-			Connection connection = new DBUtils().getCon();
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			connection = getConnectionInstance();
+			pstmt = connection.prepareStatement(sql);
 			//查询参数注入sql语句
 			pstmt.setInt(1, c_id);
 			pstmt.setInt(2, startIndex);
 			pstmt.setInt(3, per_rows);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 
 			courseListItemBeans = new ArrayList<>();
 			while (rs.next()) {
@@ -222,11 +235,11 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		
 		List<TypeBean> typeBeans = null;
 		//获取数据库中数据
-		Connection connection = new DBUtils().getCon();
+		connection = getConnectionInstance();
 		//构造SQL查询视图返回某一个课程号下的所有视频
 		String sql = "select * from smooc_type_view";
 		try {
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			typeBeans = new ArrayList<>();
 			while (rs.next()) {	
@@ -248,13 +261,13 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		
 		List<CoursesBean> coursesBeans = null;
 		//获取数据库中数据
-		Connection connection = new DBUtils().getCon();
+		connection = getConnectionInstance();
 		//构造SQL查询视图返回某一个课程号下的所有视频
 		String sql = "SELECT * from smooc_courses_view where t_id = ?;";
 		try {
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, t_id);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			coursesBeans = new ArrayList<>();
 			while (rs.next()) {	
 				Integer c_id		    = rs.getInt("c_id");	            //课程id
@@ -275,9 +288,9 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 	}
 	
 	public static void main(String[] args) throws SQLException {
-		//System.out.println(new MoocVideoDaoImpl().fetchAllVideos(1, 3).size());
-		//System.out.println(new MoocVideoDaoImpl().fetchCoursesTypeList().size());
-		//System.out.println("获取类型下的视频个数" + new MoocVideoDaoImpl().getCoursesListByTypeID(3));
+		System.out.println(new MoocVideoDaoImpl().fetchAllVideos(1, 3).size());
+		System.out.println(new MoocVideoDaoImpl().fetchCoursesTypeList().size());
+		System.out.println("获取类型下的视频个数" + new MoocVideoDaoImpl().getCoursesListByTypeID(3));
 		System.out.println(new MoocVideoDaoImpl().getAllCoursesInfo().size());
 	}
 
@@ -287,13 +300,13 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 
 		CoursesBean coursesBean = null;
 		//获取数据库中数据
-		Connection connection = new DBUtils().getCon();
+		connection = getConnectionInstance();
 		//构造SQL查询视图返回某一个课程号下的所有视频
 		String sql = "SELECT * from smooc_courses_view where c_id = ?;";
 		try {
-			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, c_id);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			while (rs.next()) {	
 				Integer c_idtemp		= rs.getInt("c_id");	            //课程id
 				String  c_name		    = rs.getString("c_name");	        //课程 名称
@@ -316,12 +329,12 @@ public class MoocVideoDaoImpl implements MoocVideoDao {
 		List<CoursesBean> coursesBeans = new ArrayList<>();
 		CoursesBean coursesBean = null;
 		//获取数据库中数据
-		Connection connection = new DBUtils().getCon();
+		connection = getConnectionInstance();
 		//构造SQL查询视图返回某一个课程号下的所有视频
 		String sql = "SELECT * from smooc_courses_view;";
 		try {
-			PreparedStatement pstmt = connection.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery();
+			pstmt = connection.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 			while (rs.next()) {	
 				Integer c_idtemp		= rs.getInt("c_id");	            //课程id
 				String  c_name		    = rs.getString("c_name");	        //课程 名称

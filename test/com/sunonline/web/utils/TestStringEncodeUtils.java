@@ -15,5 +15,11 @@ public class TestStringEncodeUtils {
 		assertEquals("80a19f669b02edfbc208a5386ab5036b", StringEncodeUtils.EncodePassword("admin"));
 		System.out.println(StringEncodeUtils.EncodePassword("snowalker"));
 	}
-
+	
+	@Test
+	public void testBase64Token() {
+		for (int i = 0; i < 100; i++) {
+			System.out.println(TokenProccessor.getInstance().makeToken());
+		}
+	}
 }
